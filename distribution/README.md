@@ -14,6 +14,8 @@ Check-all-that-apply design: at each tasting (2 coffees x 3 repeated tastings pe
 
 ### Result
 
+Figure: `outputs/distribution_plot.pdf` and `.png` (`python3 distribution/plot_distribution.py`): per family, the difference in endorsement rate with its 95% CI, manual mapping (main) and cosine mapping (sensitivity), omnibus p and q in the panel titles.
+
 | Field | n | Omnibus T | Null mean (p95) | p | q (BH, 2 fields) |
 |---|---:|---:|---|---:|---:|
 | notesaroma | 32 | 21.71 | 9.65 (18.49) | 0.018 | 0.035 |
