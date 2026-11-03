@@ -13,13 +13,13 @@ From the repository root: `python3 irr/semantic_irr.py` (defaults: 2000 permutat
 | Field | Stimulation | Sham |
 |---|---|---|
 | notesaroma (bge-small) | 0.024 [0.010, 0.040] | 0.025 [0.010, 0.040] |
-| second text column (bge-small) | 0.018 [0.008, 0.030] | 0.016 [0.004, 0.029] |
+| flavor_notes (bge-small) | 0.018 [0.008, 0.030] | 0.016 [0.004, 0.029] |
 
 The second model (all-mpnet-base-v2) gives 0.023 to 0.029. Agreement is above chance but very low: the participants' descriptors are barely closer to each other for the same sample than for different samples. Full table with thresholded versions in `irr/outputs/semantic_irr_report.md`.
 
 ## Caveats
 
-- The second text column has the header `bitter, roasted` in the file; it is treated as a second free-text field (`notes_second`). Confirm what it holds.
+- The flavour notes are the second text column, whose header in the file is `bitter, roasted`; it is called `flavor_notes` here.
 - Chance shuffles each participant's descriptors across the 6 items, so it keeps their vocabulary and removes item-specific agreement. Items are not split into coffee and repeat.
 - Misspellings (24 fixes) were listed after viewing the data.
 - The stimulation vs sham difference in agreement is not tested.

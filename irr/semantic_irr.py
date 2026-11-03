@@ -6,7 +6,7 @@ Repurposed from altered-states-review/analyses/clustering/archive/sensitivity/in
 
 Design (data/tDCS.csv): each participant tastes 2 coffees (Brasil, Kenya) x 3 repeated tastings in each condition
 (stimulation, sham) and writes two free-text descriptors per tasting (`notesaroma`, and the second text column, called
-`notes_second` here; its header in the file is "bitter, roasted").
+`flavor_notes` here; its header in the file is "bitter, roasted").
  - Rater = participant. Item = coffee x repeated tasting (6 items per condition). Analysed separately per condition and per text field.
  - Observed agreement = mean cosine similarity of the embeddings of two participants' cleaned descriptors, over all participant pairs
    that both answered an item, pooled over items.
@@ -36,7 +36,7 @@ OUT_DIR = Path(__file__).resolve().parent / "outputs"
 
 DEFAULT_MODEL = "BAAI/bge-small-en-v1.5"
 SECOND_MODEL = "sentence-transformers/all-mpnet-base-v2"
-FIELDS = {"notesaroma": "notesaroma", "bitter, roasted": "notes_second"}
+FIELDS = {"notesaroma": "notesaroma", "bitter, roasted": "flavor_notes"}
 CONDITIONS = ["stimulation", "sham"]
 
 # Obvious misspellings found by listing every word in both text columns; written after looking at the data (exploratory cleaning).
