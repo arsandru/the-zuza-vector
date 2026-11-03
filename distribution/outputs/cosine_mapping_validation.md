@@ -8,22 +8,22 @@ Model Qwen/Qwen3-Embedding-0.6B; instruction 'Instruct: Embed aroma/flavor descr
 |---|---|---|---:|---:|---:|
 | wheel terms (leave-one-out) | L2+L3 | category | 53 | 0.74 | 0.78 |
 | wheel terms (leave-one-out) | L2+L3 | family (parent of category) | 53 | 0.81 | 0.86 |
-| wheel terms (leave-one-out) | L2+L3 | family (own prototype) | 53 | 0.75 | 0.88 |
+| wheel terms (leave-one-out) | L2+L3 | family (own prototype) | 53 | 0.79 | 0.88 |
 | wheel terms (leave-one-out) | L1+L2+L3 | category | 53 | 0.68 | 0.81 |
 | wheel terms (leave-one-out) | L1+L2+L3 | family (parent of category) | 53 | 0.81 | 0.90 |
-| wheel terms (leave-one-out) | L1+L2+L3 | family (own prototype) | 53 | 0.75 | 0.88 |
+| wheel terms (leave-one-out) | L1+L2+L3 | family (own prototype) | 53 | 0.79 | 0.88 |
 | aliases | L2+L3 | category | 56 | 0.71 | 0.93 |
 | aliases | L2+L3 | family (parent of category) | 58 | 0.83 | 0.96 |
-| aliases | L2+L3 | family (own prototype) | 58 | 0.78 | 0.96 |
+| aliases | L2+L3 | family (own prototype) | 58 | 0.79 | 0.96 |
 | aliases | L1+L2+L3 | category | 56 | 0.73 | 0.93 |
 | aliases | L1+L2+L3 | family (parent of category) | 58 | 0.83 | 0.96 |
-| aliases | L1+L2+L3 | family (own prototype) | 58 | 0.78 | 0.96 |
+| aliases | L1+L2+L3 | family (own prototype) | 58 | 0.79 | 0.96 |
 | all | L2+L3 | category | 109 | 0.72 | 0.84 |
 | all | L2+L3 | family (parent of category) | 111 | 0.82 | 0.91 |
-| all | L2+L3 | family (own prototype) | 111 | 0.77 | 0.91 |
+| all | L2+L3 | family (own prototype) | 111 | 0.79 | 0.92 |
 | all | L1+L2+L3 | category | 109 | 0.71 | 0.86 |
 | all | L1+L2+L3 | family (parent of category) | 111 | 0.82 | 0.93 |
-| all | L1+L2+L3 | family (own prototype) | 111 | 0.77 | 0.91 |
+| all | L1+L2+L3 | family (own prototype) | 111 | 0.79 | 0.92 |
 
 ## Most frequent units the L1+L2+L3 prototype rule assigns to a different category than the current mapping
 

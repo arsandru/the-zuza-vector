@@ -3,7 +3,7 @@
 Wheel terms (data/SCA flavor wheel.csv: level-3 terms and level-2 category names, cleaned with the main pipeline of irr/semantic_irr.py;
 longest match first, up to 3 words) take part automatically, except a wheel term whose cleaning drops a word (e.g. "under ripe").
 data/sca_aliases.csv (hand-written after viewing the data) maps generic and near-synonym words to a node at any level (or IGNORE for
-colour and mouthfeel words); any other word goes to the node `5_other`. A node id is the path "family|category|term" with the wheel's own
+colour and mouthfeel words); any other word goes to the catch-all node `unmapped` (kept apart from the wheel's own family 5, `5_other`). A node id is the path "family|category|term" with the wheel's own
 names (e.g. `2_fruity|2a_berry|raspberry`); a family is `2_fruity`, a category `2_fruity|2a_berry`.
 """
 from __future__ import annotations
@@ -20,7 +20,7 @@ import semantic_irr as sir  # noqa: E402
 
 WHEEL = sir.ROOT / "data" / "SCA flavor wheel.csv"
 ALIASES = sir.ROOT / "data" / "sca_aliases.csv"
-OTHER = "5_other"
+OTHER = "unmapped"  # catch-all for words with no wheel home; NOT the wheel's own family 5 ("5_other": chemical, papery/musty)
 
 
 def strip_prefix(x: str) -> str:
@@ -57,7 +57,7 @@ def build_vocab():
             lid = f"{r['1st level']}|{r['2nd level']}|{r['3rd level']}"
             nodes[lid] = (r["1st level"], sir.standardise_spelling(r["3rd level"]).replace("-", " "))
             add_auto(r["3rd level"], lid, split=True)
-    nodes[OTHER] = (OTHER, "other")
+    nodes[OTHER] = (OTHER, "unmapped")
     return nodes, auto, skipped
 
 
@@ -118,7 +118,7 @@ def member_texts(nodes: dict, mode: str = "l123"):
     mode "l23": category = its name + its terms; "l123": category = its family name + its name + its terms;
     family (both modes) = family name + category names + terms."""
     cats = sorted(n for n in nodes if n.count("|") == 1)
-    fams = sorted(n for n in nodes if "|" not in n and n != OTHER)
+    fams = sorted(n for n in nodes if "|" not in n and n != OTHER)  # wheel families only
     ctext = {}
     for c in cats:
         t = [nodes[c][1]] + [nodes[n][1] for n in nodes if n.startswith(c + "|")]

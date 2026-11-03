@@ -165,6 +165,19 @@ def expected(L, M, ids, n_perm, rng, thr=None) -> float:
     return float(vals.mean())
 
 
+def bh_fdr(p) -> np.ndarray:
+    """Benjamini-Hochberg adjusted p-values (q-values)."""
+    p = np.asarray(p, dtype=float)
+    n = len(p)
+    order = np.argsort(p)
+    q = np.empty(n)
+    run = 1.0
+    for rank in range(n - 1, -1, -1):
+        run = min(run, p[order[rank]] * n / (rank + 1))
+        q[order[rank]] = run
+    return q
+
+
 def kappa(obs: float, exp: float) -> float:
     return (obs - exp) / (1.0 - exp) if abs(1.0 - exp) > 1e-12 else np.nan
 

@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """Stimulation vs sham: Jensen-Shannon distance between the distributions of SCA wheel nodes, at each wheel level (exploratory).
 
-Descriptors are cleaned (irr/semantic_irr.py, main pipeline) and mapped to wheel nodes (wheel_mapping.py; unmapped words -> `5_other`).
+Descriptors are cleaned (irr/semantic_irr.py, main pipeline) and mapped to wheel nodes (wheel_mapping.py; unmapped words -> `unmapped`).
 Per text field (notesaroma, flavor_notes) and condition, each descriptor contributes one count to every node it contains, rolled up to the
 level: level 1 = family (9), level 2 = category, level 3 = term (a category without terms on the wheel counts as its own term). A node
-mapped coarser than the level (e.g. "fruit" -> family at levels 2 and 3, `5_other` at levels 2 and 3) is not resolved there and is left out
+mapped coarser than the level (e.g. "fruit" -> family at levels 2 and 3, `unmapped` at levels 2 and 3) is not resolved there and is left out
 of that level's distributions; the counts kept are reported.
 Statistic: Jensen-Shannon distance (square root of the base-2 JS divergence, 0 = identical, 1 = disjoint) between the pooled stimulation
 and sham distributions. Sparse counts bias it upward, so the reference is a paired permutation test: every participant's stimulation and
 sham descriptor sets are swapped with probability 1/2 (n = --n-perm); p = share of swaps with a distance at least as large (+1 correction),
-and the excess over the mean swapped distance is reported. Holm over all tests of the run (levels x fields x strata). --levels and --stratify restrict the levels and split the data by a column
+and the excess over the mean swapped distance is reported. BH-FDR over all tests of the run (levels x fields x strata). --levels and --stratify restrict the levels and split the data by a column
 (e.g. repeated_ratings; the swap then acts within each stratum).
 Outputs (distribution/outputs/): jsd_by_level.csv, jsd_node_proportions.csv (every node: counts, proportions, contribution to the divergence)
 """
@@ -30,6 +30,8 @@ LEVELS = {1: "family", 2: "category", 3: "term"}
 
 
 def level_label(node: str, k: int, children: set[str]) -> str | None:
+    if node == wm.OTHER:  # catch-all: a family-level category only
+        return node if k == 1 else None
     parts = node.split("|")
     if len(parts) >= k:
         return "|".join(parts[:k])
@@ -64,9 +66,9 @@ def main() -> None:
     ap.add_argument("--levels", default="1,2,3", help="wheel levels to analyse, e.g. 1 for families only")
     ap.add_argument("--stratify", default="", help="analyse separately within each value of this column, e.g. repeated_ratings (Holm over all tests)")
     ap.add_argument("--mapping", choices=("manual", "cosine"), default="manual",
-                    help="cosine: words mapped by the alias file to a wheel node (not to `5_other`) are re-assigned to the nearest wheel category by cosine "
+                    help="cosine: words mapped by the alias file to a wheel node (not to `unmapped`) are re-assigned to the nearest wheel category by cosine "
                          "(prototype = family name, category name and terms; family = parent of the category; see validate_cosine_mapping.py); "
-                         "exact wheel terms and the alias file's `5_other` and IGNORE entries are unchanged, and alias words are resolved to a "
+                         "exact wheel terms and the alias file's `unmapped` and IGNORE entries are unchanged, and alias words are resolved to a "
                          "category only, so they are unresolved at level 3")
     args = ap.parse_args()
 
@@ -139,12 +141,7 @@ def main() -> None:
                   f"null {null.mean():.3f} (p95 {np.percentile(null, 95):.3f})  p = {rows[-1]['p_perm']:.3f}")
 
     res = pd.DataFrame(rows)
-    order = res["p_perm"].argsort().to_numpy()
-    adj, run = np.empty(len(res)), 0.0
-    for rank, i in enumerate(order):
-        run = max(run, min(1.0, (len(res) - rank) * res["p_perm"].iloc[i]))
-        adj[i] = run
-    res["p_holm"] = adj
+    res["q_bh"] = sir.bh_fdr(res["p_perm"])
     OUT_DIR.mkdir(exist_ok=True)
     res.to_csv(OUT_DIR / f"jsd_by_level{suffix}.csv", index=False, float_format="%.6f")
     pd.DataFrame(prop_rows).to_csv(OUT_DIR / f"jsd_node_proportions{suffix}.csv", index=False, float_format="%.6f")

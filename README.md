@@ -19,12 +19,12 @@ Agreement is above chance but very low: participants' descriptors are barely clo
 
 ## Stimulation vs sham (exploratory)
 
-`python3 irr/compare_conditions.py` tests delta = kappa(stimulation) - kappa(sham) per field, same pipeline and model. All 34 participants contribute to both conditions, so the CI is a paired participant bootstrap (2000) and the p-value a permutation test that swaps each participant's stimulation and sham descriptor sets (2000). Holm over the two fields. Output: `irr/outputs/condition_comparison.csv`.
+`python3 irr/compare_conditions.py` tests delta = kappa(stimulation) - kappa(sham) per field, same pipeline and model. All 34 participants contribute to both conditions, so the CI is a paired participant bootstrap (2000) and the p-value a permutation test that swaps each participant's stimulation and sham descriptor sets (2000). BH-FDR over the two fields. Output: `irr/outputs/condition_comparison.csv`.
 
-| Field | Stimulation | Sham | Delta [95% CI] | p (perm) | p (Holm) |
+| Field | Stimulation | Sham | Delta [95% CI] | p (perm) | q (BH) |
 |---|---|---|---|---|---|
-| notesaroma | 0.068 | 0.068 | +0.000 [-0.034, 0.038] | 0.99 | 1.0 |
-| flavor_notes | 0.057 | 0.062 | -0.006 [-0.038, 0.027] | 0.72 | 1.0 |
+| notesaroma | 0.068 | 0.068 | +0.000 [-0.034, 0.038] | 0.99 | 0.99 |
+| flavor_notes | 0.057 | 0.062 | -0.006 [-0.038, 0.027] | 0.72 | 0.99 |
 
 No evidence of a difference in between-participant agreement; the intervals are about +/-0.03 around zero, against kappas of about 0.06 to 0.07.
 

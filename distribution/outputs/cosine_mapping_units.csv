@@ -40,7 +40,7 @@ malt,6_roasted|6a_cereal|malt,wheel,12,6_roasted,6_roasted|6a_cereal,9_sweet|9a_
 dry fruit,2_fruity|2b_dried fruit,alias,11,2_fruity,2_fruity|2b_dried fruit,2_fruity|2b_dried fruit,0.8703,0.0842,2_fruity,2_fruity,2_fruity|2b_dried fruit,0.8629,0.0773,2_fruity,2_fruity
 blackberry,2_fruity|2a_berry|blackberry,wheel,11,2_fruity,2_fruity|2a_berry,2_fruity|2a_berry,0.8793,0.0581,2_fruity,2_fruity,2_fruity|2a_berry,0.8733,0.0505,2_fruity,2_fruity
 brown sugar,9_sweet|9a_brown sugar,wheel,11,9_sweet,9_sweet|9a_brown sugar,9_sweet|9a_brown sugar,0.8464,0.0884,9_sweet,9_sweet,9_sweet|9a_brown sugar,0.8442,0.0637,9_sweet,9_sweet
-ashy,6_roasted|6b_burnt|asky,wheel,10,6_roasted,6_roasted|6b_burnt,4_green/vegetative|4c_green/vegetative,0.7574,0.0127,4_green/vegetative,4_green/vegetative,5_other|5a_chemical,0.7528,0.0001,5_other,4_green/vegetative
+ashy,6_roasted|6b_burnt|asky,wheel,10,6_roasted,6_roasted|6b_burnt,4_green/vegetative|4c_green/vegetative,0.7574,0.0127,4_green/vegetative,5_other,5_other|5a_chemical,0.7528,0.0001,5_other,5_other
 wine,3_sour/fermented|3b_alcohol/fermented|winey,alias,10,3_sour/fermented,3_sour/fermented|3b_alcohol/fermented,3_sour/fermented|3b_alcohol/fermented,0.8864,0.0697,3_sour/fermented,2_fruity,3_sour/fermented|3b_alcohol/fermented,0.8657,0.0473,3_sour/fermented,2_fruity
 maple syrup,9_sweet|9a_brown sugar|maple-syrup,wheel,9,9_sweet,9_sweet|9a_brown sugar,9_sweet|9a_brown sugar,0.8903,0.0902,9_sweet,9_sweet,9_sweet|9a_brown sugar,0.8930,0.0775,9_sweet,9_sweet
 grain,6_roasted|6a_cereal|grain,wheel,9,6_roasted,6_roasted|6a_cereal,6_roasted|6a_cereal,0.8656,0.0647,6_roasted,6_roasted,6_roasted|6a_cereal,0.8563,0.0522,6_roasted,6_roasted
@@ -72,22 +72,22 @@ leafy,4_green/vegetative|4c_green/vegetative,alias,3,4_green/vegetative,4_green/
 bake,6_roasted|6b_burnt,alias,3,6_roasted,6_roasted|6b_burnt,9_sweet|9a_brown sugar,0.7794,0.0054,9_sweet,6_roasted,6_roasted|6a_cereal,0.8148,0.0300,6_roasted,6_roasted
 acetic acidic,3_sour/fermented|3a_sour|acetic acid,wheel,3,3_sour/fermented,3_sour/fermented|3a_sour,3_sour/fermented|3a_sour,0.8843,0.1308,3_sour/fermented,3_sour/fermented,3_sour/fermented|3a_sour,0.8767,0.1284,3_sour/fermented,3_sour/fermented
 whiskey,3_sour/fermented|3b_alcohol/fermented|whiskey,wheel,2,3_sour/fermented,3_sour/fermented|3b_alcohol/fermented,3_sour/fermented|3b_alcohol/fermented,0.7894,0.0090,3_sour/fermented,6_roasted,9_sweet|9a_brown sugar,0.7742,0.0034,9_sweet,6_roasted
-molasse,9_sweet|9a_brown sugar|molasses,wheel,2,9_sweet,9_sweet|9a_brown sugar,6_roasted|6a_cereal,0.8310,0.0030,6_roasted,6_roasted,6_roasted|6a_cereal,0.8337,0.0036,6_roasted,6_roasted
+molasse,9_sweet|9a_brown sugar|molasses,wheel,2,9_sweet,9_sweet|9a_brown sugar,6_roasted|6a_cereal,0.8310,0.0030,6_roasted,5_other,6_roasted|6a_cereal,0.8337,0.0036,6_roasted,5_other
 dark green,4_green/vegetative|4c_green/vegetative|dark green,wheel,2,4_green/vegetative,4_green/vegetative|4c_green/vegetative,4_green/vegetative|4c_green/vegetative,0.8060,0.0491,4_green/vegetative,4_green/vegetative,4_green/vegetative|4a_olive oil,0.8658,0.0358,4_green/vegetative,4_green/vegetative
-soup,5_other|5b_papery/musty|meathy/brothy,alias,2,5_other,5_other|5b_papery/musty,4_green/vegetative|4c_green/vegetative,0.7208,0.0040,4_green/vegetative,4_green/vegetative,5_other|5b_papery/musty,0.7250,0.0058,5_other,4_green/vegetative
-oil,4_green/vegetative|4a_olive oil,alias,2,4_green/vegetative,4_green/vegetative|4a_olive oil,4_green/vegetative|4a_olive oil,0.8967,0.0551,4_green/vegetative,6_roasted,5_other|5a_chemical,0.8443,0.0276,5_other,6_roasted
+soup,5_other|5b_papery/musty|meathy/brothy,alias,2,5_other,5_other|5b_papery/musty,4_green/vegetative|4c_green/vegetative,0.7208,0.0040,4_green/vegetative,5_other,5_other|5b_papery/musty,0.7250,0.0058,5_other,5_other
+oil,4_green/vegetative|4a_olive oil,alias,2,4_green/vegetative,4_green/vegetative|4a_olive oil,4_green/vegetative|4a_olive oil,0.8967,0.0551,4_green/vegetative,5_other,5_other|5a_chemical,0.8443,0.0276,5_other,5_other
 jasmine,1_floral|1b_floral|jasmine,wheel,2,1_floral,1_floral|1b_floral,1_floral|1b_floral,0.9057,0.0872,1_floral,1_floral,1_floral|1b_floral,0.9035,0.0553,1_floral,1_floral
 pineapple,2_fruity|2c_other fruit|pineapple,wheel,2,2_fruity,2_fruity|2c_other fruit,2_fruity|2c_other fruit,0.8318,0.0053,2_fruity,2_fruity,2_fruity|2d_citrus fruit,0.8430,0.0045,2_fruity,2_fruity
 toasted,6_roasted|6b_burnt,alias,2,6_roasted,6_roasted|6b_burnt,6_roasted|6a_cereal,0.7938,0.0088,6_roasted,6_roasted,6_roasted|6a_cereal,0.8465,0.0162,6_roasted,6_roasted
 syrup,9_sweet|9a_brown sugar|maple-syrup,alias,2,9_sweet,9_sweet|9a_brown sugar,9_sweet|9a_brown sugar,0.8980,0.1039,9_sweet,9_sweet,9_sweet|9a_brown sugar,0.9011,0.0970,9_sweet,9_sweet
 peel,2_fruity|2d_citrus fruit,alias,2,2_fruity,2_fruity|2d_citrus fruit,2_fruity|2c_other fruit,0.7846,0.0227,2_fruity,2_fruity,2_fruity|2c_other fruit,0.7836,0.0124,2_fruity,2_fruity
-salty,5_other|5a_chemical|salty,wheel,2,5_other,5_other|5a_chemical,5_other|5a_chemical,0.7014,0.0148,5_other,3_sour/fermented,5_other|5a_chemical,0.7125,0.0157,5_other,3_sour/fermented
+salty,5_other|5a_chemical|salty,wheel,2,5_other,5_other|5a_chemical,5_other|5a_chemical,0.7014,0.0148,5_other,5_other,5_other|5a_chemical,0.7125,0.0157,5_other,5_other
 maple,9_sweet|9a_brown sugar|maple-syrup,alias,2,9_sweet,9_sweet|9a_brown sugar,9_sweet|9a_brown sugar,0.8649,0.0653,9_sweet,9_sweet,9_sweet|9a_brown sugar,0.8637,0.0621,9_sweet,9_sweet
 anise,7_spices|7a_brown spice|anise,wheel,2,7_spices,7_spices|7a_brown spice,7_spices|7a_brown spice,0.8269,0.0530,7_spices,7_spices,7_spices|7a_brown spice,0.8282,0.0545,7_spices,7_spices
 citric acidic,3_sour/fermented|3a_sour|citric acid,wheel,2,3_sour/fermented,3_sour/fermented|3a_sour,3_sour/fermented|3a_sour,0.8823,0.0128,3_sour/fermented,3_sour/fermented,3_sour/fermented|3a_sour,0.8746,0.0089,3_sour/fermented,3_sour/fermented
 cacao,8_nutty/cocoa|8a_cocoa,alias,1,8_nutty/cocoa,8_nutty/cocoa|8a_cocoa,8_nutty/cocoa|8a_cocoa,0.9401,0.1268,8_nutty/cocoa,8_nutty/cocoa,8_nutty/cocoa|8a_cocoa,0.9456,0.1026,8_nutty/cocoa,8_nutty/cocoa
 hibiscus,1_floral|1b_floral,alias,1,1_floral,1_floral|1b_floral,1_floral|1b_floral,0.8379,0.0120,1_floral,1_floral,1_floral|1b_floral,0.8348,0.0037,1_floral,1_floral
-overripe,3_sour/fermented|3b_alcohol/fermented|overripe,wheel,1,3_sour/fermented,3_sour/fermented|3b_alcohol/fermented,5_other|5b_papery/musty,0.8172,0.0262,5_other,2_fruity,5_other|5b_papery/musty,0.8191,0.0122,5_other,2_fruity
+overripe,3_sour/fermented|3b_alcohol/fermented|overripe,wheel,1,3_sour/fermented,3_sour/fermented|3b_alcohol/fermented,5_other|5b_papery/musty,0.8172,0.0262,5_other,5_other,5_other|5b_papery/musty,0.8191,0.0122,5_other,5_other
 carrot,4_green/vegetative|4c_green/vegetative,alias,1,4_green/vegetative,4_green/vegetative|4c_green/vegetative,4_green/vegetative|4c_green/vegetative,0.8110,0.0247,4_green/vegetative,4_green/vegetative,4_green/vegetative|4c_green/vegetative,0.8090,0.0234,4_green/vegetative,4_green/vegetative
 bourbon,3_sour/fermented|3b_alcohol/fermented|whiskey,alias,1,3_sour/fermented,3_sour/fermented|3b_alcohol/fermented,3_sour/fermented|3b_alcohol/fermented,0.8307,0.0347,3_sour/fermented,6_roasted,3_sour/fermented|3b_alcohol/fermented,0.8108,0.0260,3_sour/fermented,6_roasted
 citron,2_fruity|2d_citrus fruit,alias,1,2_fruity,2_fruity|2d_citrus fruit,2_fruity|2d_citrus fruit,0.8838,0.0870,2_fruity,2_fruity,2_fruity|2d_citrus fruit,0.8741,0.0844,2_fruity,2_fruity
@@ -99,14 +99,14 @@ nuts,8_nutty/cocoa|8b_nutty,alias,1,8_nutty/cocoa,8_nutty/cocoa|8b_nutty,8_nutty
 rooibo,1_floral|1a_black tea,alias,1,1_floral,1_floral|1a_black tea,4_green/vegetative|4c_green/vegetative,0.8093,0.0121,4_green/vegetative,4_green/vegetative,2_fruity|2b_dried fruit,0.8087,0.0092,2_fruity,4_green/vegetative
 marjoram,4_green/vegetative|4c_green/vegetative,alias,1,4_green/vegetative,4_green/vegetative|4c_green/vegetative,7_spices|7a_brown spice,0.8762,0.0614,7_spices,7_spices,7_spices|7a_brown spice,0.8771,0.0536,7_spices,7_spices
 blossom,1_floral|1b_floral,alias,1,1_floral,1_floral|1b_floral,1_floral|1b_floral,0.8993,0.0496,1_floral,1_floral,1_floral|1b_floral,0.9103,0.0598,1_floral,1_floral
-scented,1_floral|1b_floral,alias,1,1_floral,1_floral|1b_floral,5_other|5a_chemical,0.8672,0.0118,5_other,1_floral,5_other|5a_chemical,0.8793,0.0197,5_other,1_floral
+scented,1_floral|1b_floral,alias,1,1_floral,1_floral|1b_floral,5_other|5a_chemical,0.8672,0.0118,5_other,5_other,5_other|5a_chemical,0.8793,0.0197,5_other,5_other
 blackcurrant,2_fruity|2a_berry,alias,1,2_fruity,2_fruity|2a_berry,2_fruity|2a_berry,0.8616,0.0695,2_fruity,2_fruity,2_fruity|2a_berry,0.8539,0.0539,2_fruity,2_fruity
 cooked,6_roasted|6b_burnt,alias,1,6_roasted,6_roasted|6b_burnt,6_roasted|6b_burnt,0.7906,0.0316,6_roasted,6_roasted,6_roasted|6b_burnt,0.8138,0.0109,6_roasted,6_roasted
 savoury,5_other|5b_papery/musty|meathy/brothy,alias,1,5_other,5_other|5b_papery/musty,5_other|5b_papery/musty,0.8411,0.0240,5_other,9_sweet,5_other|5b_papery/musty,0.8446,0.0138,5_other,9_sweet
 blacktea,1_floral|1a_black tea,alias,1,1_floral,1_floral|1a_black tea,1_floral|1a_black tea,0.9718,0.2002,1_floral,6_roasted,1_floral|1a_black tea,0.8895,0.1085,1_floral,6_roasted
-earth,5_other|5b_papery/musty|musty/earthy,wheel,1,5_other,5_other|5b_papery/musty,5_other|5b_papery/musty,0.8234,0.0106,5_other,4_green/vegetative,5_other|5b_papery/musty,0.8244,0.0156,5_other,4_green/vegetative
+earth,5_other|5b_papery/musty|musty/earthy,wheel,1,5_other,5_other|5b_papery/musty,5_other|5b_papery/musty,0.8234,0.0106,5_other,5_other,5_other|5b_papery/musty,0.8244,0.0156,5_other,5_other
 chickensoup,5_other|5b_papery/musty|meathy/brothy,alias,1,5_other,5_other|5b_papery/musty,9_sweet|9a_brown sugar,0.6762,0.0210,9_sweet,6_roasted,9_sweet|9a_brown sugar,0.6744,0.0149,9_sweet,6_roasted
 flower,1_floral|1b_floral,alias,1,1_floral,1_floral|1b_floral,1_floral|1b_floral,0.9279,0.0788,1_floral,1_floral,1_floral|1b_floral,0.9414,0.0855,1_floral,1_floral
-stock,5_other|5b_papery/musty|meathy/brothy,alias,1,5_other,5_other|5b_papery/musty,5_other|5a_chemical,0.8229,0.0017,5_other,4_green/vegetative,5_other|5a_chemical,0.8336,0.0031,5_other,4_green/vegetative
+stock,5_other|5b_papery/musty|meathy/brothy,alias,1,5_other,5_other|5b_papery/musty,5_other|5a_chemical,0.8229,0.0017,5_other,5_other,5_other|5a_chemical,0.8336,0.0031,5_other,5_other
 flour,6_roasted|6a_cereal,alias,1,6_roasted,6_roasted|6a_cereal,6_roasted|6a_cereal,0.8746,0.1120,6_roasted,6_roasted,6_roasted|6a_cereal,0.8565,0.0897,6_roasted,6_roasted
 onion,4_green/vegetative|4c_green/vegetative,alias,1,4_green/vegetative,4_green/vegetative|4c_green/vegetative,7_spices|7a_brown spice,0.7767,0.0219,7_spices,7_spices,7_spices|7c_pungent,0.7849,0.0049,7_spices,7_spices

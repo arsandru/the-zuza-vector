@@ -7,7 +7,7 @@ Statistic: delta = kappa(stimulation) - kappa(sham), per text field. Every parti
    `--boot-perms` shuffles).
  - p: per participant, the stimulation and sham descriptor sets are swapped with probability 1/2 (condition labels exchangeable under
    no condition effect within participant); two-sided permutation p with the same kappa recomputation.
-Two fields = two tests; Holm-adjusted p is reported. Outputs: irr/outputs/condition_comparison.csv
+Two fields = two tests; BH-FDR q is reported. Outputs: irr/outputs/condition_comparison.csv
 """
 from __future__ import annotations
 
@@ -83,13 +83,7 @@ def main() -> None:
         print(f"{fname:13} stim {r['kappa_stimulation']:.3f}  sham {r['kappa_sham']:.3f}  delta {r['delta']:+.3f} "
               f"[{r['ci_low']:+.3f}, {r['ci_high']:+.3f}]  p = {r['p_perm']:.3f}")
     res = pd.DataFrame(rows)
-    order = res["p_perm"].argsort().to_numpy()
-    adj = np.empty(len(res))
-    run = 0.0
-    for rank, i in enumerate(order):
-        run = max(run, min(1.0, (len(res) - rank) * res["p_perm"].iloc[i]))
-        adj[i] = run
-    res["p_holm"] = adj
+    res["q_bh"] = sir.bh_fdr(res["p_perm"])
     res.to_csv(sir.OUT_DIR / "condition_comparison.csv", index=False, float_format="%.6f")
     print(res.round(3).to_string(index=False))
 

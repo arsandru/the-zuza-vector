@@ -11,9 +11,9 @@ notesaroma,sour/fermented,3,30,0.083333
 notesaroma,green/vegetative,1,30,-0.050000
 notesaroma,green/vegetative,2,30,-0.066667
 notesaroma,green/vegetative,3,30,-0.066667
-notesaroma,"other (5, incl. unmapped words)",1,30,-0.033333
-notesaroma,"other (5, incl. unmapped words)",2,30,-0.033333
-notesaroma,"other (5, incl. unmapped words)",3,30,0.033333
+notesaroma,"other (wheel family 5: chemical, papery/musty)",1,30,0.016667
+notesaroma,"other (wheel family 5: chemical, papery/musty)",2,30,0.016667
+notesaroma,"other (wheel family 5: chemical, papery/musty)",3,30,-0.016667
 notesaroma,roasted,1,30,0.033333
 notesaroma,roasted,2,30,-0.016667
 notesaroma,roasted,3,30,-0.066667
@@ -38,9 +38,9 @@ flavor_notes,sour/fermented,3,27,0.092593
 flavor_notes,green/vegetative,1,27,-0.037037
 flavor_notes,green/vegetative,2,27,-0.018519
 flavor_notes,green/vegetative,3,27,0.092593
-flavor_notes,"other (5, incl. unmapped words)",1,27,0.018519
-flavor_notes,"other (5, incl. unmapped words)",2,27,-0.018519
-flavor_notes,"other (5, incl. unmapped words)",3,27,0.074074
+flavor_notes,"other (wheel family 5: chemical, papery/musty)",1,27,0.018519
+flavor_notes,"other (wheel family 5: chemical, papery/musty)",2,27,0.018519
+flavor_notes,"other (wheel family 5: chemical, papery/musty)",3,27,0.055556
 flavor_notes,roasted,1,27,0.203704
 flavor_notes,roasted,2,27,0.074074
 flavor_notes,roasted,3,27,0.000000
