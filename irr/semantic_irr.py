@@ -16,7 +16,8 @@ Design (data/tDCS.csv): each participant tastes 2 coffees (Brasil, Kenya) x 3 re
  - 95% CI: participant bootstrap (participants resampled with replacement; pairs of a participant with its own copy excluded;
    expected similarity recomputed in every bootstrap sample with `--boot-perms` shuffles).
  - Embedding: Qwen3-Embedding-0.6B with the instruction "Embed aroma/flavor descriptors". Text cleaning per descriptor: spelling
-   standardisation, spaCy lemmatisation, stop-word removal (negation and degree words kept), lemma standardisation of synonym variants;
+   standardisation, spaCy lemmatisation, stop-word removal, lemma standardisation of synonym variants, removal of non-descriptor words
+   (comparison, intensity, evaluation, mouthfeel; a descriptor left empty is missing); "n\\a" answers are missing;
    the raw -> cleaned map is written to cleaned_descriptors.csv.
  - Sensitivity: thresholded agreement (pair similarity >= t) with the same chance correction.
 Everything here is descriptive; the stimulation vs sham comparison is in compare_conditions.py.
@@ -60,7 +61,7 @@ LEMMA_CANON = {
     "sour": "sourness", "sweeter": "sweet", "watered": "watery", "diluted": "watery", "thin": "watery", "weaker": "weak",
 }
 # Words that are not aroma or flavor descriptors: comparison, intensity and degree, evaluation, mouthfeel and body, discourse words.
-# Used only by the "descriptors only" variant (clean_descriptor(..., descriptors_only=True)); written after viewing the vocabulary.
+# Used by the main pipeline (clean_descriptor(..., descriptors_only=True)); the sensitivity runs also report it switched off; written after viewing the vocabulary.
 NON_DESCRIPTORS = {
     "more", "less", "not", "no", "very", "much", "slightly", "slight", "strong", "weak", "mild", "intense", "light", "full", "heavy",
     "faint", "long", "short", "thin", "thinner", "thick", "soft", "smooth", "flat", "bland", "neutral", "better", "worse", "worst", "bad",
@@ -98,11 +99,11 @@ def lemmatise(text: str) -> list[str]:
 
 
 def clean_descriptor(text: str, spelling: bool = True, lemma: bool = True, stop: bool = True, canon: bool = True,
-                     descriptors_only: bool = False) -> str | None:
+                     descriptors_only: bool = True) -> str | None:
     """spelling standardisation -> lemmatisation -> stop-word removal -> lemma standardisation (synonym variants) -> unique tokens.
     Each step can be switched off (used by cleaning_sensitivity.py); with all four off the text is only lowercased and whitespace-collapsed.
-    "n\\a" (not available) is a non-response and returns None (missing). descriptors_only drops NON_DESCRIPTORS words and returns None
-    when nothing is left."""
+    "n\\a" (not available) is a non-response and returns None (missing). descriptors_only (main pipeline) drops NON_DESCRIPTORS words and returns None
+    when nothing is left; without it a descriptor with no words left falls back to its raw text."""
     if NA_RE.match(str(text).strip().lower()):
         return None
     base = standardise_spelling(text) if spelling else re.sub(r"\s+", " ", str(text).strip().lower())

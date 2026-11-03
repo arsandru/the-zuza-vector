@@ -3,10 +3,11 @@
 
 Repeats the paired comparison of compare_conditions.py (delta = kappa(stimulation) - kappa(sham), paired participant bootstrap CI,
 condition-swap permutation p) for
- - Qwen3-Embedding-0.6B (aroma/flavor instruction) under cleaning variants: raw (lowercase only), spelling only, lemma only, stop words
-   only, lemma + stop words, canonical synonym variants only, full pipeline (the default), and full pipeline + descriptors only (drops comparison, intensity,
-   evaluation and mouthfeel words; descriptors left empty become missing);
- - bge-small-en-v1.5 and all-mpnet-base-v2 (no instruction) with raw, full and full + descriptors only.
+ - Qwen3-Embedding-0.6B (aroma/flavor instruction) under cleaning variants: raw (lowercase only), each step alone (spelling, lemma,
+   stop words, synonym variants), lemma + stop words, all steps without the descriptors-only filter, and the main pipeline (all steps +
+   removal of non-aroma/flavor words such as comparison, intensity, evaluation and mouthfeel words; descriptors left empty are missing);
+ - bge-small-en-v1.5 and all-mpnet-base-v2 (no instruction) with raw, all steps without the filter, and the main pipeline.
+"n\\a" answers are missing in every variant.
 Output: irr/outputs/cleaning_sensitivity.csv, cleaning_sensitivity.md
 """
 from __future__ import annotations
@@ -19,17 +20,19 @@ import pandas as pd
 import semantic_irr as sir
 from compare_conditions import compare
 
+OFF = dict(spelling=False, lemma=False, stop=False, canon=False, descriptors_only=False)
 VARIANTS = {
-    "raw": dict(spelling=False, lemma=False, stop=False, canon=False),
-    "spelling only": dict(spelling=True, lemma=False, stop=False, canon=False),
-    "lemma only": dict(spelling=False, lemma=True, stop=False, canon=False),
-    "stop words only": dict(spelling=False, lemma=False, stop=True, canon=False),
-    "synonym variants only": dict(spelling=False, lemma=False, stop=False, canon=True),
-    "lemma + stop words": dict(spelling=False, lemma=True, stop=True, canon=False),
-    "full": dict(spelling=True, lemma=True, stop=True, canon=True),
-    "full + descriptors only": dict(spelling=True, lemma=True, stop=True, canon=True, descriptors_only=True),
+    "raw": OFF,
+    "spelling only": {**OFF, "spelling": True},
+    "lemma only": {**OFF, "lemma": True},
+    "stop words only": {**OFF, "stop": True},
+    "synonym variants only": {**OFF, "canon": True},
+    "lemma + stop words": {**OFF, "lemma": True, "stop": True},
+    "all steps, no descriptors-only filter": {**OFF, "spelling": True, "lemma": True, "stop": True, "canon": True},
+    "main (all steps + descriptors only)": dict(spelling=True, lemma=True, stop=True, canon=True, descriptors_only=True),
 }
-RUNS = [(sir.DEFAULT_MODEL, v) for v in VARIANTS] + [(m, v) for m in ("BAAI/bge-small-en-v1.5", "sentence-transformers/all-mpnet-base-v2") for v in ("raw", "full", "full + descriptors only")]
+MAIN = "main (all steps + descriptors only)"
+RUNS = [(sir.DEFAULT_MODEL, v) for v in VARIANTS] + [(m, v) for m in ("BAAI/bge-small-en-v1.5", "sentence-transformers/all-mpnet-base-v2") for v in ("raw", "all steps, no descriptors-only filter", MAIN)]
 
 
 def main() -> None:

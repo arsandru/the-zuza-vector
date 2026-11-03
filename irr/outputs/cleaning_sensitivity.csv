@@ -11,19 +11,19 @@ Qwen3-Embedding-0.6B,synonym variants only,notesaroma,586,0.057342,0.064789,-0.0
 Qwen3-Embedding-0.6B,synonym variants only,flavor_notes,586,0.049161,0.052619,-0.003458,-0.034734,0.029175,0.818182
 Qwen3-Embedding-0.6B,lemma + stop words,notesaroma,578,0.060578,0.066613,-0.006035,-0.038929,0.031164,0.729271
 Qwen3-Embedding-0.6B,lemma + stop words,flavor_notes,578,0.050336,0.059159,-0.008823,-0.042086,0.024087,0.573427
-Qwen3-Embedding-0.6B,full,notesaroma,559,0.062245,0.065412,-0.003167,-0.035140,0.034467,0.841159
-Qwen3-Embedding-0.6B,full,flavor_notes,559,0.051981,0.060221,-0.008240,-0.040448,0.024839,0.578422
-Qwen3-Embedding-0.6B,full + descriptors only,notesaroma,524,0.067920,0.067669,0.000250,-0.033752,0.040021,0.988012
-Qwen3-Embedding-0.6B,full + descriptors only,flavor_notes,524,0.056521,0.062611,-0.006090,-0.039654,0.028044,0.703297
+Qwen3-Embedding-0.6B,"all steps, no descriptors-only filter",notesaroma,559,0.062245,0.065412,-0.003167,-0.035140,0.034467,0.841159
+Qwen3-Embedding-0.6B,"all steps, no descriptors-only filter",flavor_notes,559,0.051981,0.060221,-0.008240,-0.040448,0.024839,0.578422
+Qwen3-Embedding-0.6B,main (all steps + descriptors only),notesaroma,524,0.067920,0.067669,0.000250,-0.033752,0.040021,0.988012
+Qwen3-Embedding-0.6B,main (all steps + descriptors only),flavor_notes,524,0.056521,0.062611,-0.006090,-0.039654,0.028044,0.703297
 bge-small-en-v1.5,raw,notesaroma,600,0.027814,0.028635,-0.000820,-0.020435,0.021182,0.935065
 bge-small-en-v1.5,raw,flavor_notes,600,0.022396,0.017685,0.004711,-0.010459,0.020831,0.481518
-bge-small-en-v1.5,full,notesaroma,559,0.032358,0.035054,-0.002695,-0.023293,0.020369,0.790210
-bge-small-en-v1.5,full,flavor_notes,559,0.028847,0.025012,0.003835,-0.014767,0.021685,0.593407
-bge-small-en-v1.5,full + descriptors only,notesaroma,524,0.035077,0.036880,-0.001803,-0.022763,0.021053,0.877123
-bge-small-en-v1.5,full + descriptors only,flavor_notes,524,0.030513,0.026655,0.003858,-0.015295,0.022601,0.602398
+bge-small-en-v1.5,"all steps, no descriptors-only filter",notesaroma,559,0.032358,0.035054,-0.002695,-0.023293,0.020369,0.790210
+bge-small-en-v1.5,"all steps, no descriptors-only filter",flavor_notes,559,0.028847,0.025012,0.003835,-0.014767,0.021685,0.593407
+bge-small-en-v1.5,main (all steps + descriptors only),notesaroma,524,0.035077,0.036880,-0.001803,-0.022763,0.021053,0.877123
+bge-small-en-v1.5,main (all steps + descriptors only),flavor_notes,524,0.030513,0.026655,0.003858,-0.015295,0.022601,0.602398
 all-mpnet-base-v2,raw,notesaroma,600,0.037573,0.035436,0.002137,-0.016090,0.024628,0.840160
 all-mpnet-base-v2,raw,flavor_notes,600,0.028493,0.029151,-0.000659,-0.022584,0.019247,0.949051
-all-mpnet-base-v2,full,notesaroma,559,0.039433,0.038487,0.000945,-0.019599,0.024810,0.924076
-all-mpnet-base-v2,full,flavor_notes,559,0.029203,0.033875,-0.004671,-0.026589,0.015117,0.611389
-all-mpnet-base-v2,full + descriptors only,notesaroma,524,0.042233,0.041342,0.000891,-0.020736,0.025663,0.940060
-all-mpnet-base-v2,full + descriptors only,flavor_notes,524,0.031916,0.034175,-0.002259,-0.026274,0.019992,0.812188
+all-mpnet-base-v2,"all steps, no descriptors-only filter",notesaroma,559,0.039433,0.038487,0.000945,-0.019599,0.024810,0.924076
+all-mpnet-base-v2,"all steps, no descriptors-only filter",flavor_notes,559,0.029203,0.033875,-0.004671,-0.026589,0.015117,0.611389
+all-mpnet-base-v2,main (all steps + descriptors only),notesaroma,524,0.042233,0.041342,0.000891,-0.020736,0.025663,0.940060
+all-mpnet-base-v2,main (all steps + descriptors only),flavor_notes,524,0.031916,0.034175,-0.002259,-0.026274,0.019992,0.812188

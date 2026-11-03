@@ -6,14 +6,14 @@ Repurposed from `altered-states-review/analyses/clustering/archive/sensitivity/i
 
 ## Run
 
-From the repository root: `python3 irr/semantic_irr.py` (defaults: 2000 permutations, 1000 bootstraps, seed 42). Needs `requirements.txt` and the spaCy model (`python3 -m spacy download en_core_web_sm`). Embeddings: Qwen3-Embedding-0.6B with the instruction `Instruct: Embed aroma/flavor descriptors.` Each descriptor is cleaned first: spelling standardisation, spaCy lemmatisation, stop-word removal (negation and degree words kept, tasting-note filler such as "aroma" and "taste" dropped), then standardisation of synonym variants (burned/burnt, chocolaty/chocolate, and so on). The raw to cleaned map is in `irr/outputs/cleaned_descriptors.csv`. Outputs go to `irr/outputs/`. The docstring of the script defines the method.
+From the repository root: `python3 irr/semantic_irr.py` (defaults: 2000 permutations, 1000 bootstraps, seed 42). Needs `requirements.txt` and the spaCy model (`python3 -m spacy download en_core_web_sm`). Embeddings: Qwen3-Embedding-0.6B with the instruction `Instruct: Embed aroma/flavor descriptors.` Each descriptor is cleaned first: spelling standardisation, spaCy lemmatisation, stop-word removal (negation and degree words kept at this step, tasting-note filler such as "aroma" and "taste" dropped), standardisation of synonym variants (burned/burnt, chocolaty/chocolate, and so on), and removal of words that are not aroma or flavor descriptors (comparison, intensity, evaluation and mouthfeel words such as more, less, strong, thinner, better, bad, watery; a descriptor left with no words is missing). The raw to cleaned map is in `irr/outputs/cleaned_descriptors.csv`. Outputs go to `irr/outputs/`. The docstring of the script defines the method.
 
 ## Result (default settings, semantic kappa [95% participant-bootstrap CI])
 
 | Field | Stimulation | Sham |
 |---|---|---|
-| notesaroma | 0.062 [0.033, 0.093] | 0.066 [0.040, 0.092] |
-| flavor_notes | 0.052 [0.030, 0.080] | 0.060 [0.031, 0.093] |
+| notesaroma | 0.068 [0.037, 0.104] | 0.068 [0.041, 0.097] |
+| flavor_notes | 0.057 [0.033, 0.086] | 0.063 [0.033, 0.096] |
 
 Agreement is above chance but very low: participants' descriptors are barely closer to each other for the same sample than for different samples. Thresholded versions are in `irr/outputs/semantic_irr_report.md`. The scale of kappa depends on the embedding (bge-small and all-mpnet give about 0.02 to 0.04), so compare across conditions and fields within one model. "n\\a" (not available) answers are treated as missing, not as a descriptor (see Corrections).
 
@@ -23,19 +23,19 @@ Agreement is above chance but very low: participants' descriptors are barely clo
 
 | Field | Stimulation | Sham | Delta [95% CI] | p (perm) | p (Holm) |
 |---|---|---|---|---|---|
-| notesaroma | 0.062 | 0.065 | -0.003 [-0.035, 0.032] | 0.86 | 1.0 |
-| flavor_notes | 0.052 | 0.060 | -0.008 [-0.040, 0.023] | 0.60 | 1.0 |
+| notesaroma | 0.068 | 0.068 | +0.000 [-0.034, 0.038] | 0.99 | 1.0 |
+| flavor_notes | 0.057 | 0.062 | -0.006 [-0.038, 0.027] | 0.72 | 1.0 |
 
-No evidence of a difference in between-participant agreement; the intervals are about +/-0.03 around zero, against kappas of about 0.06.
+No evidence of a difference in between-participant agreement; the intervals are about +/-0.03 around zero, against kappas of about 0.06 to 0.07.
 
 ### Does cleaning or the model drive it?
 
-`python3 irr/cleaning_sensitivity.py` repeats the comparison with each cleaning step on or off (raw, spelling only, lemma only, stop words only, synonym variants only, lemma + stop words, full), with a "descriptors only" variant that also drops words that are not aroma or flavor descriptors (comparison, intensity, evaluation and mouthfeel words such as more, less, strong, thinner, better, bad, watery; a descriptor left empty becomes missing), and with raw, full and descriptors-only cleaning under bge-small and all-mpnet. Table: `irr/outputs/cleaning_sensitivity.md`. In every run the stimulation vs sham difference is within about +/-0.01 and every interval includes zero; its sign changes between runs, so it is noise around zero. Cleaning changes kappa little within a model (Qwen `notesaroma`: 0.059 to 0.068); descriptors only raises it slightly (0.068 and 0.068 for `notesaroma`, 0.057 and 0.063 for `flavor_notes`), so non-descriptor words added a little noise but did not create or hide a condition difference. The model changes the scale (bge and mpnet about 0.03 to 0.04).
+`python3 irr/cleaning_sensitivity.py` repeats the comparison under Qwen with the cleaning steps on or off (raw, each step alone, lemma + stop words, all steps without the descriptors-only filter, and the main pipeline), and under bge-small and all-mpnet with raw, no-filter and main cleaning. Table: `irr/outputs/cleaning_sensitivity.md`. In every run the stimulation vs sham difference is within about +/-0.01 and every interval includes zero; its sign changes between runs, so it is noise around zero. Cleaning changes kappa little within a model (Qwen `notesaroma`: 0.057 to 0.068); the descriptors-only filter raises it slightly (0.062 and 0.065 without it, 0.068 and 0.068 with it), so non-descriptor words added a little noise but did not create or hide a condition difference. The model changes the scale (bge and mpnet about 0.03 to 0.04).
 
 ## Corrections
 
 - A first version embedded the 67 "n\a" non-responses (41 in `notesaroma`, 26 in `flavor_notes`) as if they were a descriptor, so they counted as perfect agreement between participants. They are now missing. All kappas and comparisons above come from the corrected run; earlier numbers (kappa about 0.05, differences +0.002 and -0.005) were from the uncorrected version.
-- Cleaned descriptors that consist only of stop words (for example "same as before") still fall back to their raw text in the default pipeline; the descriptors-only variant makes them missing.
+- The descriptors-only filter and its word list (`NON_DESCRIPTORS`) were written after viewing the vocabulary, so the pipeline is exploratory. It became the main pipeline after a sensitivity run showed it changed kappa slightly and the condition comparison not at all.
 
 ## Caveats
 
