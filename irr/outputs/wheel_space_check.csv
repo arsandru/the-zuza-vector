@@ -1,0 +1,4 @@
+space,n_term_pairs,auc_same_family,auc_same_category,mean_sim_same_family,mean_sim_other
+Qwen (plain),2485,0.712135,0.731463,0.699937,0.640403
+Qwen (centered on descriptor mean),2485,0.774248,0.817495,0.204315,0.037570
+wheel space,2485,0.731829,0.762296,0.368913,0.065402

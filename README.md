@@ -36,6 +36,22 @@ No evidence of a difference in between-participant agreement; the intervals are 
 
 The wheel mapping (`distribution/wheel_mapping.py`, `data/SCA flavor wheel.csv`, `data/sca_aliases.csv`) is not used for the agreement analysis here (a trial of that, with no condition difference, was removed; it is in the git history at `afaa689`). It is used by the distribution analysis in `distribution/` (Jensen-Shannon distance between stimulation and sham at each wheel level).
 
+## Agreement in a flavor-wheel space (alternative embedding space, exploratory)
+
+`python3 irr/wheel_space_irr.py` embeds the same cleaned descriptors in a space defined by the SCA flavor wheel, with no descriptor aliases or mapping: the anchors are the 105 distinct terms, category names and family names of the wheel (`data/SCA flavor wheel.csv` only). A descriptor is embedded with Qwen (aroma/flavor instruction), described by its cosine similarity to every anchor, each anchor coordinate is z-scored across all descriptor occurrences (which also removes the generic component shared by all food words), and profiles are compared by cosine. Everything else (chance, kappa, bootstrap, paired comparison, BH-FDR) is as above. Anchors, standardisation and similarity were fixed in advance.
+
+Space check on the wheel vocabulary (does similarity separate wheel terms of the same family or category from other pairs? AUC over 2485 term pairs; the two terms of a pair are removed from the anchors):
+
+| Space | AUC same family | AUC same category |
+|---|---:|---:|
+| Qwen (plain) | 0.712 | 0.731 |
+| Qwen centered on the descriptor mean | 0.774 | 0.817 |
+| wheel space | 0.732 | 0.762 |
+
+Kappa per condition (stimulation / sham): `notesaroma` 0.109 [0.060, 0.167] / 0.103 [0.054, 0.160]; `flavor_notes` 0.091 [0.047, 0.143] / 0.102 [0.055, 0.156]. Stimulation minus sham: +0.006 [-0.052, +0.073] (q = 0.86) and -0.010 [-0.063, +0.045] (q = 0.86). Kappa is about 1.5 times that of the plain Qwen space (0.057 to 0.068) and still low, and the comparison is unchanged: no evidence of a difference. Full tables: `irr/outputs/wheel_space_report.md`.
+
+Reading: the wheel space does separate the wheel's families better than the plain space, but simply centering the plain space on the descriptor mean separates them better still, so the wheel anchoring itself adds little beyond removing the generic component. The higher kappa mostly reflects the removed baseline, not new agreement.
+
 ## Corrections
 
 - A first version embedded the 67 "n\a" non-responses (41 in `notesaroma`, 26 in `flavor_notes`) as if they were a descriptor, so they counted as perfect agreement between participants. They are now missing. All kappas and comparisons above come from the corrected run; earlier numbers (kappa about 0.05, differences +0.002 and -0.005) were from the uncorrected version.

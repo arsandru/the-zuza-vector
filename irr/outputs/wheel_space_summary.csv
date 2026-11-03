@@ -1,0 +1,5 @@
+field,condition,n_descriptors,similarity_observed,similarity_expected,semantic_kappa,ci_low,ci_high
+notesaroma,stimulation,183,0.132450,0.025822,0.109454,0.059571,0.166897
+notesaroma,sham,178,0.129893,0.029588,0.103364,0.054054,0.159760
+flavor_notes,stimulation,184,0.088121,-0.003126,0.090962,0.046771,0.142528
+flavor_notes,sham,182,0.107089,0.005935,0.101759,0.055114,0.155889
