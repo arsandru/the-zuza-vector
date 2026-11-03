@@ -1,0 +1,68 @@
+word,node,note
+fruit,2_fruity,generic fruit -> family
+spice,7_spices,generic spice -> family
+berry,2_fruity|2a_berry,
+blackcurrant,2_fruity|2a_berry,
+citrus,2_fruity|2d_citrus fruit,
+citron,2_fruity|2d_citrus fruit,
+peel,2_fruity|2d_citrus fruit,orange peel
+apple,2_fruity|2c_other fruit,
+plum,2_fruity|2c_other fruit,fresh plum (prune is dried fruit)
+dry fruit,2_fruity|2b_dried fruit,dry fruit = dried fruit
+tea,1_floral|1a_black tea,
+blacktea,1_floral|1a_black tea,
+rooibo,1_floral|1a_black tea,tea-like
+floral,1_floral|1b_floral,
+flower,1_floral|1b_floral,
+blossom,1_floral|1b_floral,
+scented,1_floral|1b_floral,
+hibiscus,1_floral|1b_floral,
+sourness,3_sour/fermented|3a_sour,
+acidic,3_sour/fermented|3a_sour,
+citric,3_sour/fermented|3a_sour|citric acid,
+acetic,3_sour/fermented|3a_sour|acetic acid,
+vinegar,3_sour/fermented|3a_sour|acetic acid,
+wine,3_sour/fermented|3b_alcohol/fermented|winey,
+bourbon,3_sour/fermented|3b_alcohol/fermented|whiskey,
+vegetable,4_green/vegetative|4c_green/vegetative,
+leafy,4_green/vegetative|4c_green/vegetative,
+leaf,4_green/vegetative|4c_green/vegetative,
+grass,4_green/vegetative|4c_green/vegetative,
+green,4_green/vegetative|4c_green/vegetative,
+marjoram,4_green/vegetative|4c_green/vegetative,
+tomato,4_green/vegetative|4c_green/vegetative,vegetable
+carrot,4_green/vegetative|4c_green/vegetative,vegetable
+onion,4_green/vegetative|4c_green/vegetative,vegetable
+herb,4_green/vegetative|4c_green/vegetative|herb-like,
+hay,4_green/vegetative|4c_green/vegetative|hay-like,
+bean,4_green/vegetative|4d_beany,
+oil,4_green/vegetative|4a_olive oil,
+olive,4_green/vegetative|4a_olive oil,
+nut,8_nutty/cocoa|8b_nutty,
+nuts,8_nutty/cocoa|8b_nutty,
+walnut,8_nutty/cocoa|8b_nutty,
+cocoa,8_nutty/cocoa|8a_cocoa,
+cacao,8_nutty/cocoa|8a_cocoa,
+sugar,9_sweet|9a_brown sugar,
+maple,9_sweet|9a_brown sugar|maple-syrup,
+syrup,9_sweet|9a_brown sugar|maple-syrup,
+sweet,9_sweet|9d_overall sweet,
+burnt,6_roasted|6b_burnt,
+toast,6_roasted|6b_burnt,roasted family; no toast term on the wheel
+toasted,6_roasted|6b_burnt,
+bake,6_roasted|6b_burnt,
+cooked,6_roasted|6b_burnt,
+rice,6_roasted|6a_cereal,
+flour,6_roasted|6a_cereal,
+soup,5_other|5b_papery/musty|meathy/brothy,
+stock,5_other|5b_papery/musty|meathy/brothy,
+chickensoup,5_other|5b_papery/musty|meathy/brothy,
+bacon,5_other|5b_papery/musty|meathy/brothy,
+savoury,5_other|5b_papery/musty|meathy/brothy,
+brown,IGNORE,colour word (brown sugar / brown spice are matched first)
+dark,IGNORE,colour word (dark chocolate is matched first)
+black,IGNORE,colour word (black tea is matched first)
+white,IGNORE,colour word
+red,IGNORE,colour word
+dry,IGNORE,mouthfeel (dry fruit is matched first)
+nuts,8_nutty/cocoa|8b_nutty,

@@ -1,0 +1,84 @@
+1st level,2nd level,3rd level
+1_floral,1a_black tea,
+,1b_floral,chamomile
+,,rose
+,,jasmine
+2_fruity,2a_berry,blackberry
+,,raspberry
+,,blueberry
+,,strawberry
+,2b_dried fruit,raisin
+,,prune
+,2c_other fruit,coconut
+,,cherry
+,,pomergranate
+,,pineapple
+,,grape
+,,peach
+,,pear
+,2d_citrus fruit,grapefruit
+,,orange
+,,lemon
+,,lime
+3_sour/fermented,3a_sour,sour aromatics
+,,acetic acid
+,,nutyric acid
+,,isovaleric acid
+,,citric acid
+,,malic acid
+,3b_alcohol/fermented,winey
+,,whiskey
+,,fermented
+,,overripe
+4_green/vegetative,4a_olive oil,
+,4b_raw,
+,4c_green/vegetative,under ripe
+,,peapod
+,,fresh
+,,dark green
+,,vegetative
+,,hay-like
+,,herb-like
+,4d_beany,
+5_other,5a_chemical,rubber
+,,skunky
+,,petroleum
+,,medicinal
+,,salty
+,,bitter
+,5b_papery/musty,phenolic
+,,meathy/brothy
+,,animalic
+,,musty/earthy
+,,musty/dusty
+,,woody
+,,papery
+,,cardboard
+,,stale
+6_roasted,6a_cereal,malt
+,,grain
+,6b_burnt,brown/roast
+,,smoky
+,,asky
+,,acrid
+,6c_tobacco,
+,6d_pipe tobacco,
+7_spices,7a_brown spice,clove
+,,cinnamon
+,,nutmeg
+,,anise
+,7b_pepper,
+,7c_pungent,
+8_nutty/cocoa,8a_cocoa,dark chocolate
+,,chocolate
+,8b_nutty,almond
+,,hazelnut
+,,peanuts
+9_sweet,9a_brown sugar,honey
+,,carmelised
+,,maple-syrup
+,,molasses
+,9b_vanilla,
+,9c_vanillin,
+,9d_overall sweet,
+,9e_sweet aromatics,

@@ -1,0 +1,25 @@
+variant,measure,field,condition,n_descriptors,similarity_observed,similarity_expected,semantic_kappa,ci_low,ci_high
+other kept (5_other),embedding,notesaroma,stimulation,183,0.684886,0.659939,0.073360,0.042093,0.111793
+other kept (5_other),embedding,notesaroma,sham,178,0.682270,0.654783,0.079624,0.050717,0.107588
+other kept (5_other),embedding,flavor_notes,stimulation,184,0.677621,0.657060,0.059954,0.035445,0.090358
+other kept (5_other),embedding,flavor_notes,sham,182,0.670175,0.649095,0.060074,0.032814,0.092125
+other kept (5_other),node Jaccard,notesaroma,stimulation,183,0.047648,0.031722,0.016448,0.008685,0.024582
+other kept (5_other),node Jaccard,notesaroma,sham,178,0.054106,0.037071,0.017690,0.006707,0.029316
+other kept (5_other),node Jaccard,flavor_notes,stimulation,184,0.051609,0.040598,0.011477,0.003597,0.020536
+other kept (5_other),node Jaccard,flavor_notes,sham,182,0.055254,0.044373,0.011387,0.003080,0.020268
+other kept (5_other),family Jaccard,notesaroma,stimulation,183,0.253951,0.180346,0.089800,0.049555,0.138694
+other kept (5_other),family Jaccard,notesaroma,sham,178,0.240399,0.175939,0.078222,0.048807,0.113766
+other kept (5_other),family Jaccard,flavor_notes,stimulation,184,0.260074,0.206028,0.068071,0.036454,0.106154
+other kept (5_other),family Jaccard,flavor_notes,sham,182,0.254492,0.203876,0.063578,0.033848,0.093687
+other dropped,embedding,notesaroma,stimulation,180,0.685409,0.660224,0.074123,0.041836,0.114033
+other dropped,embedding,notesaroma,sham,174,0.683351,0.654895,0.082457,0.052509,0.112763
+other dropped,embedding,flavor_notes,stimulation,183,0.678198,0.657315,0.060939,0.036405,0.091401
+other dropped,embedding,flavor_notes,sham,181,0.671431,0.649924,0.061435,0.033464,0.093704
+other dropped,node Jaccard,notesaroma,stimulation,180,0.048489,0.032778,0.016244,0.008303,0.024668
+other dropped,node Jaccard,notesaroma,sham,174,0.056950,0.038763,0.018920,0.007277,0.031655
+other dropped,node Jaccard,flavor_notes,stimulation,183,0.053126,0.041723,0.011900,0.003880,0.021195
+other dropped,node Jaccard,flavor_notes,sham,181,0.056480,0.045295,0.011716,0.003128,0.020962
+other dropped,family Jaccard,notesaroma,stimulation,180,0.261268,0.186779,0.091598,0.049519,0.142462
+other dropped,family Jaccard,notesaroma,sham,174,0.253839,0.185223,0.084214,0.053551,0.120401
+other dropped,family Jaccard,flavor_notes,stimulation,183,0.264265,0.208294,0.070698,0.039189,0.109872
+other dropped,family Jaccard,flavor_notes,sham,181,0.257824,0.206326,0.064884,0.036199,0.096036

@@ -32,6 +32,20 @@ No evidence of a difference in between-participant agreement; the intervals are 
 
 `python3 irr/cleaning_sensitivity.py` repeats the comparison under Qwen with the cleaning steps on or off (raw, each step alone, lemma + stop words, all steps without the descriptors-only filter, and the main pipeline), and under bge-small and all-mpnet with raw, no-filter and main cleaning. Table: `irr/outputs/cleaning_sensitivity.md`. In every run the stimulation vs sham difference is within about +/-0.01 and every interval includes zero; its sign changes between runs, so it is noise around zero. Cleaning changes kappa little within a model (Qwen `notesaroma`: 0.057 to 0.068); the descriptors-only filter raises it slightly (0.062 and 0.065 without it, 0.068 and 0.068 with it), so non-descriptor words added a little noise but did not create or hide a condition difference. The model changes the scale (bge and mpnet about 0.03 to 0.04).
 
+## SCA flavor wheel mapping (alternative pipeline, exploratory)
+
+`python3 irr/sca_mapping.py` maps each cleaned word to a node of the SCA flavor wheel (`data/SCA flavor wheel.csv`): wheel terms and category names match automatically (longest match first, e.g. "dark chocolate"); `data/sca_aliases.csv` (hand-written, 65 entries, written after viewing the data, please review) maps generic and near-synonym words to a node at any level (fruit -> family 2_fruity, nut -> 8b_nutty, sourness and acidic -> 3a_sour, apple -> 2c_other fruit) or drops colour and mouthfeel words; any other word goes to `5_other` (or is dropped in the second variant). A descriptor becomes the set of its nodes. Three measures: Qwen embedding of the node terms, node-set Jaccard overlap, and family-level (level 1) Jaccard overlap, each with the same chance correction and the paired stimulation vs sham comparison. Coverage is nearly complete: only 38 word occurrences have no wheel home (butter 10, cream 8, ripe 7, milk 2, and singletons), so 361 of 361 `notesaroma` and 366 of 366 `flavor_notes` descriptors keep at least one node (`5_other` kept); dropping them removes 7 and 2 descriptors. Full tables and the word-to-node audit: `irr/outputs/sca_mapping_report.md` and `sca_mapping_audit.csv`.
+
+Kappa per condition, other kept (stimulation / sham):
+
+| Measure | notesaroma | flavor_notes |
+|---|---|---|
+| embedding | 0.073 / 0.080 | 0.060 / 0.060 |
+| node Jaccard | 0.016 / 0.018 | 0.011 / 0.011 |
+| family Jaccard | 0.090 / 0.078 | 0.068 / 0.064 |
+
+Stimulation minus sham, other kept: embedding -0.006 [-0.043, 0.034] (aroma) and +0.000 [-0.030, 0.032] (flavor); node Jaccard -0.001 and +0.000; family Jaccard +0.012 [-0.040, 0.070] and +0.005 [-0.033, 0.045]; all p >= 0.67, and the dropped variant gives the same picture. Mapping to the wheel leaves the conclusion unchanged: agreement is low at every level (exact-node agreement is near chance, family-level agreement is the highest) and does not differ between stimulation and sham. The wheel mapping is not the main pipeline.
+
 ## Corrections
 
 - A first version embedded the 67 "n\a" non-responses (41 in `notesaroma`, 26 in `flavor_notes`) as if they were a descriptor, so they counted as perfect agreement between participants. They are now missing. All kappas and comparisons above come from the corrected run; earlier numbers (kappa about 0.05, differences +0.002 and -0.005) were from the uncorrected version.
