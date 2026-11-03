@@ -3,7 +3,7 @@
 Free-text coffee descriptors of the tDCS study (`data/tDCS.csv`): do stimulation and sham differ in how much participants agree (`irr/`) and in which flavor families they endorse (`distribution/`)? Exploratory and descriptive; all cleaning and mapping rules were written after viewing the data.
 
 - `irr/`: between-participant semantic agreement (IRR) within each condition, and stimulation vs sham.
-- `distribution/`: wheel-family endorsement, stimulation vs sham (README in that folder).
+- `distribution/`: wheel-family endorsement, stimulation vs sham (summary below, details in the README of that folder).
 - `data/`: `tDCS.csv`, `SCA flavor wheel.csv`, `sca_aliases.csv` (used by `distribution/` only). `tDCS.csv` is participant data; this repository is private.
 
 ## IRR (`irr/semantic_irr.py`)
@@ -23,6 +23,27 @@ Repurposed from `altered-states-review/analyses/clustering/archive/sensitivity/i
 | plain (sensitivity) | flavor_notes | 0.057 [0.033, 0.086] | 0.063 [0.033, 0.096] | -0.006 [-0.038, +0.027] | 0.72 | 0.99 |
 
 Agreement is above chance but very low in both conditions, and there is no evidence of a difference between stimulation and sham (differences of -0.009 to +0.001, intervals about +/-0.03 around zero). The two spaces agree (centering leaves kappa where the plain space had it, because the chance correction already removes the baseline similarity). Figure: `irr/outputs/irr_plot.pdf` and `.png`. The kappa scale depends on the embedding, so compare conditions within a space, not kappa values across studies.
+
+## Distribution: wheel-family endorsement (`distribution/`)
+
+Do stimulation and sham endorse different flavor families? Descriptors (same cleaning as the IRR) are mapped to the 9 families of the SCA flavor wheel (`data/SCA flavor wheel.csv` plus the hand-written `data/sca_aliases.csv`; words with no wheel home are left out). At each tasting a participant endorses a family if any word of the descriptor maps to it (a tasting without a usable descriptor is missing). The unit is the participant: endorsement rate per condition, field and family (aroma n = 32, flavor n = 33 participants with usable tastings in both conditions), paired difference stimulation - sham. Omnibus test per field: sum over the 9 families of the squared paired t against a paired sign-flip permutation (each participant's two conditions swapped, 10000 times); per family: bootstrap 95% CI, sign-flip p, BH-FDR q over the 18 family tests; BH q over the 2 omnibus tests. `python3 distribution/family_endorsement.py`, then `python3 distribution/plot_distribution.py`. Method details, secondary analyses and caveats: `distribution/README.md`.
+
+| Field | Omnibus T | p | q (BH, 2 fields) | q with cosine mapping |
+|---|---:|---:|---:|---:|
+| notesaroma | 21.7 | 0.018 | 0.035 | 0.057 |
+| flavor_notes | 8.4 | 0.542 | 0.542 | 0.418 |
+
+Families with the largest differences (endorsement rate; all families in `distribution/outputs/family_endorsement_report.md`):
+
+| Field | Family | Stimulation | Sham | Difference [95% CI] | p | q (BH, 18 tests) |
+|---|---|---:|---:|---|---:|---:|
+| notesaroma | sweet | 0.23 | 0.14 | +0.08 [+0.01, +0.15] | 0.041 | 0.25 |
+| notesaroma | floral | 0.07 | 0.13 | -0.06 [-0.12, -0.01] | 0.042 | 0.25 |
+| notesaroma | green/vegetative | 0.07 | 0.14 | -0.07 [-0.13, -0.02] | 0.020 | 0.25 |
+| notesaroma | sour/fermented | 0.16 | 0.11 | +0.06 [+0.00, +0.12] | 0.081 | 0.29 |
+| flavor_notes | roasted | 0.29 | 0.21 | +0.08 [-0.00, +0.16] | 0.074 | 0.29 |
+
+Aroma: the family profiles differ overall (stimulation higher on sweet and sour/fermented, lower on floral and green/vegetative), but no single family reaches q below 0.25, the intervals are wide, and the omnibus sits on either side of q = 0.05 depending on the wheel mapping (manual q = 0.035, cosine mapping q = 0.057) and on how words with no wheel home are handled (kept as a separate category instead: q = 0.062), so I would call it suggestive, not robust. Flavor: no difference. The condition effect does not differ between the three tastings (aroma p = 0.99, flavor p = 0.18). With 32 to 33 participants only differences of roughly 0.15 or more in a family's endorsement rate can be detected reliably. Descriptive Jensen-Shannon analyses of the pooled distributions (all wheel levels, by tasting) are in `distribution/README.md`; none survives FDR. Figure: `distribution/outputs/distribution_plot.pdf` and `.png` (radar of the family endorsement rates, stimulation vs sham; the caption reports the tests).
 
 ## Corrections
 
