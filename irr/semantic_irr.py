@@ -57,7 +57,15 @@ LEMMA_CANON = {
     "smoked": "smoky", "fruity": "fruit", "berrylike": "berry", "caramelized": "caramel", "caramelize": "caramel", "dilute": "watery", "smoke": "smoky", "water": "watery", "sugary": "sugar", "nutty": "nut",
     "buttery": "butter", "creamy": "cream", "milky": "milk", "oily": "oil", "grainy": "grain", "earthy": "earth", "woody": "wood",
     "spicy": "spice", "sweetish": "sweet", "honeyed": "honey", "vegetative": "vegetable", "winey": "wine", "acid": "acidic",
-    "sour": "sourness", "watered": "watery", "diluted": "watery", "thin": "watery", "weaker": "weak",
+    "sour": "sourness", "sweeter": "sweet", "watered": "watery", "diluted": "watery", "thin": "watery", "weaker": "weak",
+}
+# Words that are not aroma or flavor descriptors: comparison, intensity and degree, evaluation, mouthfeel and body, discourse words.
+# Used only by the "descriptors only" variant (clean_descriptor(..., descriptors_only=True)); written after viewing the vocabulary.
+NON_DESCRIPTORS = {
+    "more", "less", "not", "no", "very", "much", "slightly", "slight", "strong", "weak", "mild", "intense", "light", "full", "heavy",
+    "faint", "long", "short", "thin", "thinner", "thick", "soft", "smooth", "flat", "bland", "neutral", "better", "worse", "worst", "bad",
+    "good", "same", "before", "half", "combination", "consistent", "watery", "liquidy", "wet", "hard", "warm", "nor", "never", "most",
+    "least", "few", "enough", "fully", "gets",
 }
 # Tokens the lemmatizer reads as the wrong word class ("rose" the flower as the verb "rise").
 KEEP_TOKEN = {"rose": "rose", "better": "better"}
@@ -75,6 +83,7 @@ def standardise_spelling(text: str) -> str:
     return re.sub(r"[a-z']+", lambda m: TYPO_FIXES.get(m.group(0), m.group(0)), s)
 
 
+NA_RE = re.compile(r"^n[\\/]a$")
 _NLP = None
 
 
@@ -88,9 +97,14 @@ def lemmatise(text: str) -> list[str]:
     return [(t.lemma_.lower(), t.text) for t in _NLP(text) if t.is_alpha]
 
 
-def clean_descriptor(text: str, spelling: bool = True, lemma: bool = True, stop: bool = True, canon: bool = True) -> str:
+def clean_descriptor(text: str, spelling: bool = True, lemma: bool = True, stop: bool = True, canon: bool = True,
+                     descriptors_only: bool = False) -> str | None:
     """spelling standardisation -> lemmatisation -> stop-word removal -> lemma standardisation (synonym variants) -> unique tokens.
-    Each step can be switched off (used by cleaning_sensitivity.py); with all four off the text is only lowercased and whitespace-collapsed."""
+    Each step can be switched off (used by cleaning_sensitivity.py); with all four off the text is only lowercased and whitespace-collapsed.
+    "n\\a" (not available) is a non-response and returns None (missing). descriptors_only drops NON_DESCRIPTORS words and returns None
+    when nothing is left."""
+    if NA_RE.match(str(text).strip().lower()):
+        return None
     base = standardise_spelling(text) if spelling else re.sub(r"\s+", " ", str(text).strip().lower())
     if not (lemma or stop or canon):
         return base
@@ -103,8 +117,12 @@ def clean_descriptor(text: str, spelling: bool = True, lemma: bool = True, stop:
             lem = KEEP_TOKEN.get(tok, lem)
         if canon:
             lem = LEMMA_CANON.get(lem, lem)
+        if descriptors_only and lem in NON_DESCRIPTORS:
+            continue
         if lem not in out:
             out.append(lem)
+    if descriptors_only:
+        return " ".join(out) if out else None
     return " ".join(out) if out else base
 
 

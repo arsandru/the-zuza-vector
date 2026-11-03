@@ -4,8 +4,9 @@
 Repeats the paired comparison of compare_conditions.py (delta = kappa(stimulation) - kappa(sham), paired participant bootstrap CI,
 condition-swap permutation p) for
  - Qwen3-Embedding-0.6B (aroma/flavor instruction) under cleaning variants: raw (lowercase only), spelling only, lemma only, stop words
-   only, lemma + stop words, canonical synonym variants only, full pipeline (the default);
- - bge-small-en-v1.5 and all-mpnet-base-v2 (no instruction) with raw and full cleaning.
+   only, lemma + stop words, canonical synonym variants only, full pipeline (the default), and full pipeline + descriptors only (drops comparison, intensity,
+   evaluation and mouthfeel words; descriptors left empty become missing);
+ - bge-small-en-v1.5 and all-mpnet-base-v2 (no instruction) with raw, full and full + descriptors only.
 Output: irr/outputs/cleaning_sensitivity.csv, cleaning_sensitivity.md
 """
 from __future__ import annotations
@@ -26,8 +27,9 @@ VARIANTS = {
     "synonym variants only": dict(spelling=False, lemma=False, stop=False, canon=True),
     "lemma + stop words": dict(spelling=False, lemma=True, stop=True, canon=False),
     "full": dict(spelling=True, lemma=True, stop=True, canon=True),
+    "full + descriptors only": dict(spelling=True, lemma=True, stop=True, canon=True, descriptors_only=True),
 }
-RUNS = [(sir.DEFAULT_MODEL, v) for v in VARIANTS] + [(m, v) for m in ("BAAI/bge-small-en-v1.5", "sentence-transformers/all-mpnet-base-v2") for v in ("raw", "full")]
+RUNS = [(sir.DEFAULT_MODEL, v) for v in VARIANTS] + [(m, v) for m in ("BAAI/bge-small-en-v1.5", "sentence-transformers/all-mpnet-base-v2") for v in ("raw", "full", "full + descriptors only")]
 
 
 def main() -> None:

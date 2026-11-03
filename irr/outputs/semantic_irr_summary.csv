@@ -1,5 +1,5 @@
 model,field,condition,n_participants,n_descriptors,n_pairs,similarity_observed,similarity_expected,semantic_kappa,kappa_ci_low,kappa_ci_high,kappa_thr_0.60,kappa_thr_0.70,kappa_thr_0.80
-Qwen/Qwen3-Embedding-0.6B,notesaroma,stimulation,34,204,3366,0.663861,0.645364,0.052158,0.026120,0.081463,0.204976,0.092485,0.028657
-Qwen/Qwen3-Embedding-0.6B,notesaroma,sham,34,204,3366,0.665358,0.647632,0.050306,0.028810,0.073860,0.193988,0.093781,0.030510
-Qwen/Qwen3-Embedding-0.6B,flavor_notes,stimulation,34,200,3234,0.653652,0.636825,0.046334,0.026030,0.071516,0.196595,0.070707,0.017026
-Qwen/Qwen3-Embedding-0.6B,flavor_notes,sham,34,199,3204,0.658034,0.639458,0.051520,0.025760,0.082911,0.209495,0.075427,0.027918
+Qwen/Qwen3-Embedding-0.6B,notesaroma,stimulation,34,188,2853,0.669756,0.647867,0.062161,0.033003,0.093427,0.228092,0.114890,0.034566
+Qwen/Qwen3-Embedding-0.6B,notesaroma,sham,34,179,2586,0.673211,0.650294,0.065532,0.040335,0.092397,0.245744,0.130045,0.039028
+Qwen/Qwen3-Embedding-0.6B,flavor_notes,stimulation,34,188,2855,0.657822,0.639040,0.052033,0.030194,0.080141,0.209632,0.082815,0.019290
+Qwen/Qwen3-Embedding-0.6B,flavor_notes,sham,34,185,2766,0.663104,0.641508,0.060242,0.030980,0.092571,0.229591,0.092092,0.033306

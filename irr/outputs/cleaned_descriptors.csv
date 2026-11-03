@@ -102,7 +102,7 @@ dark chocolate,dark chocolate,flavor_notes
 "dark chocolate, roasted, black tea",dark chocolate roast black tea,flavor_notes
 "dark green veggies, hazelnut, sour",dark green vegetable hazelnut sourness,flavor_notes
 "dark roast, walnut",dark roast walnut,flavor_notes
-"definitely sweeter, sugar flavour, maple syrup (strong smell)",sweeter sugar maple syrup strong,flavor_notes
+"definitely sweeter, sugar flavour, maple syrup (strong smell)",sweet sugar maple syrup strong,flavor_notes
 "dilater, more bitter",watery more bitter,flavor_notes
 "diluted, grapefruit",watery grapefruit,flavor_notes
 "diluted, nutty",watery nut,flavor_notes
@@ -199,7 +199,6 @@ more bitter than before,more bitter,flavor_notes
 "more plane, acidic",more plane acidic,flavor_notes
 more smokey,more smoky,flavor_notes
 "more sour, acid, floral, veggie taste",more sourness acidic floral vegetable,flavor_notes
-n\a,n\a,flavor_notes
 "neutral flavor, a bit bitter",neutral bitter,flavor_notes
 not sour aftertaste,not sourness,flavor_notes
 "nutmeg, clove",nutmeg clove,flavor_notes
@@ -514,7 +513,6 @@ more nuts,more nuts,notesaroma
 more roasted nuts,more roast nut,notesaroma
 "more roasted, burnt",more roast burnt,notesaroma
 "more roasted, more buttery",more roast butter,notesaroma
-n\a,n\a,notesaroma
 "not fresh vegetable, chamomille",not fresh vegetable chamomile,notesaroma
 not strong,not strong,notesaroma
 nutmeg,nutmeg,notesaroma

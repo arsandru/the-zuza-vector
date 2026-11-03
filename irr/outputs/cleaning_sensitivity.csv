@@ -1,23 +1,29 @@
 model,cleaning,field,n_unique,kappa_stimulation,kappa_sham,delta,ci_low,ci_high,p_perm
-Qwen3-Embedding-0.6B,raw,notesaroma,601,0.051007,0.052447,-0.001440,-0.029922,0.030621,0.912088
-Qwen3-Embedding-0.6B,raw,flavor_notes,601,0.044499,0.044935,-0.000436,-0.032617,0.029760,0.964036
-Qwen3-Embedding-0.6B,spelling only,notesaroma,598,0.052015,0.053201,-0.001186,-0.029429,0.030707,0.925075
-Qwen3-Embedding-0.6B,spelling only,flavor_notes,598,0.045585,0.046335,-0.000749,-0.033277,0.029948,0.959041
-Qwen3-Embedding-0.6B,lemma only,notesaroma,593,0.049944,0.051631,-0.001687,-0.030887,0.030523,0.902098
-Qwen3-Embedding-0.6B,lemma only,flavor_notes,593,0.043313,0.048698,-0.005385,-0.036931,0.025025,0.688312
-Qwen3-Embedding-0.6B,stop words only,notesaroma,585,0.049956,0.051903,-0.001948,-0.029890,0.027449,0.888112
-Qwen3-Embedding-0.6B,stop words only,flavor_notes,585,0.045034,0.046631,-0.001597,-0.032042,0.029065,0.908092
-Qwen3-Embedding-0.6B,synonym variants only,notesaroma,587,0.048327,0.050391,-0.002064,-0.029281,0.027184,0.883117
-Qwen3-Embedding-0.6B,synonym variants only,flavor_notes,587,0.043677,0.045129,-0.001452,-0.031608,0.027467,0.907093
-Qwen3-Embedding-0.6B,lemma + stop words,notesaroma,579,0.050873,0.051124,-0.000251,-0.029791,0.031846,0.982018
-Qwen3-Embedding-0.6B,lemma + stop words,flavor_notes,579,0.044827,0.050378,-0.005551,-0.037415,0.025937,0.689311
-Qwen3-Embedding-0.6B,full,notesaroma,560,0.052250,0.050207,0.002043,-0.026457,0.033402,0.883117
-Qwen3-Embedding-0.6B,full,flavor_notes,560,0.046290,0.051498,-0.005208,-0.037281,0.025152,0.701299
-bge-small-en-v1.5,raw,notesaroma,601,0.023004,0.023007,-0.000003,-0.016066,0.017768,1.000000
-bge-small-en-v1.5,raw,flavor_notes,601,0.019673,0.013745,0.005928,-0.008367,0.020614,0.333666
-bge-small-en-v1.5,full,notesaroma,560,0.027245,0.028538,-0.001293,-0.018809,0.017316,0.889111
-bge-small-en-v1.5,full,flavor_notes,560,0.026292,0.020671,0.005621,-0.011326,0.022593,0.408591
-all-mpnet-base-v2,raw,notesaroma,601,0.030512,0.026648,0.003864,-0.012549,0.022552,0.642358
-all-mpnet-base-v2,raw,flavor_notes,601,0.024333,0.022980,0.001352,-0.017492,0.019521,0.868132
-all-mpnet-base-v2,full,notesaroma,560,0.032042,0.029419,0.002622,-0.014826,0.021326,0.744256
-all-mpnet-base-v2,full,flavor_notes,560,0.025852,0.027606,-0.001753,-0.022145,0.016870,0.821179
+Qwen3-Embedding-0.6B,raw,notesaroma,600,0.061560,0.068238,-0.006678,-0.038112,0.031445,0.702298
+Qwen3-Embedding-0.6B,raw,flavor_notes,600,0.051004,0.053402,-0.002398,-0.035048,0.031281,0.866134
+Qwen3-Embedding-0.6B,spelling only,notesaroma,597,0.062864,0.069258,-0.006394,-0.038004,0.031173,0.726274
+Qwen3-Embedding-0.6B,spelling only,flavor_notes,597,0.052213,0.055100,-0.002887,-0.035497,0.031350,0.842158
+Qwen3-Embedding-0.6B,lemma only,notesaroma,592,0.059443,0.067114,-0.007672,-0.039883,0.029291,0.655345
+Qwen3-Embedding-0.6B,lemma only,flavor_notes,592,0.048626,0.057270,-0.008644,-0.041096,0.023003,0.564436
+Qwen3-Embedding-0.6B,stop words only,notesaroma,584,0.059801,0.067615,-0.007815,-0.038924,0.028362,0.636364
+Qwen3-Embedding-0.6B,stop words only,flavor_notes,584,0.050771,0.054943,-0.004172,-0.036956,0.029324,0.799201
+Qwen3-Embedding-0.6B,synonym variants only,notesaroma,586,0.057342,0.064789,-0.007447,-0.037569,0.027523,0.643357
+Qwen3-Embedding-0.6B,synonym variants only,flavor_notes,586,0.049161,0.052619,-0.003458,-0.034734,0.029175,0.818182
+Qwen3-Embedding-0.6B,lemma + stop words,notesaroma,578,0.060578,0.066613,-0.006035,-0.038929,0.031164,0.729271
+Qwen3-Embedding-0.6B,lemma + stop words,flavor_notes,578,0.050336,0.059159,-0.008823,-0.042086,0.024087,0.573427
+Qwen3-Embedding-0.6B,full,notesaroma,559,0.062245,0.065412,-0.003167,-0.035140,0.034467,0.841159
+Qwen3-Embedding-0.6B,full,flavor_notes,559,0.051981,0.060221,-0.008240,-0.040448,0.024839,0.578422
+Qwen3-Embedding-0.6B,full + descriptors only,notesaroma,524,0.067920,0.067669,0.000250,-0.033752,0.040021,0.988012
+Qwen3-Embedding-0.6B,full + descriptors only,flavor_notes,524,0.056521,0.062611,-0.006090,-0.039654,0.028044,0.703297
+bge-small-en-v1.5,raw,notesaroma,600,0.027814,0.028635,-0.000820,-0.020435,0.021182,0.935065
+bge-small-en-v1.5,raw,flavor_notes,600,0.022396,0.017685,0.004711,-0.010459,0.020831,0.481518
+bge-small-en-v1.5,full,notesaroma,559,0.032358,0.035054,-0.002695,-0.023293,0.020369,0.790210
+bge-small-en-v1.5,full,flavor_notes,559,0.028847,0.025012,0.003835,-0.014767,0.021685,0.593407
+bge-small-en-v1.5,full + descriptors only,notesaroma,524,0.035077,0.036880,-0.001803,-0.022763,0.021053,0.877123
+bge-small-en-v1.5,full + descriptors only,flavor_notes,524,0.030513,0.026655,0.003858,-0.015295,0.022601,0.602398
+all-mpnet-base-v2,raw,notesaroma,600,0.037573,0.035436,0.002137,-0.016090,0.024628,0.840160
+all-mpnet-base-v2,raw,flavor_notes,600,0.028493,0.029151,-0.000659,-0.022584,0.019247,0.949051
+all-mpnet-base-v2,full,notesaroma,559,0.039433,0.038487,0.000945,-0.019599,0.024810,0.924076
+all-mpnet-base-v2,full,flavor_notes,559,0.029203,0.033875,-0.004671,-0.026589,0.015117,0.611389
+all-mpnet-base-v2,full + descriptors only,notesaroma,524,0.042233,0.041342,0.000891,-0.020736,0.025663,0.940060
+all-mpnet-base-v2,full + descriptors only,flavor_notes,524,0.031916,0.034175,-0.002259,-0.026274,0.019992,0.812188

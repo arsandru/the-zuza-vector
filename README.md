@@ -12,10 +12,10 @@ From the repository root: `python3 irr/semantic_irr.py` (defaults: 2000 permutat
 
 | Field | Stimulation | Sham |
 |---|---|---|
-| notesaroma | 0.052 [0.026, 0.081] | 0.050 [0.029, 0.074] |
-| flavor_notes | 0.046 [0.026, 0.072] | 0.052 [0.026, 0.083] |
+| notesaroma | 0.062 [0.033, 0.093] | 0.066 [0.040, 0.092] |
+| flavor_notes | 0.052 [0.030, 0.080] | 0.060 [0.031, 0.093] |
 
-Agreement is above chance but very low: participants' descriptors are barely closer to each other for the same sample than for different samples. Thresholded versions are in `irr/outputs/semantic_irr_report.md`. The earlier run with bge-small and all-mpnet (no cleaning beyond crude lemmatisation) gave 0.016 to 0.029; the scale of kappa depends on the embedding, so compare across conditions and fields within one model.
+Agreement is above chance but very low: participants' descriptors are barely closer to each other for the same sample than for different samples. Thresholded versions are in `irr/outputs/semantic_irr_report.md`. The scale of kappa depends on the embedding (bge-small and all-mpnet give about 0.02 to 0.04), so compare across conditions and fields within one model. "n\\a" (not available) answers are treated as missing, not as a descriptor (see Corrections).
 
 ## Stimulation vs sham (exploratory)
 
@@ -23,14 +23,19 @@ Agreement is above chance but very low: participants' descriptors are barely clo
 
 | Field | Stimulation | Sham | Delta [95% CI] | p (perm) | p (Holm) |
 |---|---|---|---|---|---|
-| notesaroma | 0.052 | 0.050 | +0.002 [-0.025, 0.032] | 0.88 | 1.0 |
-| flavor_notes | 0.046 | 0.051 | -0.005 [-0.035, 0.025] | 0.74 | 1.0 |
+| notesaroma | 0.062 | 0.065 | -0.003 [-0.035, 0.032] | 0.86 | 1.0 |
+| flavor_notes | 0.052 | 0.060 | -0.008 [-0.040, 0.023] | 0.60 | 1.0 |
 
-No evidence of a difference in between-participant agreement; the intervals are about +/-0.03 around zero, against kappas of about 0.05.
+No evidence of a difference in between-participant agreement; the intervals are about +/-0.03 around zero, against kappas of about 0.06.
 
 ### Does cleaning or the model drive it?
 
-`python3 irr/cleaning_sensitivity.py` repeats the comparison with each cleaning step on or off (raw, spelling only, lemma only, stop words only, synonym variants only, lemma + stop words, full) under Qwen, and with raw and full cleaning under bge-small and all-mpnet. Table: `irr/outputs/cleaning_sensitivity.md`. In all 22 runs the difference is between -0.006 and +0.006 and every interval includes zero (p from 0.33 to 1.00). The sign of the `notesaroma` difference flips between runs (raw Qwen -0.001, full Qwen +0.002, mpnet +0.003 to +0.004) at a size far below its interval of about +/-0.03, so the apparent reversal is noise around zero, not an effect of the cleaning. Cleaning does not change kappa within Qwen (0.048 to 0.053 for `notesaroma`); the model does (bge and mpnet about 0.02 to 0.03).
+`python3 irr/cleaning_sensitivity.py` repeats the comparison with each cleaning step on or off (raw, spelling only, lemma only, stop words only, synonym variants only, lemma + stop words, full), with a "descriptors only" variant that also drops words that are not aroma or flavor descriptors (comparison, intensity, evaluation and mouthfeel words such as more, less, strong, thinner, better, bad, watery; a descriptor left empty becomes missing), and with raw, full and descriptors-only cleaning under bge-small and all-mpnet. Table: `irr/outputs/cleaning_sensitivity.md`. In every run the stimulation vs sham difference is within about +/-0.01 and every interval includes zero; its sign changes between runs, so it is noise around zero. Cleaning changes kappa little within a model (Qwen `notesaroma`: 0.059 to 0.068); descriptors only raises it slightly (0.068 and 0.068 for `notesaroma`, 0.057 and 0.063 for `flavor_notes`), so non-descriptor words added a little noise but did not create or hide a condition difference. The model changes the scale (bge and mpnet about 0.03 to 0.04).
+
+## Corrections
+
+- A first version embedded the 67 "n\a" non-responses (41 in `notesaroma`, 26 in `flavor_notes`) as if they were a descriptor, so they counted as perfect agreement between participants. They are now missing. All kappas and comparisons above come from the corrected run; earlier numbers (kappa about 0.05, differences +0.002 and -0.005) were from the uncorrected version.
+- Cleaned descriptors that consist only of stop words (for example "same as before") still fall back to their raw text in the default pipeline; the descriptors-only variant makes them missing.
 
 ## Caveats
 
