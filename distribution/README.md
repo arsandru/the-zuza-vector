@@ -23,6 +23,21 @@ Run from the repository root: `python3 distribution/jsd_by_level.py` (10000 swap
 
 Reading: no distribution difference survives correction. The one nominal result is `notesaroma` at the family level (p = 0.048, Holm 0.29), where sham has more floral (8.1% vs 4.4% of descriptors) and green/vegetative (8.1% vs 4.4%), and stimulation more sweet (13.1% vs 8.5%); this is one test of six and is descriptive. Raw distances rise with the number of nodes mostly through the sparse-count bias (the null mean rises with them), which is why the excess, not the raw distance, is the comparison across levels. Every node's counts, proportions and contribution to the divergence are in `outputs/jsd_node_proportions.csv`.
 
+## Family level by tasting (repeated_ratings)
+
+`python3 distribution/jsd_by_level.py --levels 1 --stratify repeated_ratings` repeats the family-level analysis separately within each repeated tasting (1, 2, 3; the coffee cools from tasting 1 to 3), with the swap test acting within each tasting; Holm over the 6 tests. Output: `outputs/jsd_by_level_by_repeated_ratings_levels1.csv` and `jsd_node_proportions_by_repeated_ratings_levels1.csv`. Counts per tasting are about 90 to 130 per condition, so the distance is dominated by the sparse-count bias and only the excess over the null is informative.
+
+| Field | Tasting | Counts (stim / sham) | JS distance | Null mean (p95) | Excess | p | Holm p |
+|---|---:|---|---:|---|---:|---:|---:|
+| notesaroma | 1 | 117 / 110 | 0.106 | 0.117 (0.165) | -0.011 | 0.65 | 1.0 |
+| notesaroma | 2 | 95 / 94 | 0.149 | 0.144 (0.214) | +0.005 | 0.43 | 1.0 |
+| notesaroma | 3 | 86 / 91 | 0.200 | 0.149 (0.212) | +0.051 | 0.086 | 0.52 |
+| flavor_notes | 1 | 130 / 108 | 0.160 | 0.129 (0.185) | +0.031 | 0.17 | 0.86 |
+| flavor_notes | 2 | 101 / 101 | 0.095 | 0.132 (0.192) | -0.037 | 0.86 | 1.0 |
+| flavor_notes | 3 | 121 / 105 | 0.114 | 0.122 (0.176) | -0.009 | 0.59 | 1.0 |
+
+No tasting shows a family-level difference after correction. The largest excess is `notesaroma` at tasting 3 (p = 0.086, Holm 0.52): stimulation has more sour/fermented descriptors (11.6% vs 4.4%) and sham more floral (9.9% vs 3.5%) and green/vegetative (8.8% vs 3.5%); the counts are small (10 vs 4, 3 vs 9, 3 vs 8), so this is descriptive. The unstratified family result (p = 0.048 for `notesaroma`, Holm 0.29) is not carried by one tasting: its excess is spread over tastings 2 and 3 and absent at tasting 1.
+
 ## Cosine mapping (sensitivity)
 
 `python3 distribution/validate_cosine_mapping.py` checks how well cosine similarity to category prototypes (Qwen, aroma/flavor instruction) recovers the manual mapping; `python3 distribution/jsd_by_level.py --mapping cosine` re-runs the analysis with it. The prototype of a category is the mean embedding of its family name, its own name and its level-3 terms. The ten words with no wheel home (butter, cream, ripe, plane, milk, rusty, peppermint, cookie, iron, fat) are set to `5_other` by hand in `data/sca_aliases.csv`, so no threshold is needed. Exact wheel terms are unchanged; the other alias words are re-assigned to the nearest category, the family is that category's parent, and since they are resolved to a category only they are left out at level 3.

@@ -9,12 +9,14 @@ of that level's distributions; the counts kept are reported.
 Statistic: Jensen-Shannon distance (square root of the base-2 JS divergence, 0 = identical, 1 = disjoint) between the pooled stimulation
 and sham distributions. Sparse counts bias it upward, so the reference is a paired permutation test: every participant's stimulation and
 sham descriptor sets are swapped with probability 1/2 (n = --n-perm); p = share of swaps with a distance at least as large (+1 correction),
-and the excess over the mean swapped distance is reported. Holm over the 6 tests (3 levels x 2 fields).
+and the excess over the mean swapped distance is reported. Holm over all tests of the run (levels x fields x strata). --levels and --stratify restrict the levels and split the data by a column
+(e.g. repeated_ratings; the swap then acts within each stratum).
 Outputs (distribution/outputs/): jsd_by_level.csv, jsd_node_proportions.csv (every node: counts, proportions, contribution to the divergence)
 """
 from __future__ import annotations
 
 import argparse
+import itertools
 from pathlib import Path
 
 import numpy as np
@@ -59,6 +61,8 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--n-perm", type=int, default=10000)
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--levels", default="1,2,3", help="wheel levels to analyse, e.g. 1 for families only")
+    ap.add_argument("--stratify", default="", help="analyse separately within each value of this column, e.g. repeated_ratings (Holm over all tests)")
     ap.add_argument("--mapping", choices=("manual", "cosine"), default="manual",
                     help="cosine: words mapped by the alias file to a wheel node (not to `5_other`) are re-assigned to the nearest wheel category by cosine "
                          "(prototype = family name, category name and terms; family = parent of the category; see validate_cosine_mapping.py); "
@@ -82,7 +86,10 @@ def main() -> None:
         for u in alias_units:
             cosine_cat[u] = cid[int(np.argmax(np.einsum("d,kd->k", Em[u], Pc)))]
     parts = sorted(df["subject"].unique())
-    suffix = "" if args.mapping == "manual" else "_cosine"
+    args.levels = [int(x) for x in args.levels.split(",")]
+    strata = sorted(df[args.stratify].unique()) if args.stratify else [None]
+    suffix = ("" if args.mapping == "manual" else "_cosine") + (f"_by_{args.stratify}" if args.stratify else "") + \
+             ("" if args.levels == [1, 2, 3] else "_levels" + "".join(map(str, args.levels)))
     rng = np.random.default_rng(args.seed)
     rows, prop_rows = [], []
 
@@ -98,10 +105,10 @@ def main() -> None:
                 ns = {cosine_cat.get(u, node) if src == "alias" else node for u, node, src in log if node != "IGNORE"}
             sets.append(ns or None)
         df["nset"] = sets
-        for k, lname in LEVELS.items():
+        for sv, (k, lname) in itertools.product(strata, [(k, v) for k, v in LEVELS.items() if k in args.levels]):
             counts = {}  # (participant, condition) -> {label: n}
             for r in df.itertuples():
-                if r.nset is None:
+                if r.nset is None or (args.stratify and getattr(r, args.stratify) != sv):
                     continue
                 labs = {level_label(n, k, children) for n in r.nset} - {None}
                 d = counts.setdefault((r.subject, r.condition), {})
@@ -119,16 +126,16 @@ def main() -> None:
             for b in range(args.n_perm):
                 sw = (rng.random(len(parts)) < 0.5)[:, None]
                 null[b] = js_distance(np.where(sw, B, A).sum(0), np.where(sw, A, B).sum(0))
-            rows.append(dict(field=fname, level=k, level_name=lname, n_nodes=len(vocab), count_stimulation=int(A.sum()), count_sham=int(B.sum()),
+            rows.append(dict(field=fname, stratum=sv if args.stratify else "all", level=k, level_name=lname, n_nodes=len(vocab), count_stimulation=int(A.sum()), count_sham=int(B.sum()),
                              js_distance=obs, swap_null_mean=null.mean(), swap_null_p95=np.percentile(null, 95), excess=obs - null.mean(),
                              p_perm=(1 + (null >= obs - 1e-12).sum()) / (1 + args.n_perm)))
             contrib = contributions(A.sum(0), B.sum(0))
             for lab in vocab:
                 i = ix[lab]
                 term = nodes[lab][1] if lab in nodes else lab
-                prop_rows.append(dict(field=fname, level=k, node=lab, term=term, count_stimulation=int(A[:, i].sum()), count_sham=int(B[:, i].sum()),
+                prop_rows.append(dict(field=fname, stratum=sv if args.stratify else "all", level=k, node=lab, term=term, count_stimulation=int(A[:, i].sum()), count_sham=int(B[:, i].sum()),
                                       prop_stimulation=A[:, i].sum() / A.sum(), prop_sham=B[:, i].sum() / B.sum(), js_contribution=contrib[i]))
-            print(f"{fname:12} level {k} {lname:8} nodes {len(vocab):3} counts {int(A.sum())}/{int(B.sum())}  JS {obs:.3f}  "
+            print(f"{fname:12} {args.stratify}={sv} level {k} {lname:8} nodes {len(vocab):3} counts {int(A.sum())}/{int(B.sum())}  JS {obs:.3f}  "
                   f"null {null.mean():.3f} (p95 {np.percentile(null, 95):.3f})  p = {rows[-1]['p_perm']:.3f}")
 
     res = pd.DataFrame(rows)
