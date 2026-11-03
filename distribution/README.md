@@ -36,7 +36,7 @@ Reading: no distribution difference survives correction. The one nominal result 
 | flavor_notes | 2 | 101 / 101 | 0.095 | 0.132 (0.192) | -0.037 | 0.86 | 1.0 |
 | flavor_notes | 3 | 121 / 105 | 0.114 | 0.122 (0.176) | -0.009 | 0.59 | 1.0 |
 
-No tasting shows a family-level difference after correction. The largest excess is `notesaroma` at tasting 3 (p = 0.086, Holm 0.52): stimulation has more sour/fermented descriptors (11.6% vs 4.4%) and sham more floral (9.9% vs 3.5%) and green/vegetative (8.8% vs 3.5%); the counts are small (10 vs 4, 3 vs 9, 3 vs 8), so this is descriptive. The unstratified family result (p = 0.048 for `notesaroma`, Holm 0.29) is not carried by one tasting: its excess is spread over tastings 2 and 3 and absent at tasting 1.
+No tasting shows a family-level difference after correction. The largest excess is `notesaroma` at tasting 3 (p = 0.086, Holm 0.52): stimulation has more sour/fermented descriptors (11.6% vs 4.4%) and sham more floral (9.9% vs 3.5%) and green/vegetative (8.8% vs 3.5%); the counts are small (10 vs 4, 3 vs 9, 3 vs 8), so this is descriptive. The unstratified family result (p = 0.048 for `notesaroma`, Holm 0.29) comes mostly from tasting 3 (excess +0.051; tastings 1 and 2: -0.011 and +0.005), which is itself not significant, so it is weak evidence at best.
 
 ## Cosine mapping (sensitivity)
 
