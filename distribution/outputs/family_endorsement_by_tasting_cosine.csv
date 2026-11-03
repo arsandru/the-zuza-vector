@@ -1,0 +1,55 @@
+field,family,tasting,n,mean_diff
+notesaroma,floral,1,30,-0.066667
+notesaroma,floral,2,30,-0.033333
+notesaroma,floral,3,30,-0.083333
+notesaroma,fruity,1,30,0.016667
+notesaroma,fruity,2,30,0.016667
+notesaroma,fruity,3,30,0.000000
+notesaroma,sour/fermented,1,30,0.033333
+notesaroma,sour/fermented,2,30,0.066667
+notesaroma,sour/fermented,3,30,0.083333
+notesaroma,green/vegetative,1,30,-0.066667
+notesaroma,green/vegetative,2,30,-0.066667
+notesaroma,green/vegetative,3,30,-0.066667
+notesaroma,"other (wheel family 5: chemical, papery/musty)",1,30,0.016667
+notesaroma,"other (wheel family 5: chemical, papery/musty)",2,30,0.016667
+notesaroma,"other (wheel family 5: chemical, papery/musty)",3,30,0.000000
+notesaroma,roasted,1,30,0.016667
+notesaroma,roasted,2,30,-0.033333
+notesaroma,roasted,3,30,-0.116667
+notesaroma,spices,1,30,-0.016667
+notesaroma,spices,2,30,-0.050000
+notesaroma,spices,3,30,-0.033333
+notesaroma,nutty/cocoa,1,30,0.033333
+notesaroma,nutty/cocoa,2,30,-0.033333
+notesaroma,nutty/cocoa,3,30,-0.066667
+notesaroma,sweet,1,30,0.100000
+notesaroma,sweet,2,30,0.083333
+notesaroma,sweet,3,30,0.033333
+flavor_notes,floral,1,27,0.129630
+flavor_notes,floral,2,27,0.018519
+flavor_notes,floral,3,27,-0.055556
+flavor_notes,fruity,1,27,0.000000
+flavor_notes,fruity,2,27,0.000000
+flavor_notes,fruity,3,27,-0.037037
+flavor_notes,sour/fermented,1,27,0.018519
+flavor_notes,sour/fermented,2,27,-0.111111
+flavor_notes,sour/fermented,3,27,0.092593
+flavor_notes,green/vegetative,1,27,-0.018519
+flavor_notes,green/vegetative,2,27,0.000000
+flavor_notes,green/vegetative,3,27,0.148148
+flavor_notes,"other (wheel family 5: chemical, papery/musty)",1,27,-0.018519
+flavor_notes,"other (wheel family 5: chemical, papery/musty)",2,27,0.018519
+flavor_notes,"other (wheel family 5: chemical, papery/musty)",3,27,0.055556
+flavor_notes,roasted,1,27,0.166667
+flavor_notes,roasted,2,27,0.055556
+flavor_notes,roasted,3,27,0.000000
+flavor_notes,spices,1,27,-0.018519
+flavor_notes,spices,2,27,0.000000
+flavor_notes,spices,3,27,-0.055556
+flavor_notes,nutty/cocoa,1,27,0.129630
+flavor_notes,nutty/cocoa,2,27,0.037037
+flavor_notes,nutty/cocoa,3,27,0.055556
+flavor_notes,sweet,1,27,-0.111111
+flavor_notes,sweet,2,27,0.018519
+flavor_notes,sweet,3,27,0.055556

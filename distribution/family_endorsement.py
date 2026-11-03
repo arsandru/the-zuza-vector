@@ -59,6 +59,10 @@ def main() -> None:
     ap.add_argument("--n-perm", type=int, default=10000)
     ap.add_argument("--n-boot", type=int, default=10000)
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--mapping", choices=("manual", "cosine"), default="manual",
+                    help="cosine (sensitivity): words that the alias file maps to a wheel node are re-assigned to the nearest wheel category by cosine "
+                         "(prototype = family name, category name and terms; family = parent of the category; see validate_cosine_mapping.py); "
+                         "exact wheel terms and the alias file's IGNORE entries are unchanged")
     args = ap.parse_args()
     rng = np.random.default_rng(args.seed)
 
@@ -68,6 +72,18 @@ def main() -> None:
     nf = len(fams)
     fname = {f: ("other (wheel family 5: chemical, papery/musty)" if f == "5_other" else nodes[f][1]) for f in fams}
     df = sir.load(sir.DEFAULT_INPUT)
+    cosine_cat = {}
+    if args.mapping == "cosine":
+        alias_units = sorted({u for col in sir.FIELDS for x in df[col] if not pd.isna(x) and str(x).strip() and (cl := sir.clean_descriptor(x))
+                              for u, node, src in wm.map_words(cl, auto, amap, False)[1] if src == "alias" and node not in ("IGNORE", "dropped")})
+        embed = wm.make_embedder(sir.DEFAULT_MODEL, sir.INSTRUCTION)
+        _, _, ctext, _ = wm.member_texts(nodes, "l123")
+        texts = sorted({tx for ts in ctext.values() for tx in ts} | set(alias_units))
+        Em = dict(zip(texts, embed(texts)))
+        cid, Pc = wm.prototypes(ctext, Em)
+        for u in alias_units:
+            cosine_cat[u] = cid[int(np.argmax(np.einsum("d,kd->k", Em[u], Pc)))]
+    suffix = "" if args.mapping == "manual" else "_cosine"
     subjects = sorted(df["subject"].unique())
     reps = sorted(df["repeated_ratings"].unique())
     P, R = len(subjects), len(reps)
@@ -86,7 +102,9 @@ def main() -> None:
             cl = sir.clean_descriptor(x)
             if cl is None:
                 continue
-            ns = wm.map_words(cl, auto, amap, False)[0]
+            ns, log = wm.map_words(cl, auto, amap, False)
+            if args.mapping == "cosine":
+                ns = {cosine_cat.get(u, node) if src == "alias" else node for u, node, src in log if node not in ("IGNORE", "dropped")}
             if not ns:
                 continue
             i, c, r = si[row.subject], ci[row.condition], reps.index(row.repeated_ratings)
@@ -154,10 +172,10 @@ def main() -> None:
     ints, bt = pd.DataFrame(ints), pd.DataFrame(bt)
 
     OUT_DIR.mkdir(exist_ok=True)
-    res.to_csv(OUT_DIR / "family_endorsement.csv", index=False, float_format="%.6f")
-    omn.to_csv(OUT_DIR / "family_endorsement_omnibus.csv", index=False, float_format="%.6f")
-    ints.to_csv(OUT_DIR / "family_endorsement_interaction.csv", index=False, float_format="%.6f")
-    bt.to_csv(OUT_DIR / "family_endorsement_by_tasting.csv", index=False, float_format="%.6f")
+    res.to_csv(OUT_DIR / f"family_endorsement{suffix}.csv", index=False, float_format="%.6f")
+    omn.to_csv(OUT_DIR / f"family_endorsement_omnibus{suffix}.csv", index=False, float_format="%.6f")
+    ints.to_csv(OUT_DIR / f"family_endorsement_interaction{suffix}.csv", index=False, float_format="%.6f")
+    bt.to_csv(OUT_DIR / f"family_endorsement_by_tasting{suffix}.csv", index=False, float_format="%.6f")
 
     md = ["# Family endorsement, stimulation vs sham (exploratory)", "",
           f"Participants = unit; {args.n_perm} sign-flip permutations, {args.n_boot} bootstrap draws, seed {args.seed}. Rates are endorsements per non-missing tasting.", "",
@@ -168,7 +186,7 @@ def main() -> None:
            for r in res.itertuples()]
     md += ["", "## Does the condition effect vary across tastings? (sum over families of the repeated-measures F)", "", "| Field | n | sum F | Null mean (p95) | p |", "|---|---:|---:|---|---:|"]
     md += [f"| {r.field} | {r.n} | {r.sum_F:.2f} | {r.null_mean:.2f} ({r.null_p95:.2f}) | {r.p_perm:.3f} |" for r in ints.itertuples()]
-    (OUT_DIR / "family_endorsement_report.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+    (OUT_DIR / f"family_endorsement_report{suffix}.md").write_text("\n".join(md) + "\n", encoding="utf-8")
     print("\n".join(md))
 
 

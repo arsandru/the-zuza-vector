@@ -33,6 +33,19 @@ Wheel family 5 is endorsed at 0.03 / 0.03 (aroma) and 0.08 / 0.08 (flavor), stim
 
 Reading: for aroma, the family profiles differ overall (omnibus p = 0.018, q = 0.035), with stimulation higher on sweet and sour/fermented and lower on floral and green/vegetative; flavor shows no difference. The omnibus is spread over several families: no single family reaches q below 0.25 and the intervals are wide. The aroma omnibus is sensitive to how words with no wheel home are treated: when they were instead kept as a separate catch-all category (so that a descriptor of only such words counted as "endorsed nothing", commit `dce7381`) it was p = 0.031, q = 0.062. With 32 to 33 participants and at most six tastings per condition, only differences of roughly 0.15 or more in endorsement rate can be detected reliably for a single family.
 
+### Cosine mapping (sensitivity of the main analysis)
+
+`python3 distribution/family_endorsement.py --mapping cosine` repeats the analysis with the cosine mapping described below (alias words re-assigned to the nearest wheel category, family = its parent; exact wheel terms unchanged). Outputs carry the suffix `_cosine`.
+
+| Mapping | Field | Omnibus T | p | q (BH, 2 fields) |
+|---|---|---:|---:|---:|
+| manual | notesaroma | 21.71 | 0.018 | 0.035 |
+| cosine | notesaroma | 19.88 | 0.028 | 0.057 |
+| manual | flavor_notes | 8.35 | 0.542 | 0.542 |
+| cosine | flavor_notes | 9.82 | 0.418 | 0.418 |
+
+The aroma pattern is the same under both mappings (stimulation higher on sweet, +0.08 in both, and sour/fermented; lower on floral and green/vegetative, -0.06 each) and no single family reaches q below 0.27, but the omnibus sits on either side of q = 0.05 depending on the mapping (0.035 manual, 0.057 cosine), so it is not robust to the mapping and should be reported as "suggestive for aroma, not robust". Flavor shows no difference under either. Tasting interaction: aroma p = 0.999; flavor p = 0.051 under the cosine mapping (0.18 under the manual one), a borderline result in one of four such tests that I would not interpret.
+
 ## Secondary: Jensen-Shannon distance between pooled distributions
 
 Compares pooled counts, so participants who wrote more weigh more, it cannot say which families differ, and it is blind to a change in how many families are endorsed. Kept as a descriptive summary; the endorsement analysis above is the one to report. `python3 distribution/jsd_by_level.py` (10000 swaps).
