@@ -104,7 +104,7 @@ def lemmatise(text: str) -> list[str]:
 def clean_descriptor(text: str, spelling: bool = True, lemma: bool = True, stop: bool = True, canon: bool = True,
                      descriptors_only: bool = True) -> str | None:
     """spelling standardisation -> lemmatisation -> stop-word removal -> lemma standardisation (synonym variants) -> unique tokens.
-    Each step can be switched off (used by cleaning_sensitivity.py); with all four off the text is only lowercased and whitespace-collapsed.
+    Each step can be switched off (all on in the analyses); with all four off the text is only lowercased and whitespace-collapsed.
     "n\\a" (not available) is a non-response and returns None (missing). descriptors_only (main pipeline) drops NON_DESCRIPTORS words and returns None
     when nothing is left; without it a descriptor with no words left falls back to its raw text."""
     if NA_RE.match(str(text).strip().lower()):
