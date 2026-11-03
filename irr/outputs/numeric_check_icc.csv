@@ -1,0 +1,31 @@
+kind,measure,version,condition,value,ci_low,ci_high,n_missing
+numeric,overall,"ICC(A,1) absolute agreement",stimulation,0.051509,0.012271,0.161942,3.000000
+numeric,overall,"ICC(C,1) consistency",stimulation,0.083537,0.020146,0.265683,3.000000
+numeric,overall,"ICC(A,1) absolute agreement",sham,0.069113,0.011670,0.227929,0.000000
+numeric,overall,"ICC(C,1) consistency",sham,0.088862,0.015652,0.340514,0.000000
+numeric,overall,"ICC(A,1) absolute agreement",stimulation - sham,-0.017605,-0.176826,0.105446,
+numeric,overall,"ICC(C,1) consistency",stimulation - sham,-0.005325,-0.251006,0.186000,
+numeric,fragrance,"ICC(A,1) absolute agreement",stimulation,0.024973,0.000009,0.177836,0.000000
+numeric,fragrance,"ICC(C,1) consistency",stimulation,0.033936,0.000012,0.227938,0.000000
+numeric,fragrance,"ICC(A,1) absolute agreement",sham,0.020523,0.000008,0.129670,0.000000
+numeric,fragrance,"ICC(C,1) consistency",sham,0.029981,0.000012,0.176595,0.000000
+numeric,fragrance,"ICC(A,1) absolute agreement",stimulation - sham,0.004449,-0.111294,0.158860,
+numeric,fragrance,"ICC(C,1) consistency",stimulation - sham,0.003954,-0.151071,0.206158,
+numeric,flavour,"ICC(A,1) absolute agreement",stimulation,0.034009,0.006044,0.130876,0.000000
+numeric,flavour,"ICC(C,1) consistency",stimulation,0.055882,0.008966,0.208203,0.000000
+numeric,flavour,"ICC(A,1) absolute agreement",sham,0.079274,0.028715,0.218672,0.000000
+numeric,flavour,"ICC(C,1) consistency",sham,0.131274,0.051181,0.313564,0.000000
+numeric,flavour,"ICC(A,1) absolute agreement",stimulation - sham,-0.045266,-0.182108,0.056827,
+numeric,flavour,"ICC(C,1) consistency",stimulation - sham,-0.075392,-0.253091,0.086478,
+semantic,notesaroma,consistency analogue (main semantic kappa),stimulation,0.069709,0.039704,0.103029,
+semantic,notesaroma,consistency analogue (main semantic kappa),sham,0.068782,0.038949,0.097206,
+semantic,notesaroma,consistency analogue (main semantic kappa),stimulation - sham,0.000927,-0.035052,0.038766,
+semantic,notesaroma,absolute-agreement analogue (pooled chance),stimulation,0.066537,0.027075,0.096096,
+semantic,notesaroma,absolute-agreement analogue (pooled chance),sham,0.066310,0.025469,0.092936,
+semantic,notesaroma,absolute-agreement analogue (pooled chance),stimulation - sham,0.000227,-0.038234,0.040332,
+semantic,flavor_notes,consistency analogue (main semantic kappa),stimulation,0.055582,0.031328,0.083396,
+semantic,flavor_notes,consistency analogue (main semantic kappa),sham,0.064352,0.033478,0.100288,
+semantic,flavor_notes,consistency analogue (main semantic kappa),stimulation - sham,-0.008770,-0.045430,0.026905,
+semantic,flavor_notes,absolute-agreement analogue (pooled chance),stimulation,0.053035,0.018124,0.073565,
+semantic,flavor_notes,absolute-agreement analogue (pooled chance),sham,0.062266,0.021414,0.087603,
+semantic,flavor_notes,absolute-agreement analogue (pooled chance),stimulation - sham,-0.009232,-0.044513,0.025277,

@@ -1,0 +1,5 @@
+descriptor_field,score,n_pairs,spearman_rho,ci_low,ci_high
+notesaroma,fragrance,5260,-0.009747,-0.071767,0.053051
+flavor_notes,flavour,5414,-0.020194,-0.081841,0.037665
+notesaroma,overall,5171,0.012151,-0.047724,0.064437
+flavor_notes,overall,5323,-0.033861,-0.109647,0.046290

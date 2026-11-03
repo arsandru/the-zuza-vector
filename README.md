@@ -25,6 +25,28 @@ Repurposed from `altered-states-review/analyses/clustering/archive/sensitivity/i
 
 Agreement is above chance but very low in both conditions, and there is no evidence of a difference between stimulation and sham (differences of -0.009 to +0.001, intervals about +/-0.03 around zero). The two spaces agree (centering leaves kappa where the plain space had it, because the chance correction already removes the baseline similarity). Figure: `irr/outputs/irr_plot.pdf` and `.png`. The kappa scale depends on the embedding, so compare conditions within a space, not kappa values across studies.
 
+## Check against the numeric ICC of the draft (`irr/numeric_check.py`)
+
+The draft ("October 2026 draft-3.md", section 3.5) reports ICC(A,1) of the overall rating (two-way random effects, absolute agreement of single ratings, REML; targets = coffee x repeated rating, raters = participants, separately per condition): sham 0.134 [0.027, 0.261], stimulation 0.091 [0.009, 0.209], difference -0.043. This check asks whether our semantic IRR tests approximately the same thing. Full tables: `irr/outputs/numeric_check_report.md`; `python3 irr/numeric_check.py`.
+
+**Design.** The raters (participants), the targets (coffee x repeated tasting, 6 per condition) and the per-condition analysis are the same. One difference: ICC(A,1) counts a rater's own offset (some people score high) as disagreement, whereas our semantic kappa removes each participant's habitual vocabulary through the chance model (each participant's descriptors shuffled across items), which corresponds to the consistency version ICC(C,1). We therefore also computed an absolute-agreement analogue (chance = all descriptors shuffled across participants and items): it is practically identical in this data (aroma 0.066 / 0.067, flavor 0.062 / 0.053, sham / stimulation, against 0.069 / 0.070 and 0.064 / 0.056), so this difference does not matter here.
+
+**Replication of the numeric ICC did not succeed.** With the overall rating in `data/tDCS.csv` (3 of 408 values are `n\a`), REML with crossed random effects for target and rater gives ICC(A,1) sham 0.069 [0.012, 0.228], stimulation 0.052 [0.012, 0.162], difference -0.018 (participant-bootstrap intervals); a classical ANOVA ICC on complete raters gives the same (0.069 and 0.042). That is about half the draft's point estimates, with heavily overlapping intervals and the same ordering (sham above stimulation). Redefining the targets as coffee only or repeated rating only does not reproduce 0.134 and 0.091 either. The difference could come from a different data version, different target or exclusion definitions, or the `intraclass` implementation; it needs the draft's analysis code or data subset to resolve, and until then the numeric numbers in the draft should not be assumed to match this repository.
+
+**Same level of agreement, same pattern.**
+
+| Measure | Sham | Stimulation | Stimulation - sham [95% CI] |
+|---|---|---|---|
+| numeric overall, ICC(A,1) | 0.069 | 0.052 | -0.018 [-0.177, +0.105] |
+| numeric fragrance, ICC(A,1) | 0.021 | 0.025 | +0.004 [-0.111, +0.159] |
+| numeric flavour, ICC(A,1) | 0.079 | 0.034 | -0.045 [-0.182, +0.057] |
+| semantic, aroma notes (kappa) | 0.069 | 0.070 | +0.001 [-0.035, +0.039] |
+| semantic, flavor notes (kappa) | 0.064 | 0.056 | -0.009 [-0.045, +0.027] |
+
+Both kinds of agreement are low (about 0.02 to 0.13 numerically, 0.055 to 0.07 semantically), neither shows a condition effect for aroma, and both point to slightly lower agreement under stimulation for flavor, with intervals that include zero. The semantic intervals are about four times narrower than the numeric ones.
+
+**But the two measures are not tied together at the pair level.** For pairs of participants rating the same tasting, the absolute difference in their score is not related to the similarity of their descriptors: Spearman rho = -0.01 [-0.07, +0.05] (fragrance vs aroma notes), -0.02 [-0.08, +0.04] (flavour vs flavor notes), +0.01 [-0.05, +0.06] and -0.03 [-0.11, +0.05] (overall vs aroma and flavor notes). So people who score a coffee alike do not detectably describe it alike. Numeric agreement here is itself very low (fragrance ICC about 0.02), which limits what such a correlation can show, but the evidence does not support treating the semantic and numeric agreement as measuring the same thing. They agree on the two broad conclusions (low agreement, no clear stimulation effect); what each measures differs (how similar the words are versus how close the scores are), and the text should describe the semantic result as agreement in descriptors, not as agreement in ratings.
+
 ## Distribution: wheel-family endorsement (`distribution/`)
 
 Do stimulation and sham endorse different flavor families? Descriptors (same cleaning as the IRR) are mapped to the 9 families of the SCA flavor wheel (`data/SCA flavor wheel.csv` plus the hand-written `data/sca_aliases.csv`; words with no wheel home are left out). At each tasting a participant endorses a family if any word of the descriptor maps to it (a tasting without a usable descriptor is missing). The unit is the participant: endorsement rate per condition, field and family (aroma n = 32, flavor n = 33 participants with usable tastings in both conditions), paired difference stimulation - sham. Omnibus test per field: sum over the 9 families of the squared paired t against a paired sign-flip permutation (each participant's two conditions swapped, 10000 times); per family: bootstrap 95% CI, sign-flip p, BH-FDR q over the 18 family tests; BH q over the 2 omnibus tests. `python3 distribution/family_endorsement.py`, then `python3 distribution/plot_distribution.py`. Method details, secondary analyses and caveats: `distribution/README.md`.
