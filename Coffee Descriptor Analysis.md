@@ -7,7 +7,7 @@ Agreement between participants and flavor-family profiles in the free-text notes
 ## Summary
 
 - **Agreement.** Participants who taste the same coffee write descriptors that are only slightly closer to each other than their own habitual vocabulary would predict (semantic kappa about 0.055 to 0.07, both conditions). We found no evidence that stimulation changes this: the stimulation minus sham differences are within 0.01 of zero, with 95% intervals of about plus or minus 0.04.
-- **Flavor families.** Flavor notes show no difference between conditions in which of the nine wheel families are endorsed (omnibus q = 0.54). Aroma notes show a difference in the overall profile (p = 0.018, q = 0.035), with more sweet and sour/fermented and less floral and green/vegetative descriptors under stimulation. No single family reaches q below 0.25, and the omnibus moves to q = 0.057 with an automatic word-to-wheel mapping and q = 0.062 when words without a wheel home are handled differently. We read it as suggestive, not robust.
+- **Flavor families.** Flavor notes show no difference between conditions in which of the nine wheel families are endorsed (omnibus q = 0.54). Aroma notes show a difference in the overall profile (p = 0.018, q = 0.035), with more sweet and sour/fermented and less floral and green/vegetative descriptors under stimulation. No single family reaches q below 0.25, and the omnibus keeps the same pattern but falls to a trend with an automatic word-to-wheel mapping (q = 0.057) and when words without a wheel home are kept as a category (q = 0.062).
 - **Link to the numeric ICC in the draft.** Numeric and semantic agreement are both low and show the same broad pattern (no clear stimulation effect). Two cautions: we could not reproduce the draft's numeric ICC from the data file (we obtain 0.069 and 0.052 for sham and stimulation, the draft reports 0.134 and 0.091), and the similarity of two participants' descriptors is not related to the closeness of their scores (Spearman rho between -0.03 and +0.01).
 - **Status.** All analyses are exploratory; the cleaning rules and the word-to-wheel mapping were written after looking at the data. Section 6 lists four points where we need input.
 
@@ -117,7 +117,7 @@ The aroma profile differs overall, with the pattern spread over several families
 ### Limitations
 
 - The analyses are exploratory. Spelling fixes, synonym merges, non-descriptor words and the alias table were chosen after viewing the data.
-- The aroma profile result depends on analysis choices (alias versus cosine mapping, handling of words without a wheel home).
+- The aroma profile result falls to a trend (q = 0.057 and 0.062) with the cosine mapping or when words without a wheel home are kept as a category.
 - The chance baseline shuffles descriptors across the 6 tastings of a condition; coffee and repeated tasting are not separated.
 - Participants are novices with condensed training; free-text notes have a small vocabulary and the embedding only approximates flavor similarity.
 - Power is limited (32 to 34 participants, at most six tastings per condition). Absence of a detected difference is not evidence of equal agreement or equal profiles.

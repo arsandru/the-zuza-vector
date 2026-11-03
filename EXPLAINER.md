@@ -196,7 +196,7 @@ The coffee cools across tastings 1 to 3. Could the condition effect change as it
 ### 5.10 Reading the result
 
 - Flavor notes: no difference in the family profiles (omnibus q = 0.54).
-- Aroma notes: the omnibus is significant at FDR 5% (q = 0.035) with stimulation higher on sweet and sour/fermented and lower on floral and green/vegetative, **but** no single family reaches q below 0.25, the intervals are wide, the omnibus moves to q = 0.057 with the cosine mapping, and to 0.062 when no-home words are kept as a category. So we describe it as suggestive and not robust, and we make no claims about individual families.
+- Aroma notes: the omnibus is significant at FDR 5% (q = 0.035) with stimulation higher on sweet and sour/fermented and lower on floral and green/vegetative, **but** no single family reaches q below 0.25, the intervals are wide, the omnibus keeps the same pattern but falls to a trend with the cosine mapping (q = 0.057) and when no-home words are kept as a category (q = 0.062). We make no claims about individual families.
 - The effect does not detectably vary across the three tastings.
 
 Figure: `distribution/outputs/distribution_plot.png`, a radar plot with the 9 families as axes and one polygon per condition (radius = mean endorsement rate), aroma left and flavor right. The plot is descriptive: polygons that look different are not necessarily different, and the caption reports the tests.
@@ -214,11 +214,11 @@ Can say:
 - Participants' descriptors for the same coffee agree only slightly more than their habitual vocabulary would predict, in both conditions.
 - We found no evidence that stimulation changes this agreement.
 - For flavor notes we found no evidence of a difference in the families endorsed.
-- For aroma notes there is a suggestive overall difference in the family profile (stimulation more sweet and sour, less floral and green) that depends on analysis choices and cannot be pinned on any single family.
+- For aroma notes there is a suggestive overall difference in the family profile (stimulation more sweet and sour, less floral and green) that falls to a trend under the cosine mapping or when no-home words are kept, and cannot be pinned on any single family.
 
 Cannot say:
 
-- That stimulation changes aroma perception. The data are free-text descriptors, the analysis is exploratory, and the aroma result is fragile.
+- That stimulation changes aroma perception. The data are free-text descriptors, the analysis is exploratory, and the aroma result is a trend under two of the alternative mappings.
 - That conditions do not differ ("no evidence" is not "evidence of no difference"; with 32 to 34 participants only fairly large effects can be detected).
 - Anything about individual families or individual words.
 

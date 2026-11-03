@@ -46,7 +46,7 @@ Reading: for aroma, the family profiles differ overall (omnibus p = 0.018, q = 0
 | manual | flavor_notes | 8.35 | 0.542 | 0.542 |
 | cosine | flavor_notes | 9.82 | 0.418 | 0.418 |
 
-The aroma pattern is the same under both mappings (stimulation higher on sweet, +0.08 in both, and sour/fermented; lower on floral and green/vegetative, -0.06 each) and no single family reaches q below 0.27, but the omnibus sits on either side of q = 0.05 depending on the mapping (0.035 manual, 0.057 cosine), so it is not robust to the mapping and should be reported as "suggestive for aroma, not robust". Flavor shows no difference under either. Tasting interaction: aroma p = 0.999; flavor p = 0.051 under the cosine mapping (0.18 under the manual one), a borderline result in one of four such tests that I would not interpret.
+The aroma pattern is the same under both mappings (stimulation higher on sweet, +0.08 in both, and sour/fermented; lower on floral and green/vegetative, -0.06 each) and no single family reaches q below 0.27, but the omnibus is q = 0.035 with the manual mapping and a trend with the cosine mapping (q = 0.057). Flavor shows no difference under either. Tasting interaction: aroma p = 0.999; flavor p = 0.051 under the cosine mapping (0.18 under the manual one), a borderline result in one of four such tests that I would not interpret.
 
 ## Secondary: Jensen-Shannon distance between pooled distributions
 

@@ -30,7 +30,7 @@ Remote: https://github.com/arsandru/the-zuza-vector (private, branch `main`, loc
 ## Known issues and caveats
 
 - **`data/sca_aliases.csv` is my draft** (77 rows: 61 map generic words and near-synonyms to a wheel node, 16 are IGNORE: colour and mouthfeel words and the ten no-home words). It has not been reviewed by the user; `distribution/outputs/cosine_mapping_validation.md` lists where the cosine rule disagrees. It determines the distribution results, so it should be checked.
-- The aroma omnibus depends on small choices (manual vs cosine mapping, handling of no-home words); keep it labelled exploratory and suggestive.
+- The aroma omnibus keeps its pattern but falls to a trend with the cosine mapping (q = 0.057) or when no-home words are kept as a category (q = 0.062); keep it labelled exploratory.
 - Cleaning rules (spelling fixes, synonym variants, filler and non-descriptor word lists) were written after viewing the data.
 - Chance baseline shuffles across the 6 items of a condition; items are not split into coffee and repeat. Power: single-family differences below about 0.15 are not detectable with 32 to 33 participants.
 - Stale code that is harmless: `clean_descriptor` in `irr/semantic_irr.py` still has ablation switches (all on in the analyses); `distribution/wheel_mapping.py` still defines `OTHER = "unmapped"` and `jsd_by_level.py` a guard for it (no longer produced); `label_matrix` and `pair_stats` keep an unused threshold argument.
