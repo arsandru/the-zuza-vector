@@ -17,10 +17,20 @@ From the repository root: `python3 irr/semantic_irr.py` (defaults: 2000 permutat
 
 Agreement is above chance but very low: participants' descriptors are barely closer to each other for the same sample than for different samples. Thresholded versions are in `irr/outputs/semantic_irr_report.md`. The earlier run with bge-small and all-mpnet (no cleaning beyond crude lemmatisation) gave 0.016 to 0.029; the scale of kappa depends on the embedding, so compare across conditions and fields within one model.
 
+## Stimulation vs sham (exploratory)
+
+`python3 irr/compare_conditions.py` tests delta = kappa(stimulation) - kappa(sham) per field, same pipeline and model. All 34 participants contribute to both conditions, so the CI is a paired participant bootstrap (2000) and the p-value a permutation test that swaps each participant's stimulation and sham descriptor sets (2000). Holm over the two fields. Output: `irr/outputs/condition_comparison.csv`.
+
+| Field | Stimulation | Sham | Delta [95% CI] | p (perm) | p (Holm) |
+|---|---|---|---|---|---|
+| notesaroma | 0.052 | 0.050 | +0.002 [-0.025, 0.032] | 0.88 | 1.0 |
+| flavor_notes | 0.046 | 0.051 | -0.005 [-0.035, 0.025] | 0.74 | 1.0 |
+
+No evidence of a difference in between-participant agreement; the intervals are about +/-0.03 around zero, against kappas of about 0.05.
+
 ## Caveats
 
 - The flavour notes are the second text column, whose header in the file is `bitter, roasted`; it is called `flavor_notes` here.
 - Chance shuffles each participant's descriptors across the 6 items, so it keeps their vocabulary and removes item-specific agreement. Items are not split into coffee and repeat.
 - The spelling fixes, synonym variants and filler stop words were listed after viewing the data, so the cleaning is exploratory.
-- The stimulation vs sham difference in agreement is not tested.
 - `data/tDCS.csv` is participant data and is committed locally; decide before adding a remote.

@@ -19,7 +19,7 @@ Design (data/tDCS.csv): each participant tastes 2 coffees (Brasil, Kenya) x 3 re
    standardisation, spaCy lemmatisation, stop-word removal (negation and degree words kept), lemma standardisation of synonym variants;
    the raw -> cleaned map is written to cleaned_descriptors.csv.
  - Sensitivity: thresholded agreement (pair similarity >= t) with the same chance correction.
-Everything here is descriptive; the tDCS contrast between conditions is not tested.
+Everything here is descriptive; the stimulation vs sham comparison is in compare_conditions.py.
 
 Outputs (irr/outputs/): semantic_irr_summary.csv, semantic_irr_per_item.csv, semantic_irr_report.md, cleaned_descriptors.csv
 """
@@ -222,7 +222,7 @@ def main() -> None:
           f"- Cleaning (rules written after viewing the data): lowercase, {len(TYPO_FIXES)} spelling fixes, "
           "spaCy lemmatisation, stop-word removal, lemma standardisation (see script constants); "
           f"model {models[0]} with instruction {args.instruction.strip()!r}. Seed {args.seed}.",
-          "- Not tested: the stimulation vs sham difference.", "",
+          "- Stimulation vs sham: see compare_conditions.py (condition_comparison.csv).", "",
           "| Model | Field | Condition | Participants | Descriptors | Pairs | Observed | Expected | Semantic kappa | 95% CI | " + " | ".join(f"kappa t={c[-4:]}" for c in tcols) + " |",
           "|---|---|---|---:|---:|---:|---:|---:|---:|---:|" + "---:|" * len(tcols)]
     for _, r in sdf.iterrows():
