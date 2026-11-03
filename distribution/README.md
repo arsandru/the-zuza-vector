@@ -14,7 +14,7 @@ Check-all-that-apply design: at each tasting (2 coffees x 3 repeated tastings pe
 
 ### Result
 
-Figure: `outputs/distribution_plot.pdf` and `.png` (`python3 distribution/plot_distribution.py`): per family, the difference in endorsement rate with its 95% CI, manual mapping (main) and cosine mapping (sensitivity), omnibus p and q in the panel titles.
+Figure: `outputs/distribution_plot.pdf` and `.png` (`python3 distribution/plot_distribution.py`), a descriptive map in flavor-wheel space. The wheel vocabulary (83 terms and terminal categories, Qwen embeddings) is projected to the plane that best separates the 9 wheel families (discriminant analysis fitted on the wheel vocabulary only), and the words participants used that map to the wheel are projected into the same plane: area = occurrences, colour = share of stimulation tastings minus share of sham tastings containing the word, aroma and flavor panels. The caption reports the omnibus p and q (and the cosine-mapping q) and that no single family reaches q below 0.25; the map itself is not a test. Green/vegetative, sweet and nutty/cocoa overlap in this plane. The earlier forest plot of per-family differences with CIs is in git history (`c3c6bcd`); the same numbers are in `outputs/family_endorsement_report.md`.
 
 | Field | n | Omnibus T | Null mean (p95) | p | q (BH, 2 fields) |
 |---|---:|---:|---|---:|---:|
