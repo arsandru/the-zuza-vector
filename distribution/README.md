@@ -1,8 +1,41 @@
-# distribution: stimulation vs sham wheel-node distributions (exploratory)
+# distribution: do stimulation and sham endorse different wheel-family profiles? (exploratory)
 
-Does the mix of aroma and flavor descriptors differ between stimulation and sham? Descriptors are cleaned (main pipeline of `irr/`) and mapped to the SCA flavor wheel (`wheel_mapping.py`, `data/SCA flavor wheel.csv`, `data/sca_aliases.csv`); the distributions of wheel nodes are compared at each level with the Jensen-Shannon distance.
+Descriptors are cleaned (main pipeline of `irr/`) and mapped to the SCA flavor wheel (`wheel_mapping.py`, `data/SCA flavor wheel.csv`, `data/sca_aliases.csv`; words with no wheel home are set to `5_other` by hand, which is also wheel family 5).
 
-Run from the repository root: `python3 distribution/jsd_by_level.py` (10000 swaps, seed 42). The docstring defines the method.
+## Main analysis: family endorsement (`family_endorsement.py`)
+
+Run from the repository root: `python3 distribution/family_endorsement.py` (10000 sign-flip permutations and bootstrap draws, seed 42). The docstring defines the method.
+
+Check-all-that-apply design: at each tasting (2 coffees x 3 repeated tastings per condition) a participant endorses a family if any of the descriptor's words maps to it; a tasting without a descriptor ("n\\a") is missing, not "not endorsed". The unit is the participant: endorsement rate = endorsed / non-missing tastings, per condition, field and family; paired difference d = stimulation - sham, with participants who have no usable tasting in a condition left out of that field (aroma n = 32, flavor n = 33).
+
+1. Omnibus per field: T = sum over the 9 families of the squared paired t, judged against a paired sign-flip permutation (each participant's stimulation and sham labels swapped with probability 1/2). Holm over the 2 fields.
+2. Per family: mean difference in endorsement rate with a participant-bootstrap 95% CI, unadjusted sign-flip p, and a max-|t| adjusted p over all 18 family tests (both fields together), which controls the family-wise error rate.
+3. Does the condition effect vary across the 3 tastings? Sum over families of the repeated-measures F of the per-tasting difference, null from permuting tasting labels within participant (participants with all three tastings usable: aroma 30, flavor 27).
+
+### Result
+
+| Field | n | Omnibus T | Null mean (p95) | p | Holm p |
+|---|---:|---:|---|---:|---:|
+| notesaroma | 32 | 19.94 | 9.69 (18.62) | 0.035 | 0.070 |
+| flavor_notes | 33 | 8.38 | 9.64 (18.45) | 0.54 | 0.54 |
+
+Per family, difference in endorsement rate (stimulation - sham) with its 95% CI and p (max-t adjusted p in brackets); only the larger or nominally significant ones are listed here, all are in `outputs/family_endorsement_report.md`:
+
+| Field | Family | Stimulation | Sham | Difference [95% CI] | p (max-t) |
+|---|---|---:|---:|---|---:|
+| notesaroma | sweet | 0.22 | 0.14 | +0.08 [+0.01, +0.15] | 0.040 (0.48) |
+| notesaroma | floral | 0.07 | 0.13 | -0.06 [-0.12, -0.01] | 0.040 (0.39) |
+| notesaroma | green/vegetative | 0.07 | 0.13 | -0.06 [-0.12, -0.00] | 0.071 (0.71) |
+| notesaroma | sour/fermented | 0.16 | 0.11 | +0.05 [-0.00, +0.11] | 0.100 (0.79) |
+| flavor_notes | roasted | 0.29 | 0.21 | +0.08 [-0.00, +0.16] | 0.067 (0.70) |
+
+Tasting interaction: aroma sum F = 3.2 (null mean 9.3), p = 0.995; flavor sum F = 12.0 (null mean 9.4), p = 0.19, so there is no evidence that the condition effect differs between tastings.
+
+Reading: for aroma, the families differ overall at a nominal level (p = 0.035; Holm over the two fields 0.070), with stimulation higher on sweet and lower on floral and green/vegetative, but no single family survives the family-wise correction (smallest max-t p = 0.39) and the intervals are wide. Flavor shows no difference. With 32 to 33 participants and at most six tastings per condition, only differences of roughly 0.15 or more in endorsement rate can be detected reliably, so this is "no clear evidence", not evidence of equal profiles.
+
+## Secondary: Jensen-Shannon distance between pooled distributions
+
+The earlier analysis below compares pooled counts, so participants who wrote more weigh more, it cannot say which families differ, and it is blind to a change in how many families are endorsed. It is kept as a descriptive summary; the endorsement analysis above is the one to report.
 
 ## Method in short
 
