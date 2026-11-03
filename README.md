@@ -28,6 +28,10 @@ Agreement is above chance but very low: participants' descriptors are barely clo
 
 No evidence of a difference in between-participant agreement; the intervals are about +/-0.03 around zero, against kappas of about 0.05.
 
+### Does cleaning or the model drive it?
+
+`python3 irr/cleaning_sensitivity.py` repeats the comparison with each cleaning step on or off (raw, spelling only, lemma only, stop words only, synonym variants only, lemma + stop words, full) under Qwen, and with raw and full cleaning under bge-small and all-mpnet. Table: `irr/outputs/cleaning_sensitivity.md`. In all 22 runs the difference is between -0.006 and +0.006 and every interval includes zero (p from 0.33 to 1.00). The sign of the `notesaroma` difference flips between runs (raw Qwen -0.001, full Qwen +0.002, mpnet +0.003 to +0.004) at a size far below its interval of about +/-0.03, so the apparent reversal is noise around zero, not an effect of the cleaning. Cleaning does not change kappa within Qwen (0.048 to 0.053 for `notesaroma`); the model does (bge and mpnet about 0.02 to 0.03).
+
 ## Caveats
 
 - The flavour notes are the second text column, whose header in the file is `bitter, roasted`; it is called `flavor_notes` here.

@@ -88,17 +88,24 @@ def lemmatise(text: str) -> list[str]:
     return [(t.lemma_.lower(), t.text) for t in _NLP(text) if t.is_alpha]
 
 
-def clean_descriptor(text: str) -> str:
-    """spelling standardisation -> lemmatisation -> stop-word removal -> lemma standardisation (synonym variants) -> unique tokens."""
-    spelled = standardise_spelling(text)
+def clean_descriptor(text: str, spelling: bool = True, lemma: bool = True, stop: bool = True, canon: bool = True) -> str:
+    """spelling standardisation -> lemmatisation -> stop-word removal -> lemma standardisation (synonym variants) -> unique tokens.
+    Each step can be switched off (used by cleaning_sensitivity.py); with all four off the text is only lowercased and whitespace-collapsed."""
+    base = standardise_spelling(text) if spelling else re.sub(r"\s+", " ", str(text).strip().lower())
+    if not (lemma or stop or canon):
+        return base
+    pairs = lemmatise(base) if lemma else [(t, t) for t in re.findall(r"[a-z']+", base)]
     out = []
-    for lem, tok in lemmatise(spelled):
-        if tok in STOP_WORDS or lem in STOP_WORDS:
+    for lem, tok in pairs:
+        if stop and (tok in STOP_WORDS or lem in STOP_WORDS):
             continue
-        lem = LEMMA_CANON.get(KEEP_TOKEN.get(tok, lem), KEEP_TOKEN.get(tok, lem))
+        if lemma:
+            lem = KEEP_TOKEN.get(tok, lem)
+        if canon:
+            lem = LEMMA_CANON.get(lem, lem)
         if lem not in out:
             out.append(lem)
-    return " ".join(out) if out else spelled
+    return " ".join(out) if out else base
 
 
 def load(path: Path) -> pd.DataFrame:

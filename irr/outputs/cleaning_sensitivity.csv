@@ -1,0 +1,23 @@
+model,cleaning,field,n_unique,kappa_stimulation,kappa_sham,delta,ci_low,ci_high,p_perm
+Qwen3-Embedding-0.6B,raw,notesaroma,601,0.051007,0.052447,-0.001440,-0.029922,0.030621,0.912088
+Qwen3-Embedding-0.6B,raw,flavor_notes,601,0.044499,0.044935,-0.000436,-0.032617,0.029760,0.964036
+Qwen3-Embedding-0.6B,spelling only,notesaroma,598,0.052015,0.053201,-0.001186,-0.029429,0.030707,0.925075
+Qwen3-Embedding-0.6B,spelling only,flavor_notes,598,0.045585,0.046335,-0.000749,-0.033277,0.029948,0.959041
+Qwen3-Embedding-0.6B,lemma only,notesaroma,593,0.049944,0.051631,-0.001687,-0.030887,0.030523,0.902098
+Qwen3-Embedding-0.6B,lemma only,flavor_notes,593,0.043313,0.048698,-0.005385,-0.036931,0.025025,0.688312
+Qwen3-Embedding-0.6B,stop words only,notesaroma,585,0.049956,0.051903,-0.001948,-0.029890,0.027449,0.888112
+Qwen3-Embedding-0.6B,stop words only,flavor_notes,585,0.045034,0.046631,-0.001597,-0.032042,0.029065,0.908092
+Qwen3-Embedding-0.6B,synonym variants only,notesaroma,587,0.048327,0.050391,-0.002064,-0.029281,0.027184,0.883117
+Qwen3-Embedding-0.6B,synonym variants only,flavor_notes,587,0.043677,0.045129,-0.001452,-0.031608,0.027467,0.907093
+Qwen3-Embedding-0.6B,lemma + stop words,notesaroma,579,0.050873,0.051124,-0.000251,-0.029791,0.031846,0.982018
+Qwen3-Embedding-0.6B,lemma + stop words,flavor_notes,579,0.044827,0.050378,-0.005551,-0.037415,0.025937,0.689311
+Qwen3-Embedding-0.6B,full,notesaroma,560,0.052250,0.050207,0.002043,-0.026457,0.033402,0.883117
+Qwen3-Embedding-0.6B,full,flavor_notes,560,0.046290,0.051498,-0.005208,-0.037281,0.025152,0.701299
+bge-small-en-v1.5,raw,notesaroma,601,0.023004,0.023007,-0.000003,-0.016066,0.017768,1.000000
+bge-small-en-v1.5,raw,flavor_notes,601,0.019673,0.013745,0.005928,-0.008367,0.020614,0.333666
+bge-small-en-v1.5,full,notesaroma,560,0.027245,0.028538,-0.001293,-0.018809,0.017316,0.889111
+bge-small-en-v1.5,full,flavor_notes,560,0.026292,0.020671,0.005621,-0.011326,0.022593,0.408591
+all-mpnet-base-v2,raw,notesaroma,601,0.030512,0.026648,0.003864,-0.012549,0.022552,0.642358
+all-mpnet-base-v2,raw,flavor_notes,601,0.024333,0.022980,0.001352,-0.017492,0.019521,0.868132
+all-mpnet-base-v2,full,notesaroma,560,0.032042,0.029419,0.002622,-0.014826,0.021326,0.744256
+all-mpnet-base-v2,full,flavor_notes,560,0.025852,0.027606,-0.001753,-0.022145,0.016870,0.821179

@@ -24,6 +24,26 @@ def kappa_of(L, M, ids, n_perm, rng):
     return sir.kappa(sir.pair_stats(L, M, ids)[0], sir.expected(L, M, ids, n_perm, rng))
 
 
+def compare(A, B, M, rng, n_iter, perms, boot_perms):
+    """Paired comparison of kappa(A) - kappa(B): participant bootstrap CI and condition-swap permutation p."""
+    P = A.shape[0]
+    ids = np.arange(P)
+    ka, kb = kappa_of(A, M, ids, perms, rng), kappa_of(B, M, ids, perms, rng)
+    d_obs = ka - kb
+    boot = np.empty(n_iter)
+    for b in range(n_iter):
+        idx = rng.integers(0, P, P)
+        boot[b] = kappa_of(A[idx], M, idx, boot_perms, rng) - kappa_of(B[idx], M, idx, boot_perms, rng)
+    null = np.empty(n_iter)
+    for b in range(n_iter):
+        sw = rng.random(P) < 0.5
+        A2, B2 = np.where(sw[:, None], B, A), np.where(sw[:, None], A, B)
+        null[b] = kappa_of(A2, M, ids, boot_perms, rng) - kappa_of(B2, M, ids, boot_perms, rng)
+    p = (1 + (np.abs(null) >= abs(d_obs) - 1e-12).sum()) / (1 + n_iter)
+    lo, hi = np.nanpercentile(boot, [2.5, 97.5])
+    return dict(kappa_stimulation=ka, kappa_sham=kb, delta=d_obs, ci_low=lo, ci_high=hi, p_perm=p)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--input", type=Path, default=sir.DEFAULT_INPUT)
@@ -57,24 +77,11 @@ def main() -> None:
                 p0 = parts
             assert parts == p0, "participants differ between conditions"
         A, B = Ls["stimulation"], Ls["sham"]
-        P = len(p0)
-        ids = np.arange(P)
         rng = np.random.default_rng(args.seed)
-        ka, kb = kappa_of(A, M, ids, args.perms, rng), kappa_of(B, M, ids, args.perms, rng)
-        d_obs = ka - kb
-        boot = np.empty(args.n_iter)
-        for b in range(args.n_iter):
-            idx = rng.integers(0, P, P)
-            boot[b] = kappa_of(A[idx], M, idx, args.boot_perms, rng) - kappa_of(B[idx], M, idx, args.boot_perms, rng)
-        null = np.empty(args.n_iter)
-        for b in range(args.n_iter):
-            sw = rng.random(P) < 0.5
-            A2, B2 = np.where(sw[:, None], B, A), np.where(sw[:, None], A, B)
-            null[b] = kappa_of(A2, M, ids, args.boot_perms, rng) - kappa_of(B2, M, ids, args.boot_perms, rng)
-        p = (1 + (np.abs(null) >= abs(d_obs) - 1e-12).sum()) / (1 + args.n_iter)
-        lo, hi = np.nanpercentile(boot, [2.5, 97.5])
-        rows.append(dict(field=fname, n_participants=P, kappa_stimulation=ka, kappa_sham=kb, delta=d_obs, ci_low=lo, ci_high=hi, p_perm=p))
-        print(f"{fname:13} stim {ka:.3f}  sham {kb:.3f}  delta {d_obs:+.3f} [{lo:+.3f}, {hi:+.3f}]  p = {p:.3f}")
+        r = compare(A, B, M, rng, args.n_iter, args.perms, args.boot_perms)
+        rows.append(dict(field=fname, n_participants=A.shape[0], **r))
+        print(f"{fname:13} stim {r['kappa_stimulation']:.3f}  sham {r['kappa_sham']:.3f}  delta {r['delta']:+.3f} "
+              f"[{r['ci_low']:+.3f}, {r['ci_high']:+.3f}]  p = {r['p_perm']:.3f}")
     res = pd.DataFrame(rows)
     order = res["p_perm"].argsort().to_numpy()
     adj = np.empty(len(res))
