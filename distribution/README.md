@@ -23,6 +23,25 @@ Run from the repository root: `python3 distribution/jsd_by_level.py` (10000 swap
 
 Reading: no distribution difference survives correction. The one nominal result is `notesaroma` at the family level (p = 0.048, Holm 0.29), where sham has more floral (8.1% vs 4.4% of descriptors) and green/vegetative (8.1% vs 4.4%), and stimulation more sweet (13.1% vs 8.5%); this is one test of six and is descriptive. Raw distances rise with the number of nodes mostly through the sparse-count bias (the null mean rises with them), which is why the excess, not the raw distance, is the comparison across levels. Every node's counts, proportions and contribution to the divergence are in `outputs/jsd_node_proportions.csv`.
 
+## Cosine mapping (sensitivity)
+
+`python3 distribution/validate_cosine_mapping.py` checks how well cosine similarity to category prototypes (Qwen, aroma/flavor instruction) recovers the manual mapping; `python3 distribution/jsd_by_level.py --mapping cosine` re-runs the analysis with it. The prototype of a category is the mean embedding of its family name, its own name and its level-3 terms. The ten words with no wheel home (butter, cream, ripe, plane, milk, rusty, peppermint, cookie, iron, fat) are set to `5_other` by hand in `data/sca_aliases.csv`, so no threshold is needed. Exact wheel terms are unchanged; the other alias words are re-assigned to the nearest category, the family is that category's parent, and since they are resolved to a category only they are left out at level 3.
+
+Agreement with the manual mapping (all 109 mapped units; weighted by occurrences in brackets): category 0.71 (0.86), family 0.82 (0.93). Aliases alone: category 0.73 (0.93), family 0.83 (0.96). Adding the family name to the prototype changes little (category weighted 0.84 -> 0.86). Disagreements are mostly arguable (smoky as tobacco vs burnt, cherry and grape as berry, prune as other fruit, nutmeg as nutty), plus a few real mistakes (citric to citrus, raisin to cereal, bean to cereal). Full table: `outputs/cosine_mapping_validation.md`.
+
+Result with cosine mapping (`outputs/jsd_by_level_cosine.csv`; the manual result in brackets):
+
+| Field | Level | JS distance | Excess | p | Holm p |
+|---|---|---:|---:|---:|---:|
+| notesaroma | 1 family | 0.128 (0.129) | +0.038 (+0.040) | 0.052 (0.048) | 0.31 (0.29) |
+| notesaroma | 2 category | 0.171 (0.196) | +0.011 (+0.029) | 0.27 (0.078) | 1.0 (0.38) |
+| notesaroma | 3 term | 0.326 (0.331) | +0.011 (+0.011) | 0.33 (0.32) | 1.0 (0.95) |
+| flavor_notes | 1 family | 0.067 (0.062) | -0.008 (-0.012) | 0.63 (0.73) | 1.0 (0.95) |
+| flavor_notes | 2 category | 0.139 (0.152) | +0.002 (+0.005) | 0.46 (0.38) | 1.0 (0.95) |
+| flavor_notes | 3 term | 0.316 (0.339) | +0.022 (+0.032) | 0.16 (0.077) | 0.81 (0.38) |
+
+The conclusion does not depend on the mapping: no difference survives correction. The nominal family-level `notesaroma` result is borderline under both (p = 0.052 and 0.048), and the category-level trend in the manual mapping (p = 0.078) goes away with cosine mapping.
+
 ## Caveats
 
 - The wheel mapping and the alias file were written after viewing the data, so the analysis is exploratory. Unmapped words are in `5_other`, which is a real wheel family as well (chemical, papery/musty), so level 1 mixes them.

@@ -1,0 +1,169 @@
+field,level,node,term,count_stimulation,count_sham,prop_stimulation,prop_sham,js_contribution
+notesaroma,1,1_floral,floral,13,24,0.043624,0.080808,0.004070
+notesaroma,1,2_fruity,fruity,65,60,0.218121,0.202020,0.000223
+notesaroma,1,3_sour/fermented,sour/fermented,29,18,0.097315,0.060606,0.003106
+notesaroma,1,4_green/vegetative,green/vegetative,11,22,0.036913,0.074074,0.004576
+notesaroma,1,5_other,other,12,13,0.040268,0.043771,0.000053
+notesaroma,1,6_roasted,roasted,46,48,0.154362,0.161616,0.000060
+notesaroma,1,7_spices,spices,14,18,0.046980,0.060606,0.000624
+notesaroma,1,8_nutty/cocoa,nutty/cocoa,69,69,0.231544,0.232323,0.000000
+notesaroma,1,9_sweet,sweet,39,25,0.130872,0.084175,0.003687
+notesaroma,2,1_floral|1a_black tea,black tea,5,7,0.015198,0.021212,0.000360
+notesaroma,2,1_floral|1b_floral,floral,9,20,0.027356,0.060606,0.004648
+notesaroma,2,2_fruity|2a_berry,berry,14,13,0.042553,0.039394,0.000044
+notesaroma,2,2_fruity|2b_dried fruit,dried fruit,9,5,0.027356,0.015152,0.001282
+notesaroma,2,2_fruity|2c_other fruit,other fruit,33,33,0.100304,0.100000,0.000000
+notesaroma,2,2_fruity|2d_citrus fruit,citrus fruit,26,24,0.079027,0.072727,0.000094
+notesaroma,2,3_sour/fermented|3a_sour,sour,23,16,0.069909,0.048485,0.001406
+notesaroma,2,3_sour/fermented|3b_alcohol/fermented,alcohol/fermented,8,3,0.024316,0.009091,0.002597
+notesaroma,2,4_green/vegetative|4a_olive oil,olive oil,0,1,0.000000,0.003030,0.001515
+notesaroma,2,4_green/vegetative|4b_raw,raw,0,1,0.000000,0.003030,0.001515
+notesaroma,2,4_green/vegetative|4c_green/vegetative,green/vegetative,11,20,0.033435,0.060606,0.002872
+notesaroma,2,5_other|5a_chemical,chemical,1,1,0.003040,0.003030,0.000000
+notesaroma,2,5_other|5b_papery/musty,papery/musty,5,4,0.015198,0.012121,0.000125
+notesaroma,2,6_roasted|6a_cereal,cereal,11,11,0.033435,0.033333,0.000000
+notesaroma,2,6_roasted|6b_burnt,burnt,38,40,0.115502,0.121212,0.000050
+notesaroma,2,6_roasted|6c_tobacco,tobacco,0,3,0.000000,0.009091,0.004545
+notesaroma,2,7_spices|7a_brown spice,brown spice,13,15,0.039514,0.045455,0.000150
+notesaroma,2,7_spices|7b_pepper,pepper,1,2,0.003040,0.006061,0.000369
+notesaroma,2,7_spices|7c_pungent,pungent,0,1,0.000000,0.003030,0.001515
+notesaroma,2,8_nutty/cocoa|8a_cocoa,cocoa,28,33,0.085106,0.100000,0.000433
+notesaroma,2,8_nutty/cocoa|8b_nutty,nutty,52,49,0.158055,0.148485,0.000108
+notesaroma,2,9_sweet|9a_brown sugar,brown sugar,25,12,0.075988,0.036364,0.005150
+notesaroma,2,9_sweet|9b_vanilla,vanilla,5,6,0.015198,0.018182,0.000096
+notesaroma,2,9_sweet|9d_overall sweet,overall sweet,12,10,0.036474,0.030303,0.000206
+notesaroma,3,1_floral|1a_black tea,black tea,5,7,0.022936,0.035354,0.000961
+notesaroma,3,1_floral|1b_floral|chamomile,chamomile,0,2,0.000000,0.010101,0.005051
+notesaroma,3,1_floral|1b_floral|jasmine,jasmine,0,1,0.000000,0.005051,0.002525
+notesaroma,3,1_floral|1b_floral|rose,rose,2,3,0.009174,0.015152,0.000535
+notesaroma,3,2_fruity|2a_berry|blackberry,blackberry,1,2,0.004587,0.010101,0.000765
+notesaroma,3,2_fruity|2a_berry|blueberry,blueberry,1,0,0.004587,0.000000,0.002294
+notesaroma,3,2_fruity|2a_berry|raspberry,raspberry,0,6,0.000000,0.030303,0.015152
+notesaroma,3,2_fruity|2a_berry|strawberry,strawberry,3,1,0.013761,0.005051,0.001512
+notesaroma,3,2_fruity|2b_dried fruit|prune,prune,4,2,0.018349,0.010101,0.000875
+notesaroma,3,2_fruity|2b_dried fruit|raisin,raisin,2,1,0.009174,0.005051,0.000437
+notesaroma,3,2_fruity|2c_other fruit|cherry,cherry,4,1,0.018349,0.005051,0.002896
+notesaroma,3,2_fruity|2c_other fruit|coconut,coconut,4,1,0.018349,0.005051,0.002896
+notesaroma,3,2_fruity|2c_other fruit|grape,grape,1,0,0.004587,0.000000,0.002294
+notesaroma,3,2_fruity|2c_other fruit|peach,peach,2,2,0.009174,0.010101,0.000016
+notesaroma,3,2_fruity|2c_other fruit|pear,pear,6,4,0.027523,0.020202,0.000407
+notesaroma,3,2_fruity|2c_other fruit|pineapple,pineapple,0,1,0.000000,0.005051,0.002525
+notesaroma,3,2_fruity|2c_other fruit|pomergranate,pomegranate,1,0,0.004587,0.000000,0.002294
+notesaroma,3,2_fruity|2d_citrus fruit|grapefruit,grapefruit,7,3,0.032110,0.015152,0.002244
+notesaroma,3,2_fruity|2d_citrus fruit|lemon,lemon,4,7,0.018349,0.035354,0.001976
+notesaroma,3,2_fruity|2d_citrus fruit|lime,lime,6,4,0.027523,0.020202,0.000407
+notesaroma,3,2_fruity|2d_citrus fruit|orange,orange,4,5,0.018349,0.025253,0.000396
+notesaroma,3,3_sour/fermented|3b_alcohol/fermented|fermented,fermented,4,2,0.018349,0.010101,0.000875
+notesaroma,3,3_sour/fermented|3b_alcohol/fermented|overripe,overripe,1,0,0.004587,0.000000,0.002294
+notesaroma,3,3_sour/fermented|3b_alcohol/fermented|whiskey,whiskey,1,0,0.004587,0.000000,0.002294
+notesaroma,3,4_green/vegetative|4a_olive oil,olive oil,0,1,0.000000,0.005051,0.002525
+notesaroma,3,4_green/vegetative|4b_raw,raw,0,1,0.000000,0.005051,0.002525
+notesaroma,3,4_green/vegetative|4c_green/vegetative|dark green,dark green,1,0,0.004587,0.000000,0.002294
+notesaroma,3,4_green/vegetative|4c_green/vegetative|fresh,fresh,0,2,0.000000,0.010101,0.005051
+notesaroma,3,5_other|5a_chemical|bitter,bitter,1,0,0.004587,0.000000,0.002294
+notesaroma,3,5_other|5b_papery/musty|woody,woody,4,3,0.018349,0.015152,0.000110
+notesaroma,3,6_roasted|6a_cereal|grain,grain,1,5,0.004587,0.025253,0.005683
+notesaroma,3,6_roasted|6a_cereal|malt,malt,2,2,0.009174,0.010101,0.000016
+notesaroma,3,6_roasted|6b_burnt|asky,ashy,1,1,0.004587,0.005051,0.000008
+notesaroma,3,6_roasted|6b_burnt|brown/roast,brown/roast,21,24,0.096330,0.121212,0.001029
+notesaroma,3,6_roasted|6b_burnt|smoky,smoky,11,11,0.050459,0.055556,0.000088
+notesaroma,3,6_roasted|6c_tobacco,tobacco,0,3,0.000000,0.015152,0.007576
+notesaroma,3,7_spices|7a_brown spice|cinnamon,cinnamon,6,3,0.027523,0.015152,0.001312
+notesaroma,3,7_spices|7a_brown spice|clove,clove,4,3,0.018349,0.015152,0.000110
+notesaroma,3,7_spices|7a_brown spice|nutmeg,nutmeg,6,6,0.027523,0.030303,0.000048
+notesaroma,3,7_spices|7b_pepper,pepper,1,2,0.004587,0.010101,0.000765
+notesaroma,3,7_spices|7c_pungent,pungent,0,1,0.000000,0.005051,0.002525
+notesaroma,3,8_nutty/cocoa|8a_cocoa|chocolate,chocolate,19,21,0.087156,0.106061,0.000668
+notesaroma,3,8_nutty/cocoa|8a_cocoa|dark chocolate,dark chocolate,3,3,0.013761,0.015152,0.000024
+notesaroma,3,8_nutty/cocoa|8b_nutty|almond,almond,6,3,0.027523,0.015152,0.001312
+notesaroma,3,8_nutty/cocoa|8b_nutty|hazelnut,hazelnut,18,17,0.082569,0.085859,0.000023
+notesaroma,3,8_nutty/cocoa|8b_nutty|peanuts,peanuts,11,7,0.050459,0.035354,0.000964
+notesaroma,3,9_sweet|9a_brown sugar|carmelised,caramelized,12,5,0.055046,0.025253,0.004084
+notesaroma,3,9_sweet|9a_brown sugar|honey,honey,4,0,0.018349,0.000000,0.009174
+notesaroma,3,9_sweet|9a_brown sugar|maple-syrup,maple syrup,5,2,0.022936,0.010101,0.001847
+notesaroma,3,9_sweet|9a_brown sugar|molasses,molasses,1,1,0.004587,0.005051,0.000008
+notesaroma,3,9_sweet|9b_vanilla,vanilla,5,6,0.022936,0.030303,0.000369
+notesaroma,3,9_sweet|9d_overall sweet,overall sweet,12,10,0.055046,0.050505,0.000070
+flavor_notes,1,1_floral,floral,19,13,0.053824,0.041270,0.000600
+flavor_notes,1,2_fruity,fruity,91,90,0.257790,0.285714,0.000518
+flavor_notes,1,3_sour/fermented,sour/fermented,48,53,0.135977,0.168254,0.001237
+flavor_notes,1,4_green/vegetative,green/vegetative,16,10,0.045326,0.031746,0.000868
+flavor_notes,1,5_other,other,24,18,0.067989,0.057143,0.000339
+flavor_notes,1,6_roasted,roasted,52,40,0.147309,0.126984,0.000544
+flavor_notes,1,7_spices,spices,15,16,0.042493,0.050794,0.000267
+flavor_notes,1,8_nutty/cocoa,nutty/cocoa,65,54,0.184136,0.171429,0.000164
+flavor_notes,1,9_sweet,sweet,23,21,0.065156,0.066667,0.000006
+flavor_notes,2,1_floral|1a_black tea,black tea,6,7,0.015345,0.019444,0.000175
+flavor_notes,2,1_floral|1b_floral,floral,14,7,0.035806,0.019444,0.001774
+flavor_notes,2,2_fruity|2a_berry,berry,18,22,0.046036,0.061111,0.000768
+flavor_notes,2,2_fruity|2b_dried fruit,dried fruit,11,4,0.028133,0.011111,0.002753
+flavor_notes,2,2_fruity|2c_other fruit,other fruit,46,36,0.117647,0.100000,0.000517
+flavor_notes,2,2_fruity|2d_citrus fruit,citrus fruit,42,51,0.107417,0.141667,0.001704
+flavor_notes,2,3_sour/fermented|3a_sour,sour,43,49,0.109974,0.136111,0.001003
+flavor_notes,2,3_sour/fermented|3b_alcohol/fermented,alcohol/fermented,6,12,0.015345,0.033333,0.002455
+flavor_notes,2,4_green/vegetative|4a_olive oil,olive oil,1,0,0.002558,0.000000,0.001279
+flavor_notes,2,4_green/vegetative|4c_green/vegetative,green/vegetative,15,10,0.038363,0.027778,0.000614
+flavor_notes,2,5_other|5a_chemical,chemical,13,8,0.033248,0.022222,0.000796
+flavor_notes,2,5_other|5b_papery/musty,papery/musty,4,4,0.010230,0.011111,0.000013
+flavor_notes,2,6_roasted|6a_cereal,cereal,12,9,0.030691,0.025000,0.000210
+flavor_notes,2,6_roasted|6b_burnt,burnt,43,33,0.109974,0.091667,0.000600
+flavor_notes,2,7_spices|7a_brown spice,brown spice,12,11,0.030691,0.030556,0.000000
+flavor_notes,2,7_spices|7b_pepper,pepper,3,4,0.007673,0.011111,0.000228
+flavor_notes,2,7_spices|7c_pungent,pungent,0,2,0.000000,0.005556,0.002778
+flavor_notes,2,8_nutty/cocoa|8a_cocoa,cocoa,28,32,0.071611,0.088889,0.000672
+flavor_notes,2,8_nutty/cocoa|8b_nutty,nutty,47,36,0.120205,0.100000,0.000670
+flavor_notes,2,9_sweet|9a_brown sugar,brown sugar,18,14,0.046036,0.038889,0.000217
+flavor_notes,2,9_sweet|9b_vanilla,vanilla,2,2,0.005115,0.005556,0.000007
+flavor_notes,2,9_sweet|9d_overall sweet,overall sweet,7,7,0.017903,0.019444,0.000023
+flavor_notes,3,1_floral|1a_black tea,black tea,6,7,0.023529,0.029915,0.000276
+flavor_notes,3,1_floral|1b_floral|chamomile,chamomile,2,0,0.007843,0.000000,0.003922
+flavor_notes,3,1_floral|1b_floral|jasmine,jasmine,0,1,0.000000,0.004274,0.002137
+flavor_notes,3,1_floral|1b_floral|rose,rose,3,0,0.011765,0.000000,0.005882
+flavor_notes,3,2_fruity|2a_berry|blackberry,blackberry,5,3,0.019608,0.012821,0.000516
+flavor_notes,3,2_fruity|2a_berry|raspberry,raspberry,2,5,0.007843,0.021368,0.002347
+flavor_notes,3,2_fruity|2a_berry|strawberry,strawberry,3,5,0.011765,0.021368,0.001018
+flavor_notes,3,2_fruity|2b_dried fruit|prune,prune,6,1,0.023529,0.004274,0.005296
+flavor_notes,3,2_fruity|2b_dried fruit|raisin,raisin,1,0,0.003922,0.000000,0.001961
+flavor_notes,3,2_fruity|2c_other fruit|cherry,cherry,3,0,0.011765,0.000000,0.005882
+flavor_notes,3,2_fruity|2c_other fruit|coconut,coconut,1,1,0.003922,0.004274,0.000005
+flavor_notes,3,2_fruity|2c_other fruit|grape,grape,4,1,0.015686,0.004274,0.002502
+flavor_notes,3,2_fruity|2c_other fruit|peach,peach,4,4,0.015686,0.017094,0.000022
+flavor_notes,3,2_fruity|2c_other fruit|pear,pear,3,3,0.011765,0.012821,0.000016
+flavor_notes,3,2_fruity|2c_other fruit|pineapple,pineapple,1,0,0.003922,0.000000,0.001961
+flavor_notes,3,2_fruity|2c_other fruit|pomergranate,pomegranate,4,3,0.015686,0.012821,0.000104
+flavor_notes,3,2_fruity|2d_citrus fruit|grapefruit,grapefruit,8,9,0.031373,0.038462,0.000260
+flavor_notes,3,2_fruity|2d_citrus fruit|lemon,lemon,12,21,0.047059,0.089744,0.004885
+flavor_notes,3,2_fruity|2d_citrus fruit|lime,lime,12,15,0.047059,0.064103,0.000946
+flavor_notes,3,2_fruity|2d_citrus fruit|orange,orange,13,8,0.050980,0.034188,0.001202
+flavor_notes,3,3_sour/fermented|3a_sour|acetic acid,acetic acid,1,2,0.003922,0.008547,0.000634
+flavor_notes,3,3_sour/fermented|3a_sour|citric acid,citric acid,0,2,0.000000,0.008547,0.004274
+flavor_notes,3,3_sour/fermented|3b_alcohol/fermented|fermented,fermented,4,5,0.015686,0.021368,0.000315
+flavor_notes,3,3_sour/fermented|3b_alcohol/fermented|whiskey,whiskey,1,0,0.003922,0.000000,0.001961
+flavor_notes,3,4_green/vegetative|4a_olive oil,olive oil,1,0,0.003922,0.000000,0.001961
+flavor_notes,3,4_green/vegetative|4c_green/vegetative|dark green,dark green,1,0,0.003922,0.000000,0.001961
+flavor_notes,3,4_green/vegetative|4c_green/vegetative|fresh,fresh,3,1,0.011765,0.004274,0.001312
+flavor_notes,3,5_other|5a_chemical|bitter,bitter,9,7,0.035294,0.029915,0.000160
+flavor_notes,3,5_other|5a_chemical|salty,salty,2,0,0.007843,0.000000,0.003922
+flavor_notes,3,5_other|5b_papery/musty|musty/earthy,musty/earthy,1,0,0.003922,0.000000,0.001961
+flavor_notes,3,5_other|5b_papery/musty|woody,woody,3,3,0.011765,0.012821,0.000016
+flavor_notes,3,6_roasted|6a_cereal|grain,grain,0,3,0.000000,0.012821,0.006410
+flavor_notes,3,6_roasted|6a_cereal|malt,malt,6,2,0.023529,0.008547,0.002625
+flavor_notes,3,6_roasted|6b_burnt|asky,ashy,5,3,0.019608,0.012821,0.000516
+flavor_notes,3,6_roasted|6b_burnt|brown/roast,brown/roast,23,20,0.090196,0.085470,0.000046
+flavor_notes,3,6_roasted|6b_burnt|smoky,smoky,14,9,0.054902,0.038462,0.001050
+flavor_notes,3,7_spices|7a_brown spice|anise,anise,2,0,0.007843,0.000000,0.003922
+flavor_notes,3,7_spices|7a_brown spice|cinnamon,cinnamon,6,1,0.023529,0.004274,0.005296
+flavor_notes,3,7_spices|7a_brown spice|clove,clove,3,6,0.011765,0.025641,0.001902
+flavor_notes,3,7_spices|7a_brown spice|nutmeg,nutmeg,5,4,0.019608,0.017094,0.000062
+flavor_notes,3,7_spices|7b_pepper,pepper,3,4,0.011765,0.017094,0.000357
+flavor_notes,3,7_spices|7c_pungent,pungent,0,2,0.000000,0.008547,0.004274
+flavor_notes,3,8_nutty/cocoa|8a_cocoa|chocolate,chocolate,7,18,0.027451,0.076923,0.008807
+flavor_notes,3,8_nutty/cocoa|8a_cocoa|dark chocolate,dark chocolate,13,8,0.050980,0.034188,0.001202
+flavor_notes,3,8_nutty/cocoa|8b_nutty|almond,almond,7,4,0.027451,0.017094,0.000877
+flavor_notes,3,8_nutty/cocoa|8b_nutty|hazelnut,hazelnut,18,17,0.070588,0.072650,0.000011
+flavor_notes,3,8_nutty/cocoa|8b_nutty|peanuts,peanuts,2,5,0.007843,0.021368,0.002347
+flavor_notes,3,9_sweet|9a_brown sugar|carmelised,caramelized,11,9,0.043137,0.038462,0.000097
+flavor_notes,3,9_sweet|9a_brown sugar|honey,honey,1,2,0.003922,0.008547,0.000634
+flavor_notes,3,9_sweet|9a_brown sugar|maple-syrup,maple syrup,1,1,0.003922,0.004274,0.000005
+flavor_notes,3,9_sweet|9b_vanilla,vanilla,2,2,0.007843,0.008547,0.000011
+flavor_notes,3,9_sweet|9d_overall sweet,overall sweet,7,7,0.027451,0.029915,0.000038

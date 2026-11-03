@@ -12,6 +12,7 @@ import re
 import sys
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "irr"))
@@ -96,3 +97,44 @@ def map_words(cleaned: str, auto, amap, keep_other: bool):
                 nodes.add(OTHER)
             i += 1
     return nodes, log
+
+
+# ---- cosine mapping to wheel categories and families --------------------------------------------------------------------------------
+
+def make_embedder(model_name: str, instruction: str):
+    from sentence_transformers import SentenceTransformer
+
+    model = SentenceTransformer(model_name)
+
+    def embed(texts):
+        E = np.asarray(model.encode([instruction + t for t in texts], batch_size=16, show_progress_bar=False), dtype=float)
+        return E / np.maximum(np.linalg.norm(E, axis=1, keepdims=True), 1e-12)
+
+    return embed
+
+
+def member_texts(nodes: dict, mode: str = "l123"):
+    """Texts whose mean embedding represents each category (`cats`) and family (`fams`).
+    mode "l23": category = its name + its terms; "l123": category = its family name + its name + its terms;
+    family (both modes) = family name + category names + terms."""
+    cats = sorted(n for n in nodes if n.count("|") == 1)
+    fams = sorted(n for n in nodes if "|" not in n and n != OTHER)
+    ctext = {}
+    for c in cats:
+        t = [nodes[c][1]] + [nodes[n][1] for n in nodes if n.startswith(c + "|")]
+        ctext[c] = ([nodes[c.split("|")[0]][1]] + t) if mode == "l123" else t
+    ftext = {f: [nodes[f][1]] + [nodes[n][1] for n in nodes if n.startswith(f + "|")] for f in fams}
+    return cats, fams, ctext, ftext
+
+
+def prototypes(texts: dict, Em: dict, drop: set | None = None):
+    """-> (ids, matrix of unit-length mean embeddings); `drop` = member texts left out (leave-one-out)."""
+    ids, rows = [], []
+    for k, ts in texts.items():
+        keep = [t for t in ts if not drop or t not in drop]
+        if not keep:
+            continue
+        v = np.mean([Em[t] for t in keep], axis=0)
+        ids.append(k)
+        rows.append(v / np.linalg.norm(v))
+    return ids, np.stack(rows)

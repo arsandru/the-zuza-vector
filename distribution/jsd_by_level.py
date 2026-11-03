@@ -59,13 +59,30 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--n-perm", type=int, default=10000)
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--mapping", choices=("manual", "cosine"), default="manual",
+                    help="cosine: words mapped by the alias file to a wheel node (not to `5_other`) are re-assigned to the nearest wheel category by cosine "
+                         "(prototype = family name, category name and terms; family = parent of the category; see validate_cosine_mapping.py); "
+                         "exact wheel terms and the alias file's `5_other` and IGNORE entries are unchanged, and alias words are resolved to a "
+                         "category only, so they are unresolved at level 3")
     args = ap.parse_args()
 
     nodes, auto, _ = wm.build_vocab()
     amap = wm.load_aliases(nodes)
     children = {n.rsplit("|", 1)[0] for n in nodes if "|" in n}
     df = sir.load(sir.DEFAULT_INPUT)
+    cosine_cat = {}
+    if args.mapping == "cosine":
+        alias_units = sorted({u for col in sir.FIELDS for x in df[col] if not pd.isna(x) and str(x).strip() and (cl := sir.clean_descriptor(x))
+                              for u, node, src in wm.map_words(cl, auto, amap, True)[1] if src == "alias" and node not in ("IGNORE", wm.OTHER)})
+        embed = wm.make_embedder(sir.DEFAULT_MODEL, sir.INSTRUCTION)
+        cats, fams, ctext, _ = wm.member_texts(nodes, "l123")
+        texts = sorted({t for ts in ctext.values() for t in ts} | set(alias_units))
+        Em = dict(zip(texts, embed(texts)))
+        cid, Pc = wm.prototypes(ctext, Em)
+        for u in alias_units:
+            cosine_cat[u] = cid[int(np.argmax(np.einsum("d,kd->k", Em[u], Pc)))]
     parts = sorted(df["subject"].unique())
+    suffix = "" if args.mapping == "manual" else "_cosine"
     rng = np.random.default_rng(args.seed)
     rows, prop_rows = [], []
 
@@ -73,7 +90,13 @@ def main() -> None:
         sets = []
         for x in df[col]:
             cl = None if pd.isna(x) or not str(x).strip() else sir.clean_descriptor(x)
-            sets.append(None if cl is None else (wm.map_words(cl, auto, amap, True)[0] or None))
+            if cl is None:
+                sets.append(None)
+                continue
+            ns, log = wm.map_words(cl, auto, amap, True)
+            if args.mapping == "cosine":
+                ns = {cosine_cat.get(u, node) if src == "alias" else node for u, node, src in log if node != "IGNORE"}
+            sets.append(ns or None)
         df["nset"] = sets
         for k, lname in LEVELS.items():
             counts = {}  # (participant, condition) -> {label: n}
@@ -116,8 +139,8 @@ def main() -> None:
         adj[i] = run
     res["p_holm"] = adj
     OUT_DIR.mkdir(exist_ok=True)
-    res.to_csv(OUT_DIR / "jsd_by_level.csv", index=False, float_format="%.6f")
-    pd.DataFrame(prop_rows).to_csv(OUT_DIR / "jsd_node_proportions.csv", index=False, float_format="%.6f")
+    res.to_csv(OUT_DIR / f"jsd_by_level{suffix}.csv", index=False, float_format="%.6f")
+    pd.DataFrame(prop_rows).to_csv(OUT_DIR / f"jsd_node_proportions{suffix}.csv", index=False, float_format="%.6f")
     pd.set_option("display.width", 200)
     print(res.round(3).to_string(index=False))
 

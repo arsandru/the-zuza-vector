@@ -66,3 +66,13 @@ white,IGNORE,colour word
 red,IGNORE,colour word
 dry,IGNORE,mouthfeel (dry fruit is matched first)
 nuts,8_nutty/cocoa|8b_nutty,
+butter,5_other,no wheel home (manual)
+cream,5_other,no wheel home (manual)
+ripe,5_other,no wheel home (manual)
+plane,5_other,no wheel home (manual)
+milk,5_other,no wheel home (manual)
+rusty,5_other,no wheel home (manual)
+peppermint,5_other,no wheel home (manual)
+cookie,5_other,no wheel home (manual)
+iron,5_other,no wheel home (manual)
+fat,5_other,no wheel home (manual)
