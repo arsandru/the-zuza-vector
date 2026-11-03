@@ -1,0 +1,9 @@
+space,field,condition,n_participants,n_descriptors,similarity_observed,similarity_expected,semantic_kappa,ci_low,ci_high
+centered (main),notesaroma,stimulation,34,183,0.074389,0.004944,0.069790,0.038177,0.105067
+centered (main),notesaroma,sham,34,178,0.077435,0.009201,0.068867,0.041269,0.100061
+centered (main),flavor_notes,stimulation,34,184,0.053865,-0.001687,0.055458,0.032112,0.084123
+centered (main),flavor_notes,sham,34,182,0.071348,0.007230,0.064585,0.033243,0.099751
+plain (sensitivity),notesaroma,stimulation,34,183,0.678252,0.654834,0.067848,0.036687,0.103519
+plain (sensitivity),notesaroma,sham,34,178,0.678204,0.654802,0.067792,0.041401,0.096699
+plain (sensitivity),flavor_notes,stimulation,34,184,0.665724,0.645679,0.056571,0.033252,0.085667
+plain (sensitivity),flavor_notes,sham,34,182,0.667803,0.645604,0.062640,0.033470,0.096487

@@ -1,0 +1,5 @@
+space,field,kappa_stimulation,kappa_sham,delta,ci_low,ci_high,p_perm,q_bh
+centered (main),notesaroma,0.069790,0.068761,0.001030,-0.034091,0.041229,0.950050,0.950050
+centered (main),flavor_notes,0.055458,0.064300,-0.008841,-0.041922,0.024209,0.581419,0.950050
+plain (sensitivity),notesaroma,0.067848,0.067678,0.000170,-0.032961,0.038868,0.992008,0.992008
+plain (sensitivity),flavor_notes,0.056571,0.062326,-0.005755,-0.037938,0.026870,0.719281,0.992008
