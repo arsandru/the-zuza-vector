@@ -52,6 +52,8 @@ Needs `requirements.txt` plus `python3 -m spacy download en_core_web_sm`; Qwen3-
 
 ## Open items (none requested yet)
 
+- Robustness checks added (`irr/robustness_checks.py`): seed stability (Monte Carlo error of the reported p-values about +/-0.02, nothing else moves) and kappa per tasting (aroma agreement higher for Brasil, flavor for Kenya; descriptive). Not yet committed.
+
 - Numeric ICC of the draft (overall rating, ICC(A,1): sham 0.134, stimulation 0.091) does not replicate here (we get 0.069 and 0.052; see README section "Check against the numeric ICC of the draft" and `irr/numeric_check.py`). Needs the draft's analysis code or data subset to resolve. Semantic and numeric agreement are both low and show the same broad pattern but are not linked at the pair level (rho about 0).
 
 - Review `data/sca_aliases.csv` with the user.

@@ -25,6 +25,14 @@ Repurposed from `altered-states-review/analyses/clustering/archive/sensitivity/i
 
 Agreement is above chance but very low in both conditions, and there is no evidence of a difference between stimulation and sham (differences of -0.009 to +0.001, intervals about +/-0.03 around zero). The two spaces agree (centering leaves kappa where the plain space had it, because the chance correction already removes the baseline similarity). Figure: `irr/outputs/irr_plot.pdf` and `.png`. The kappa scale depends on the embedding, so compare conditions within a space, not kappa values across studies.
 
+## Robustness checks (`irr/robustness_checks.py`)
+
+Prompted by a comparison with Jain et al. (arXiv 2512.20352), which reports reliability across repeated runs. `python3 irr/robustness_checks.py` writes `irr/outputs/seed_stability.csv`, `item_agreement.csv` and `robustness_report.md` (it reads the reported seed-42 results and does not overwrite them).
+
+**Seed stability.** The chance level, bootstrap intervals and permutation p-values use random shuffles (seed 42). Repeating the whole main analysis with seeds 1, 2 and 3: kappa and the stimulation minus sham difference move by at most 0.0005, the interval limits by at most 0.003, and the swap-test p-values by 0.01 to 0.05 (centered space: aroma p 0.944 to 0.957, flavor 0.572 to 0.603; plain space: aroma 0.982 to 0.998, flavor 0.695 to 0.740). No conclusion changes, and the Monte Carlo error of the reported p-values is about plus or minus 0.02.
+
+**Agreement per tasting** (centered space, chance level of the whole condition, participant-bootstrap CI; descriptive, no test). Aroma notes agree more for Brasil (kappa 0.08 to 0.14, all six Brasil cells) than for Kenya (-0.01 to 0.06); flavor notes show the reverse (Kenya 0.04 to 0.11, Brasil -0.00 to 0.05). Within a coffee there is no consistent difference between stimulation and sham, and the intervals are wide and overlap. Because the chance level shuffles descriptors across all six tastings, part of the pooled agreement is agreement about which coffee is which, so the pooled kappa should not be read as agreement within a single coffee.
+
 ## Check against the numeric ICC of the draft (`irr/numeric_check.py`)
 
 The draft ("October 2026 draft-3.md", section 3.5) reports ICC(A,1) of the overall rating (two-way random effects, absolute agreement of single ratings, REML; targets = coffee x repeated rating, raters = participants, separately per condition): sham 0.134 [0.027, 0.261], stimulation 0.091 [0.009, 0.209], difference -0.043. This check asks whether our semantic IRR tests approximately the same thing. Full tables: `irr/outputs/numeric_check_report.md`; `python3 irr/numeric_check.py`.

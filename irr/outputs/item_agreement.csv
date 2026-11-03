@@ -1,0 +1,25 @@
+field,condition,item,n_raters,kappa,ci_low,ci_high
+notesaroma,stimulation,Brasil #1,31,0.116765,0.021120,0.240161
+notesaroma,stimulation,Brasil #2,32,0.104649,0.050319,0.180388
+notesaroma,stimulation,Brasil #3,29,0.134948,0.078743,0.197245
+notesaroma,stimulation,Kenya #1,32,-0.006447,-0.036509,0.048066
+notesaroma,stimulation,Kenya #2,30,0.054805,-0.003647,0.134222
+notesaroma,stimulation,Kenya #3,29,0.017438,-0.016775,0.073834
+notesaroma,sham,Brasil #1,31,0.117039,0.031096,0.218854
+notesaroma,sham,Brasil #2,30,0.105712,0.011020,0.226276
+notesaroma,sham,Brasil #3,30,0.077915,0.001325,0.169438
+notesaroma,sham,Kenya #1,30,0.006384,-0.032981,0.056622
+notesaroma,sham,Kenya #2,30,0.041192,-0.013932,0.116181
+notesaroma,sham,Kenya #3,27,0.059910,-0.002344,0.127942
+flavor_notes,stimulation,Brasil #1,33,0.032326,-0.011084,0.091522
+flavor_notes,stimulation,Brasil #2,30,0.048146,-0.007712,0.122926
+flavor_notes,stimulation,Brasil #3,29,0.030878,-0.017081,0.115328
+flavor_notes,stimulation,Kenya #1,32,0.038469,-0.004455,0.108408
+flavor_notes,stimulation,Kenya #2,30,0.102065,0.021494,0.199755
+flavor_notes,stimulation,Kenya #3,30,0.086556,0.015105,0.180309
+flavor_notes,sham,Brasil #1,31,-0.002607,-0.037151,0.065470
+flavor_notes,sham,Brasil #2,29,0.053518,-0.018250,0.147434
+flavor_notes,sham,Brasil #3,27,0.022258,-0.020462,0.082075
+flavor_notes,sham,Kenya #1,32,0.093749,0.013570,0.192924
+flavor_notes,sham,Kenya #2,31,0.108406,0.015221,0.219192
+flavor_notes,sham,Kenya #3,32,0.096344,0.008873,0.207527

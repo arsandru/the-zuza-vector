@@ -1,0 +1,81 @@
+seed,space,field,condition,quantity,value,ci_low,ci_high
+1,centered (main),notesaroma,stimulation,kappa,0.069849,0.039304,0.105773
+1,centered (main),notesaroma,sham,kappa,0.068586,0.040772,0.100424
+1,centered (main),notesaroma,stimulation - sham,delta,0.001242,-0.033704,0.036709
+1,centered (main),notesaroma,stimulation - sham,p,0.944056,,
+1,centered (main),flavor_notes,stimulation,kappa,0.055462,0.030856,0.082327
+1,centered (main),flavor_notes,sham,kappa,0.064229,0.034371,0.097989
+1,centered (main),flavor_notes,stimulation - sham,delta,-0.008858,-0.042370,0.023497
+1,centered (main),flavor_notes,stimulation - sham,p,0.603397,,
+1,plain (sensitivity),notesaroma,stimulation,kappa,0.067923,0.038185,0.103072
+1,plain (sensitivity),notesaroma,sham,kappa,0.067541,0.041005,0.098102
+1,plain (sensitivity),notesaroma,stimulation - sham,delta,0.000390,-0.034009,0.034408
+1,plain (sensitivity),notesaroma,stimulation - sham,p,0.986014,,
+1,plain (sensitivity),flavor_notes,stimulation,kappa,0.056588,0.031298,0.083103
+1,plain (sensitivity),flavor_notes,sham,kappa,0.062276,0.033937,0.093600
+1,plain (sensitivity),flavor_notes,stimulation - sham,delta,-0.005781,-0.038411,0.025656
+1,plain (sensitivity),flavor_notes,stimulation - sham,p,0.729271,,
+1,centered (main),notesaroma,stimulation - sham,q,0.944056,,
+1,centered (main),flavor_notes,stimulation - sham,q,0.944056,,
+1,plain (sensitivity),notesaroma,stimulation - sham,q,0.986014,,
+1,plain (sensitivity),flavor_notes,stimulation - sham,q,0.986014,,
+2,centered (main),notesaroma,stimulation,kappa,0.069967,0.039967,0.103240
+2,centered (main),notesaroma,sham,kappa,0.068649,0.042107,0.099607
+2,centered (main),notesaroma,stimulation - sham,delta,0.001489,-0.034207,0.039899
+2,centered (main),notesaroma,stimulation - sham,p,0.946054,,
+2,centered (main),flavor_notes,stimulation,kappa,0.055518,0.032240,0.085517
+2,centered (main),flavor_notes,sham,kappa,0.064373,0.032769,0.097554
+2,centered (main),flavor_notes,stimulation - sham,delta,-0.008865,-0.042669,0.024778
+2,centered (main),flavor_notes,stimulation - sham,p,0.572428,,
+2,plain (sensitivity),notesaroma,stimulation,kappa,0.068038,0.039109,0.101600
+2,plain (sensitivity),notesaroma,sham,kappa,0.067573,0.042423,0.096547
+2,plain (sensitivity),notesaroma,stimulation - sham,delta,0.000636,-0.033729,0.036570
+2,plain (sensitivity),notesaroma,stimulation - sham,p,0.982018,,
+2,plain (sensitivity),flavor_notes,stimulation,kappa,0.056632,0.032659,0.087063
+2,plain (sensitivity),flavor_notes,sham,kappa,0.062423,0.032701,0.093919
+2,plain (sensitivity),flavor_notes,stimulation - sham,delta,-0.005796,-0.039253,0.026098
+2,plain (sensitivity),flavor_notes,stimulation - sham,p,0.695305,,
+2,centered (main),notesaroma,stimulation - sham,q,0.946054,,
+2,centered (main),flavor_notes,stimulation - sham,q,0.946054,,
+2,plain (sensitivity),notesaroma,stimulation - sham,q,0.982018,,
+2,plain (sensitivity),flavor_notes,stimulation - sham,q,0.982018,,
+3,centered (main),notesaroma,stimulation,kappa,0.069710,0.039578,0.104741
+3,centered (main),notesaroma,sham,kappa,0.068697,0.039856,0.100217
+3,centered (main),notesaroma,stimulation - sham,delta,0.001000,-0.036121,0.041720
+3,centered (main),notesaroma,stimulation - sham,p,0.957043,,
+3,centered (main),flavor_notes,stimulation,kappa,0.055519,0.030946,0.082832
+3,centered (main),flavor_notes,sham,kappa,0.064349,0.032963,0.097872
+3,centered (main),flavor_notes,stimulation - sham,delta,-0.008921,-0.042973,0.022667
+3,centered (main),flavor_notes,stimulation - sham,p,0.595405,,
+3,plain (sensitivity),notesaroma,stimulation,kappa,0.067814,0.037634,0.101966
+3,plain (sensitivity),notesaroma,sham,kappa,0.067624,0.040109,0.097626
+3,plain (sensitivity),notesaroma,stimulation - sham,delta,0.000177,-0.035343,0.036996
+3,plain (sensitivity),notesaroma,stimulation - sham,p,0.998002,,
+3,plain (sensitivity),flavor_notes,stimulation,kappa,0.056622,0.031261,0.083630
+3,plain (sensitivity),flavor_notes,sham,kappa,0.062399,0.031349,0.093009
+3,plain (sensitivity),flavor_notes,stimulation - sham,delta,-0.005853,-0.040353,0.025760
+3,plain (sensitivity),flavor_notes,stimulation - sham,p,0.740260,,
+3,centered (main),notesaroma,stimulation - sham,q,0.957043,,
+3,centered (main),flavor_notes,stimulation - sham,q,0.957043,,
+3,plain (sensitivity),notesaroma,stimulation - sham,q,0.998002,,
+3,plain (sensitivity),flavor_notes,stimulation - sham,q,0.998002,,
+42,centered (main),notesaroma,stimulation,kappa,0.069790,0.038177,0.105067
+42,centered (main),notesaroma,sham,kappa,0.068867,0.041269,0.100061
+42,centered (main),flavor_notes,stimulation,kappa,0.055458,0.032112,0.084123
+42,centered (main),flavor_notes,sham,kappa,0.064585,0.033243,0.099751
+42,plain (sensitivity),notesaroma,stimulation,kappa,0.067848,0.036687,0.103519
+42,plain (sensitivity),notesaroma,sham,kappa,0.067792,0.041401,0.096699
+42,plain (sensitivity),flavor_notes,stimulation,kappa,0.056571,0.033252,0.085667
+42,plain (sensitivity),flavor_notes,sham,kappa,0.062640,0.033470,0.096487
+42,centered (main),notesaroma,stimulation - sham,delta,0.001030,-0.034091,0.041229
+42,centered (main),notesaroma,stimulation - sham,p,0.950050,,
+42,centered (main),notesaroma,stimulation - sham,q,0.950050,,
+42,centered (main),flavor_notes,stimulation - sham,delta,-0.008841,-0.041922,0.024209
+42,centered (main),flavor_notes,stimulation - sham,p,0.581419,,
+42,centered (main),flavor_notes,stimulation - sham,q,0.950050,,
+42,plain (sensitivity),notesaroma,stimulation - sham,delta,0.000170,-0.032961,0.038868
+42,plain (sensitivity),notesaroma,stimulation - sham,p,0.992008,,
+42,plain (sensitivity),notesaroma,stimulation - sham,q,0.992008,,
+42,plain (sensitivity),flavor_notes,stimulation - sham,delta,-0.005755,-0.037938,0.026870
+42,plain (sensitivity),flavor_notes,stimulation - sham,p,0.719281,,
+42,plain (sensitivity),flavor_notes,stimulation - sham,q,0.992008,,
