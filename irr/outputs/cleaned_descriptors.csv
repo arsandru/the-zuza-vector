@@ -1,0 +1,645 @@
+raw,cleaned,field
+acetic acid,acetic acidic,flavor_notes
+"acetic acid, grapefruit, vegetative",acetic acidic grapefruit vegetable,flavor_notes
+acid,acidic,flavor_notes
+"acid, fruity",acidic fruit,flavor_notes
+"acid, lime",acidic lime,flavor_notes
+"acid, lime, vegetative, prune",acidic lime vegetable prune,flavor_notes
+acidic,acidic,flavor_notes
+acidic fruit,acidic fruit,flavor_notes
+"acidic, lemon",acidic lemon,flavor_notes
+"acidic, less roasty",acidic less roast,flavor_notes
+almond,almond,flavor_notes
+"almond, peach, rose",almond peach rose,flavor_notes
+"anis, clove, peach, pear",anise clove peach pear,flavor_notes
+apple,apple,flavor_notes
+"apple, hazelnut, chocolate",apple hazelnut chocolate,flavor_notes
+ashy,ashy,flavor_notes
+"ashy, onion",ashy onion,flavor_notes
+"ashy, vegetable",ashy vegetable,flavor_notes
+asky,ashy,flavor_notes
+"beans, sour",bean sourness,flavor_notes
+"berries, acid",berry acidic,flavor_notes
+berry,berry,flavor_notes
+"berry, coca, caramel",berry cocoa caramel,flavor_notes
+"berry, flour",berry flour,flavor_notes
+"berry, lemon",berry lemon,flavor_notes
+berry-like ,berry,flavor_notes
+berrylike,berry,flavor_notes
+"berrylike, acidic",berry acidic,flavor_notes
+"berrylike, roasted",berry roast,flavor_notes
+"better than before, more accurate flavours",more,flavor_notes
+bitter,bitter,flavor_notes
+"bitter fruit, grapefruit, fermented",bitter fruit grapefruit ferment,flavor_notes
+"bitter, citrus",bitter citrus,flavor_notes
+"bitter, smokey, acidic aftertaste",bitter smoky acidic,flavor_notes
+"bitter, sweet, rosdy, smoky, smokey aftertaste",bitter sweet roast smoky,flavor_notes
+black tea,black tea,flavor_notes
+"black tea, brown sugar, long sweet aftertaste",black tea brown sugar long sweet,flavor_notes
+"black tea, fruity notes, pommergranate",black tea fruit pomegranate,flavor_notes
+blackberry,blackberry,flavor_notes
+"blackberry, prune",blackberry prune,flavor_notes
+"blackberry, strawberry",blackberry strawberry,flavor_notes
+"blacktea, vanilla, coca",blacktea vanilla cocoa,flavor_notes
+"brown roast, vanilla, malt, cookie",brown roast vanilla malt cookie,flavor_notes
+"brown spice, nut",brown spice nut,flavor_notes
+brown sugar,brown sugar,flavor_notes
+burnt,burnt,flavor_notes
+"burnt, roasted",burnt roast,flavor_notes
+"buttery, mild",butter mild,flavor_notes
+"caramel, bitter",caramel bitter,flavor_notes
+"caramel, citrus",caramel citrus,flavor_notes
+"caramel, lemon, strawberry",caramel lemon strawberry,flavor_notes
+carmelised,caramel,flavor_notes
+"carmelised, black pepper, orange peel, dark chocolate",caramel black pepper orange peel dark chocolate,flavor_notes
+"carmelised, roast, cinnamon, orange peel, olive oil, rooibos",caramel roast cinnamon orange peel olive oil rooibo,flavor_notes
+"carmelized, hazelnut, whiskey, walnut, ashy",caramel hazelnut whiskey walnut ashy,flavor_notes
+cereal,cereal,flavor_notes
+"cereal, malt",cereal malt,flavor_notes
+"cereal, rice, orange",cereal rice orange,flavor_notes
+cherry,cherry,flavor_notes
+"chickensoup, dried fruit",chickensoup dry fruit,flavor_notes
+chocolate,chocolate,flavor_notes
+chocolate ,chocolate,flavor_notes
+"chocolate (softer chocolate smell), brown sugar, maple",chocolate soft brown sugar maple,flavor_notes
+"chocolate, almond",chocolate almond,flavor_notes
+"chocolate, burnt, bit sour, aftertaste: long, coca",chocolate burnt sourness long cocoa,flavor_notes
+"chocolate, pear, apple",chocolate pear apple,flavor_notes
+"chocolate, rost, caramel, grain",chocolate roast caramel grain,flavor_notes
+"chocolate, smoked",chocolate smoky,flavor_notes
+"chocolate, smoky, burnt, hazelnut",chocolate smoky burnt hazelnut,flavor_notes
+"cinnamon, almond, caramel",cinnamon almond caramel,flavor_notes
+citric acid,citric acidic,flavor_notes
+"citric acid, citric fruit, fruity, sour",citric acidic fruit sourness,flavor_notes
+citrus,citrus,flavor_notes
+"citrus fruit, berry, blackberry, apple",citrus fruit berry blackberry apple,flavor_notes
+"citrus, a bit sour, fruit",citrus sourness fruit,flavor_notes
+"citrus, berry, floral, nutmeg, anis",citrus berry floral nutmeg anise,flavor_notes
+"citrus, coca",citrus cocoa,flavor_notes
+"citrus, floral, tea",citrus floral tea,flavor_notes
+"citrus, grapefruit",citrus grapefruit,flavor_notes
+"citrus, grapefruit, pear, berry",citrus grapefruit pear berry,flavor_notes
+"citrus, lemon",citrus lemon,flavor_notes
+"citrus, orange",citrus orange,flavor_notes
+"clove, nutty, smoky",clove nut smoky,flavor_notes
+"clove, smoky, dark roasted",clove smoky dark roast,flavor_notes
+"cocoa, caramel",cocoa caramel,flavor_notes
+"cocoa, caramel, floral",cocoa caramel floral,flavor_notes
+"cocoa, chocolate, shorter aftertaste",cocoa chocolate short,flavor_notes
+"cocoa, dark chocolate",cocoa dark chocolate,flavor_notes
+"cocoa, hazelnut, caramel, orange",cocoa hazelnut caramel orange,flavor_notes
+"cocoa, hazelnut, roasted, nutmeg, ashy",cocoa hazelnut roast nutmeg ashy,flavor_notes
+"cocoa, malt",cocoa malt,flavor_notes
+"cocoa, nutty",cocoa nut,flavor_notes
+coconut,coconut,flavor_notes
+"creamy (fat), wood",cream fat wood,flavor_notes
+creamy but thin,cream,flavor_notes
+"dark choco, sour aromatics",dark chocolate sourness,flavor_notes
+dark chocolate,dark chocolate,flavor_notes
+"dark chocolate, fermented",dark chocolate ferment,flavor_notes
+"dark chocolate, hazelnut, smoky ashy",dark chocolate hazelnut smoky ashy,flavor_notes
+"dark chocolate, orange, fruity",dark chocolate orange fruit,flavor_notes
+"dark chocolate, roasted, black tea",dark chocolate roast black tea,flavor_notes
+"dark green veggies, hazelnut, sour",dark green vegetable hazelnut sourness,flavor_notes
+"dark roast, walnut",dark roast walnut,flavor_notes
+"definitely sweeter, sugar flavour, maple syrup (strong smell)",sweeter sugar maple syrup strong,flavor_notes
+"dilater, more bitter",watery more bitter,flavor_notes
+"diluted, grapefruit",watery grapefruit,flavor_notes
+"diluted, nutty",watery nut,flavor_notes
+dried fruit,dry fruit,flavor_notes
+"dried fruit, berry like ",dry fruit berry,flavor_notes
+"dried fruit, iron, vegetable stock",dry fruit iron vegetable stock,flavor_notes
+"dried fruit, roasted",dry fruit roast,flavor_notes
+"dry, burnt roast",dry burnt roast,flavor_notes
+"earthy, dark chocolate",earth dark chocolate,flavor_notes
+fermented,ferment,flavor_notes
+floral,floral,flavor_notes
+"floral, slightly acidic",floral slightly acidic,flavor_notes
+"floral, sweet, scented apple?",floral sweet scented apple,flavor_notes
+"floral, tea, green, under-ripe",floral tea green ripe,flavor_notes
+"flower, tomato, vegetable",flower tomato vegetable,flavor_notes
+fresh,fresh,flavor_notes
+fresh vegetable,fresh vegetable,flavor_notes
+"fresh, roast",fresh roast,flavor_notes
+fruit (apple?),fruit apple,flavor_notes
+"fruits, floral",fruit floral,flavor_notes
+fruity,fruit,flavor_notes
+fruity red,fruit red,flavor_notes
+"fruity, a bit nutty",fruit nut,flavor_notes
+"fruity, acidic, caramel",fruit acidic caramel,flavor_notes
+"fruity, apple, sour",fruit apple sourness,flavor_notes
+"fruity, citrus, tea, nutty",fruit citrus tea nut,flavor_notes
+"fruity, dark chocolate",fruit dark chocolate,flavor_notes
+"fruity, floral, smoky, apple",fruit floral smoky apple,flavor_notes
+"fruity, grapefruit, sour aromatics, lemon, lime",fruit grapefruit sourness lemon lime,flavor_notes
+"fruity, hazelnut, smoky",fruit hazelnut smoky,flavor_notes
+"fruity, nutty",fruit nut,flavor_notes
+"fruity, pomergranate, grapefruit, hazelnut",fruit pomegranate grapefruit hazelnut,flavor_notes
+"fruity, sour",fruit sourness,flavor_notes
+"fruity, sour taste, orange, sweet fruity",fruit sourness orange sweet,flavor_notes
+"fruity, strawberry, peach, weak",fruit strawberry peach weak,flavor_notes
+"fruity, sweet, burnt",fruit sweet burnt,flavor_notes
+gets thinner,gets thinner,flavor_notes
+"grape, fruity",grape fruit,flavor_notes
+"grape, nutty",grape nut,flavor_notes
+"grapefruit, almond",grapefruit almond,flavor_notes
+"grapefruit, sour lemon",grapefruit sourness lemon,flavor_notes
+hazelnut (maybe roasted),hazelnut roast,flavor_notes
+"hazelnut, almond",hazelnut almond,flavor_notes
+"hazelnut, beans, under-ripe",hazelnut bean ripe,flavor_notes
+"hazelnut, carmelized, blackberry, roast, apple, malt",hazelnut caramel blackberry roast apple malt,flavor_notes
+"hazelnut, chocolate",hazelnut chocolate,flavor_notes
+"hazelnut, chocolate, caramelized",hazelnut chocolate caramel,flavor_notes
+"hazelnut, chocolate, smoky, nutmeg",hazelnut chocolate smoky nutmeg,flavor_notes
+"hazelnut, cinnamon",hazelnut cinnamon,flavor_notes
+"hazelnut, dack chocolate",hazelnut dark chocolate,flavor_notes
+"hazelnut, roast",hazelnut roast,flavor_notes
+"hazelnuts, almonds",hazelnut almond,flavor_notes
+"herb-like, getting acidic",herb acidic,flavor_notes
+"hint of citrus fruit (lemon), other fruit",citrus fruit lemon,flavor_notes
+hint of spice (perhaps pepper),spice pepper,flavor_notes
+"honey, clove, nutmeg, rasberry",honey clove nutmeg raspberry,flavor_notes
+"leafy, nutty, cocoa, baked",leafy nut cocoa bake,flavor_notes
+lemon,lemon,flavor_notes
+"lemon(grass), roasted",roast,flavor_notes
+"lemon, acidic, pungent, strong, lime, grapefruit, rasberry",lemon acidic pungent strong lime grapefruit raspberry,flavor_notes
+"lemon, apple",lemon apple,flavor_notes
+"lemon, apple, hazelnut",lemon apple hazelnut,flavor_notes
+"lemon, bitter grapefruit",lemon bitter grapefruit,flavor_notes
+"lemon, cherry, almond, orange",lemon cherry almond orange,flavor_notes
+"lemon, citrus, peach, lime",lemon citrus peach lime,flavor_notes
+"lemon, floral",lemon floral,flavor_notes
+"lemon, floral, coffee blossom, grapefruit",lemon floral blossom grapefruit,flavor_notes
+"lemon, vegetative, grapefruit",lemon vegetable grapefruit,flavor_notes
+"less dark chocolate, more spice and vegetable",less dark chocolate more spice vegetable,flavor_notes
+"less sour, smoky, roasted peanut",less sourness smoky roast peanut,flavor_notes
+less strong taste,less strong,flavor_notes
+lime,lime,flavor_notes
+"lime, blackberry, roast",lime blackberry roast,flavor_notes
+"lime, chocolate, berry",lime chocolate berry,flavor_notes
+"lime, chocolate, roast",lime chocolate roast,flavor_notes
+"lime, dark chocolate",lime dark chocolate,flavor_notes
+"lime, dark chocolate, winey",lime dark chocolate wine,flavor_notes
+"lime, grapefruit",lime grapefruit,flavor_notes
+"lime, lemoc, citrus",lime lemon citrus,flavor_notes
+"lime, lemon",lime lemon,flavor_notes
+"lime, lemon, sour aromatics, orange",lime lemon sourness orange,flavor_notes
+"lime, pomegranate, blackberry",lime pomegranate blackberry,flavor_notes
+"lime, tea, sour aromatics",lime tea sourness,flavor_notes
+"lime, walnut, acid",lime walnut acidic,flavor_notes
+"liquidy, watery",liquidy watery,flavor_notes
+"malt, clove",malt clove,flavor_notes
+"malt, rost",malt roast,flavor_notes
+"maybe hint of vanilla, soft sugary undertone",vanilla soft sugar,flavor_notes
+"milky, caramel",milk caramel,flavor_notes
+"more acid, berry",more acidic berry,flavor_notes
+"more acidic, burnt, smokey (less sweet)",more acidic burnt smoky less sweet,flavor_notes
+"more acidic, mild, less sweet",more acidic mild less sweet,flavor_notes
+more bitter than before,more bitter,flavor_notes
+"more plane, acidic",more plane acidic,flavor_notes
+more smokey,more smoky,flavor_notes
+"more sour, acid, floral, veggie taste",more sourness acidic floral vegetable,flavor_notes
+n\a,n\a,flavor_notes
+"neutral flavor, a bit bitter",neutral bitter,flavor_notes
+not sour aftertaste,not sourness,flavor_notes
+"nutmeg, clove",nutmeg clove,flavor_notes
+"nutmeg, consistent, heavy in the mouth, hazelnut",nutmeg consistent heavy hazelnut,flavor_notes
+nutty,nut,flavor_notes
+"nutty, berry, baked",nut berry bake,flavor_notes
+"nutty, brown spice, hazelnut, almond",nut brown spice hazelnut almond,flavor_notes
+"nutty, brown, burnt, roast",nut brown burnt roast,flavor_notes
+"nutty, chocolate",nut chocolate,flavor_notes
+"nutty, chocolate, berry",nut chocolate berry,flavor_notes
+"nutty, chocolate, burnt",nut chocolate burnt,flavor_notes
+"nutty, chocolate, hazelnut",nut chocolate hazelnut,flavor_notes
+"nutty, coca, floral",nut cocoa floral,flavor_notes
+"nutty, hazelnut, walnut, aftertaste: nutty, bitter, dark cocoa",nut hazelnut walnut bitter dark cocoa,flavor_notes
+"nutty, roasted",nut roast,flavor_notes
+"oily, gets acidic over time",oil acidic,flavor_notes
+orange,orange,flavor_notes
+orange (some acidic fruit),orange acidic fruit,flavor_notes
+"orange, apple, grape, peach",orange apple grape peach,flavor_notes
+"orange, apple, lemon",orange apple lemon,flavor_notes
+"orange, cooked veggies, tomato, fuller",orange cooked vegetable tomato full,flavor_notes
+"orange, fruity, chamomille",orange fruit chamomile,flavor_notes
+"orange, lemon",orange lemon,flavor_notes
+"orange, lime, acid aftertaste",orange lime acidic,flavor_notes
+"peach, combination of sweet and sour fruit",peach combination sweet sourness fruit,flavor_notes
+"peach, pear, chocolate",peach pear chocolate,flavor_notes
+"peanut, dark chocolate",peanut dark chocolate,flavor_notes
+"peanuts, maple",peanut maple,flavor_notes
+"pear, herb, little sour, peanuts",pear herb sourness peanut,flavor_notes
+"pear, peanuts, roasted",pear peanut roast,flavor_notes
+pepper,pepper,flavor_notes
+"pepper, brown spice, hazelnut",pepper brown spice hazelnut,flavor_notes
+"pineapple, citrus",pineapple citrus,flavor_notes
+"plane, slightly fruity , sweet",plane slightly fruit sweet,flavor_notes
+plum (acidic fruit),plum acidic fruit,flavor_notes
+"plum, grapefruit",plum grapefruit,flavor_notes
+pomegrannate,pomegranate,flavor_notes
+"pomergranate, carmelised",pomegranate caramel,flavor_notes
+"pomergranate, strawberry",pomegranate strawberry,flavor_notes
+"prune, apple",prune apple,flavor_notes
+"prune, nutmeg, cinnamon, hazelnut",prune nutmeg cinnamon hazelnut,flavor_notes
+"prune, nutmeg, cinnamon, hazelnut, strawberry",prune nutmeg cinnamon hazelnut strawberry,flavor_notes
+"prune, roast",prune roast,flavor_notes
+"raisin, lemon, walnut",raisin lemon walnut,flavor_notes
+"raspberry, lemon",raspberry lemon,flavor_notes
+"raspberry, orange, druity",raspberry orange fruit,flavor_notes
+"raspberry. Lemon, grapefruit, vegetative",raspberry lemon grapefruit vegetable,flavor_notes
+red berry ,red berry,flavor_notes
+red wine,red wine,flavor_notes
+roast,roast,flavor_notes
+"roast, lime, carmelised",roast lime caramel,flavor_notes
+"roast, sour",roast sourness,flavor_notes
+roasted nuts ,roast nut,flavor_notes
+"roasted peanuts, apple",roast peanut apple,flavor_notes
+"roasted walnuts, very dark chocolate",roast walnut very dark chocolate,flavor_notes
+"roasted, brown sugar, vanilla, sweet",roast brown sugar vanilla sweet,flavor_notes
+"roasted, burnt",roast burnt,flavor_notes
+"roasted, citric, sour, fermented",roast citric sourness ferment,flavor_notes
+"roasted, citrus",roast citrus,flavor_notes
+"roasted, floral, chamomille",roast floral chamomile,flavor_notes
+"roasted, grain, fresh, acetic acid",roast grain fresh acetic acidic,flavor_notes
+"roasted, hazelnut",roast hazelnut,flavor_notes
+"roasted, milky",roast milk,flavor_notes
+"roasted, nutty, cocoa",roast nut cocoa,flavor_notes
+"rose, honeyed",rose honey,flavor_notes
+salty,salty,flavor_notes
+"savoury, tomato",savoury tomato,flavor_notes
+"slight lemon, roast, rose",slight lemon roast rose,flavor_notes
+slightly citrus,slightly citrus,flavor_notes
+smoky,smoky,flavor_notes
+"smoky peach, acid but not strong",smoky peach acidic not strong,flavor_notes
+"smoky, acid",smoky acidic,flavor_notes
+"smoky, acid, dark chocolate, ashy",smoky acidic dark chocolate ashy,flavor_notes
+"smoky, burnt",smoky burnt,flavor_notes
+"smoky, burnt, nutty",smoky burnt nut,flavor_notes
+"smoky, clove, syrup, hazelnut",smoky clove syrup hazelnut,flavor_notes
+"smoky, nutty",smoky nut,flavor_notes
+soft,soft,flavor_notes
+sour,sourness,flavor_notes
+"sour aftertaste, more acidic",sourness more acidic,flavor_notes
+sour aromatics,sourness,flavor_notes
+"sour, acidic",sourness acidic,flavor_notes
+"sour, berry, blackcurrent",sourness berry blackcurrant,flavor_notes
+"sour, bitter",sourness bitter,flavor_notes
+"sour, citric fruit, fermented",sourness citric fruit ferment,flavor_notes
+"sour, coconut",sourness coconut,flavor_notes
+"sour, dark chocolate",sourness dark chocolate,flavor_notes
+"sour, fermented",sourness ferment,flavor_notes
+"sour, fermented, pomegranate",sourness ferment pomegranate,flavor_notes
+"sour, fruits",sourness fruit,flavor_notes
+"sour, fruity",sourness fruit,flavor_notes
+"sour, grape, malt, nut",sourness grape malt nut,flavor_notes
+"sour, green, under-ripe",sourness green ripe,flavor_notes
+"sour, lime, black tea",sourness lime black tea,flavor_notes
+"sour, lime, jasmine",sourness lime jasmine,flavor_notes
+"sour, lime, lemon, orange",sourness lime lemon orange,flavor_notes
+"sour, slightly fruity and floral",sourness slightly fruit floral,flavor_notes
+"sour, tea, orange",sourness tea orange,flavor_notes
+"sour, under-ripe, green",sourness ripe green,flavor_notes
+"sour, under-ripe, green, tea-like",sourness ripe green tea,flavor_notes
+"sour, under-ripe, nutty",sourness ripe nut,flavor_notes
+"sour, vinegar",sourness vinegar,flavor_notes
+spicy cocoa,spice cocoa,flavor_notes
+still spicy,spice,flavor_notes
+strawberry,strawberry,flavor_notes
+"strawberry, berry-like",strawberry berry,flavor_notes
+"strawberry, fruity",strawberry fruit,flavor_notes
+"stronger flavour, less bitter, more acidic",strong less bitter more acidic,flavor_notes
+"stronger, more bitter, more nutty flavour",strong more bitter nut,flavor_notes
+"sweet, acidic aftertaste",sweet acidic,flavor_notes
+"sweet, maple syrup, honey",sweet maple syrup honey,flavor_notes
+"sweet, rasberry",sweet raspberry,flavor_notes
+tea,tea,flavor_notes
+thin,thin,flavor_notes
+thinner,thinner,flavor_notes
+toasted,toast,flavor_notes
+"toasted, wood",toast wood,flavor_notes
+"toasted, wood, acid",toasted wood acidic,flavor_notes
+"under-ripe, hazelnut",ripe hazelnut,flavor_notes
+"vegetable, acidic",vegetable acidic,flavor_notes
+"vegetable, fermented",vegetable ferment,flavor_notes
+"vegetable, sour",vegetable sourness,flavor_notes
+"very acidic, maybe citric acid",very acidic citric,flavor_notes
+"walnut, majoram, lemon, cinnamon, grain",walnut marjoram lemon cinnamon grain,flavor_notes
+white grapefruit,white grapefruit,flavor_notes
+"wine, dark chocolate, nutty, peanut",wine dark chocolate nut peanut,flavor_notes
+"winey, acid, lime",wine acidic lime,flavor_notes
+"winey, acid, lime, clove",wine acidic lime clove,flavor_notes
+"winey, apple, carmelised",wine apple caramel,flavor_notes
+"winey, sourness",wine sourness,flavor_notes
+"wood, bitter",wood bitter,flavor_notes
+"wood, chocolate",wood chocolate,flavor_notes
+woody,wood,flavor_notes
+a bit choco,chocolate,notesaroma
+"a bit citric, fruity, dried fruit",citric fruit dry,notesaroma
+a bit floral,floral,notesaroma
+a bit fruity,fruit,notesaroma
+a bit vegetative,vegetable,notesaroma
+"acidic, bitter",acidic bitter,notesaroma
+"acidic, tomato",acidic tomato,notesaroma
+almond,almond,notesaroma
+"almonds, toasted (don't smell much)",almond toast much,notesaroma
+ashy,ashy,notesaroma
+bad,bad,notesaroma
+"berries, blueberry",berry blueberry,notesaroma
+berry,berry,notesaroma
+"berry, honey, maple syrup",berry honey maple syrup,notesaroma
+berrylike,berry,notesaroma
+"berrylike, acidic",berry acidic,notesaroma
+"berrylike,roasted",berry roast,notesaroma
+better aroma but burnt,burnt,notesaroma
+black tea,black tea,notesaroma
+blackberry,blackberry,notesaroma
+"blackberry, prune",blackberry prune,notesaroma
+"bourbon, vanilla, smokey",bourbon vanilla smoky,notesaroma
+"brown roast, nutty",brown roast nut,notesaroma
+"brown sugar, burnt, berry, fruit",brown sugar burnt berry fruit,notesaroma
+"brown sugar, chocolate",brown sugar chocolate,notesaroma
+"brown sugar, fruity, berry, sweet",brown sugar fruit berry sweet,notesaroma
+"brown, spice",brown spice,notesaroma
+burned,burnt,notesaroma
+burnt,burnt,notesaroma
+"burnt, ceral, nutty",burnt cereal nut,notesaroma
+"burnt, cereal, vanilla, black tea, floral",burnt cereal vanilla black tea floral,notesaroma
+"burnt, hazelnut",burnt hazelnut,notesaroma
+"burnt, roasted",burnt roast,notesaroma
+"burnt, roasted, nutty, sour, floral",burnt roast nut sourness floral,notesaroma
+"burnt, sweet",burnt sweet,notesaroma
+butter,butter,notesaroma
+"butter, mild, nuts, caramel",butter mild nut caramel,notesaroma
+"butter, roasted",butter roast,notesaroma
+"buttery aroma, caramel",butter caramel,notesaroma
+cacao,cacao,notesaroma
+caramel,caramel,notesaroma
+"caramel, apple, winey",caramel apple wine,notesaroma
+"caramel, hazelnuts",caramel hazelnut,notesaroma
+"caramel, sweet, sugary",caramel sweet sugar,notesaroma
+"carmel, brown sugar,hay-like, hazelnut",caramel brown sugar hay hazelnut,notesaroma
+carmelized,caramel,notesaroma
+cereal,cereal,notesaroma
+"cereal, caramel",cereal caramel,notesaroma
+"cereal, fruity, smoky",cereal fruit smoky,notesaroma
+"cereal, rice, orange",cereal rice orange,notesaroma
+"cereal, roast, grainy, nutmeg",cereal roast grain nutmeg,notesaroma
+chamomille,chamomile,notesaroma
+cherry,cherry,notesaroma
+"cherry, lemon",cherry lemon,notesaroma
+chocolate,chocolate,notesaroma
+"chocolate, almond",chocolate almond,notesaroma
+"chocolate, almond, smoky",chocolate almond smoky,notesaroma
+"chocolate, cinnamon",chocolate cinnamon,notesaroma
+"chocolate, fruity",chocolate fruit,notesaroma
+"chocolate, hazelnut",chocolate hazelnut,notesaroma
+"chocolate, malt, sour",chocolate malt sourness,notesaroma
+"chocolate, nutmeg",chocolate nutmeg,notesaroma
+"chocolate, nutmeg, clove, strawberry, hazelnut",chocolate nutmeg clove strawberry hazelnut,notesaroma
+"chocolate, nuts, roast",chocolate nut roast,notesaroma
+"chocolate, nutty",chocolate nut,notesaroma
+"chocolate, peanuts, rasberry",chocolate peanut raspberry,notesaroma
+"chocolate, roast",chocolate roast,notesaroma
+"chocolate, smoky",chocolate smoky,notesaroma
+"chocolate, strawberry, hazelnut",chocolate strawberry hazelnut,notesaroma
+"chocolate, sweet",chocolate sweet,notesaroma
+"chocolate, tea, fruity",chocolate tea fruit,notesaroma
+chocolaty,chocolate,notesaroma
+cinnamon,cinnamon,notesaroma
+"cinnamon, plum, grape",cinnamon plum grape,notesaroma
+"citric, sour, spices, roasted",citric sourness spice roast,notesaroma
+citrus,citrus,notesaroma
+"citrus, floral",citrus floral,notesaroma
+"citrus, fruit, lime, slightly floral",citrus fruit lime slightly floral,notesaroma
+"citrus, grapefruit",citrus grapefruit,notesaroma
+"citrus, grapefruit, orange, sour aromatics",citrus grapefruit orange sourness,notesaroma
+"citrus, lemon",citrus lemon,notesaroma
+"clove, vegetative, pear",clove vegetable pear,notesaroma
+cocoa,cocoa,notesaroma
+"cocoa (slightly), nutty, smoky",cocoa slightly nut smoky,notesaroma
+"cocoa hazelnut, peanut, roast",cocoa hazelnut peanut roast,notesaroma
+"cocoa, brown spice",cocoa brown spice,notesaroma
+"cocoa, burnt",cocoa burnt,notesaroma
+"cocoa, nutty",cocoa nut,notesaroma
+"cocoa, nutty, roasted",cocoa nut roast,notesaroma
+"cocoa, smoked leaves",cocoa smoky leaf,notesaroma
+coconut,coconut,notesaroma
+cream,cream,notesaroma
+"creamy, smoky",cream smoky,notesaroma
+dark chocolate,dark chocolate,notesaroma
+"dark chocolate, smokey",dark chocolate smoky,notesaroma
+dark roasted,dark roast,notesaroma
+"dark roasted, chocolate, clove, moky, burnt",dark roast chocolate clove smoky burnt,notesaroma
+"dried fruit, berry-like, bis",dry fruit berry,notesaroma
+"dried fruit, other fruit",dry fruit,notesaroma
+"dried fruit, roasted notes",dry fruit roast,notesaroma
+"faint, sweet",faint sweet,notesaroma
+fermented,ferment,notesaroma
+"fermented, hay, clove, carrot",ferment hay clove carrot,notesaroma
+floral,floral,notesaroma
+"floral, beans, green",floral bean green,notesaroma
+"floral, fruity",floral fruit,notesaroma
+"floral, fruity, sweet",floral fruit sweet,notesaroma
+"floral, nutty",floral nut,notesaroma
+"floral, rose",floral rose,notesaroma
+"floral, sour",floral sourness,notesaroma
+"fresh, rose, orange, pineapple",fresh rose orange pineapple,notesaroma
+"fruit, cherry, pear",fruit cherry pear,notesaroma
+"fruit, pear, plum",fruit pear plum,notesaroma
+fruity,fruit,notesaroma
+"fruity smell, strawberry",fruit strawberry,notesaroma
+"fruity, berry",fruit berry,notesaroma
+"fruity, berry-like",fruit berry,notesaroma
+"fruity, brown sugar",fruit brown sugar,notesaroma
+"fruity, citrus, pear, lime",fruit citrus pear lime,notesaroma
+"fruity, peach, tea",fruit peach tea,notesaroma
+"fruity, pear",fruit pear,notesaroma
+"fruity, pear, sour",fruit pear sourness,notesaroma
+"fruity, raspberry",fruit raspberry,notesaroma
+"fruity, sweet",fruit sweet,notesaroma
+"fruity, vegetable",fruit vegetable,notesaroma
+"full, nutty",full nut,notesaroma
+grain,grain,notesaroma
+grapefruit,grapefruit,notesaroma
+"grapefruit, coconut, vanilla",grapefruit coconut vanilla,notesaroma
+"grapefruit, lime",grapefruit lime,notesaroma
+"grapefruit, peanut",grapefruit peanut,notesaroma
+"grapefruit, plum, acisic, cinnamon",grapefruit plum acidic cinnamon,notesaroma
+"grass-like, roasted bean",grass roast bean,notesaroma
+"green, floral",green floral,notesaroma
+"green, tomato, acidic",green tomato acidic,notesaroma
+"hard, nutty, spicy",hard nut spice,notesaroma
+"hay-like, burnt",hay burnt,notesaroma
+hazelnut,hazelnut,notesaroma
+"hazelnut, bland",hazelnut bland,notesaroma
+"hazelnut, brown sugar",hazelnut brown sugar,notesaroma
+"hazelnut, chocolate",hazelnut chocolate,notesaroma
+"hazelnut, dark roasted, smoky",hazelnut dark roast smoky,notesaroma
+"hazelnut, maple syrup, dark roast, chocolate, nutmeg",hazelnut maple syrup dark roast chocolate nutmeg,notesaroma
+"hazelnut, maple syrup, nutmeg, sweet",hazelnut maple syrup nutmeg sweet,notesaroma
+"hazelnut, nutmeg, sweet, syrup",hazelnut nutmeg sweet syrup,notesaroma
+"hazelnut, roast",hazelnut roast,notesaroma
+"hazelnut, roasted",hazelnut roast,notesaroma
+"hazelnut, smoked, maple syrup",hazelnut smoky maple syrup,notesaroma
+"herbs, roasted",herb roast,notesaroma
+hibiscus,hibiscus,notesaroma
+"honey, dark green, overripe",honey dark green overripe,notesaroma
+"jasmine, tea",jasmine tea,notesaroma
+"leafy nutty, cocoa, baked",leafy nut cocoa bake,notesaroma
+"leafy, woody, creamy, sour",leafy wood cream sourness,notesaroma
+"lemon, apple",lemon apple,notesaroma
+"lemon, clove",lemon clove,notesaroma
+"lemon, coconut, peanut",lemon coconut peanut,notesaroma
+"lemon, peach",lemon peach,notesaroma
+"lemon, raspberry",lemon raspberry,notesaroma
+"lemon, raspberry, chocolate",lemon raspberry chocolate,notesaroma
+"less intense, peanuts",less intense peanut,notesaroma
+less strong,less strong,notesaroma
+"less strong smell, herb",less strong herb,notesaroma
+"light roasted, floral",light roast floral,notesaroma
+"lighter, olive oil, walnut",light olive oil walnut,notesaroma
+lime,lime,notesaroma
+"lime, citrus, roasted",lime citrus roast,notesaroma
+"lime, grapefruit",lime grapefruit,notesaroma
+"malt, roast, peanut",malt roast peanut,notesaroma
+"maple syrup, pear, acidic",maple syrup pear acidic,notesaroma
+"maple syrup, vegetative",maple syrup vegetable,notesaroma
+"molasses, dark chocolate, apple, wet hay, nutmeg",molasse dark chocolate apple wet hay nutmeg,notesaroma
+"more buttery, creamy",more butter cream,notesaroma
+"more buttery, more caramel",more butter caramel,notesaroma
+"more buttery, sweet",more butter sweet,notesaroma
+"more chocolate, woody",more chocolate wood,notesaroma
+"more flat, smooth, a bit rusty",more flat smooth rusty,notesaroma
+more nuts,more nuts,notesaroma
+more roasted nuts,more roast nut,notesaroma
+"more roasted, burnt",more roast burnt,notesaroma
+"more roasted, more buttery",more roast butter,notesaroma
+n\a,n\a,notesaroma
+"not fresh vegetable, chamomille",not fresh vegetable chamomile,notesaroma
+not strong,not strong,notesaroma
+nutmeg,nutmeg,notesaroma
+"nuts, dark chocolate, weaker",nut dark chocolate weak,notesaroma
+"nuts, vegetables, weak",nut vegetable weak,notesaroma
+nutty,nut,notesaroma
+"nutty, almond",nut almond,notesaroma
+"nutty, almond, sweet",nut almond sweet,notesaroma
+"nutty, brown spice",nut brown spice,notesaroma
+"nutty, burnt",nut burnt,notesaroma
+"nutty, caramel",nut caramel,notesaroma
+"nutty, cocoa",nut cocoa,notesaroma
+"nutty, cocoa, roasted, dry, sour",nut cocoa roast dry sourness,notesaroma
+"nutty, grains, malt",nut grain malt,notesaroma
+"nutty, hazelnut",nut hazelnut,notesaroma
+"nutty, hazelnut, chocolate, brown sugar",nut hazelnut chocolate brown sugar,notesaroma
+"nutty, hazelnut, cocoa, chocolate, coconut",nut hazelnut cocoa chocolate coconut,notesaroma
+"nutty, hazelnut, cocoa, sour",nut hazelnut cocoa sourness,notesaroma
+"nutty, peanut",nut peanut,notesaroma
+"nutty, roasted",nut roast,notesaroma
+orange,orange,notesaroma
+"orange, peach, lime",orange peach lime,notesaroma
+peach,peach,notesaroma
+peanut,peanut,notesaroma
+"peanut, orange, lemon",peanut orange lemon,notesaroma
+peanuts,peanut,notesaroma
+"peanuts, hazelnut, grain",peanut hazelnut grain,notesaroma
+pear,pear,notesaroma
+"pear, lemon",pear lemon,notesaroma
+pepermint,peppermint,notesaroma
+"pomegranade, clove, acidic",pomegranate clove acidic,notesaroma
+prune,prune,notesaroma
+"prune, cherry, cinnamon",prune cherry cinnamon,notesaroma
+"prune, honey, peanuts, nutmeg, cinnamon",prune honey peanut nutmeg cinnamon,notesaroma
+"prune, nutmeg, cinnamon",prune nutmeg cinnamon,notesaroma
+raisin,raisin,notesaroma
+"raisin, cherry, lime",raisin cherry lime,notesaroma
+"raisin, lime, apple, sour aroma",raisin lime apple sourness,notesaroma
+raspberry ,raspberry,notesaroma
+"raspberry, hazelnut",raspberry hazelnut,notesaroma
+raw,raw,notesaroma
+red berry,red berry,notesaroma
+roast,roast,notesaroma
+"roast, lime, carmelised",roast lime caramel,notesaroma
+roasted,roast,notesaroma
+"roasted notes, nutty",roast nut,notesaroma
+roasted nuts,roast nut,notesaroma
+"roasted nuts, smokey",roast nut smoky,notesaroma
+"roasted, cereal",roast cereal,notesaroma
+"roasted, grain, malt",roast grain malt,notesaroma
+"roasted, nutty, hazelnut, peanuts",roast nut hazelnut peanut,notesaroma
+"roasted, nutty, spices",roast nut spice,notesaroma
+"roasted, smokey",roast smoky,notesaroma
+"roasted, smoky, brown spice, nutty, hazelnut",roast smoky brown spice nut hazelnut,notesaroma
+"roasted, vegetative",roast vegetable,notesaroma
+rose,rose,notesaroma
+"rose, vanilla, cinnamon",rose vanilla cinnamon,notesaroma
+"rose, veggie",rose vegetable,notesaroma
+same as before,same as before,notesaroma
+slighlty citrus,slightly citrus,notesaroma
+slightly roasted,slightly roast,notesaroma
+slightly??,slightly,notesaroma
+smoky,smoky,notesaroma
+"smoky, bacon-like",smoky bacon,notesaroma
+"smoky, honey",smoky honey,notesaroma
+"smoky, tobacco, nutty",smoky tobacco nut,notesaroma
+"smoky, woody",smoky wood,notesaroma
+soft chocolate smell,soft chocolate,notesaroma
+"soup, tomato",soup tomato,notesaroma
+sour,sourness,notesaroma
+sour aromatics,sourness,notesaroma
+"sour smell, acidic",sourness acidic,notesaroma
+"sour, acid",sourness acidic,notesaroma
+"sour, acidic fruit, sweet, fruity",sourness acidic fruit sweet,notesaroma
+"sour, berry",sourness berry,notesaroma
+"sour, citric fruit, acidic, fruity",sourness citric fruit acidic,notesaroma
+"sour, citric fruit, fruity, fermented",sourness citric fruit ferment,notesaroma
+"sour, citric, floral, fruity, roasted, nutty",sourness citric floral fruit roast nut,notesaroma
+"sour, citrus, orange",sourness citrus orange,notesaroma
+"sour, fermented, roasted, citric",sourness ferment roast citric,notesaroma
+"sour, fruity, apple",sourness fruit apple,notesaroma
+"sour, fruity, nutty",sourness fruit nut,notesaroma
+"sour, grain",sourness grain,notesaroma
+"sour, tea",sourness tea,notesaroma
+"sour, tea, floral",sourness tea floral,notesaroma
+"sour, vinegar",sourness vinegar,notesaroma
+still nutty,nut,notesaroma
+strong maple syrup smell,strong maple syrup,notesaroma
+strong vegetable smell,strong vegetable,notesaroma
+"sugar, caramel",sugar caramel,notesaroma
+"sugar, cocoa",sugar cocoa,notesaroma
+sweet,sweet,notesaroma
+"sweet, citrus",sweet citrus,notesaroma
+"sweet, floral",sweet floral,notesaroma
+"sweet, floral, blackberry, apple",sweet floral blackberry apple,notesaroma
+"sweet, nutty, burnt",sweet nut burnt,notesaroma
+"sweet, vanilla",sweet vanilla,notesaroma
+sweetish,sweet,notesaroma
+"tea, citron",tea citron,notesaroma
+"tea, floral",tea floral,notesaroma
+"tea, half-fermented, cocoa",tea half ferment cocoa,notesaroma
+"tea, soft",tea soft,notesaroma
+"thinner but worst, burnt",worst burnt,notesaroma
+"toasted, chocolate, wood",toast chocolate wood,notesaroma
+"toasted, wine, woody",toasted wine wood,notesaroma
+"tobacco, chocolate",tobacco chocolate,notesaroma
+"tomato soup, clove, oil",tomato soup clove oil,notesaroma
+"tomato, molasses",tomato molasse,notesaroma
+vanilla,vanilla,notesaroma
+"vanilla, caramel",vanilla caramel,notesaroma
+"vanilla, tea, pungent, grapefruit",vanilla tea pungent grapefruit,notesaroma
+vegetable,vegetable,notesaroma
+"vegetables, smoky",vegetable smoky,notesaroma
+vegetative,vegetable,notesaroma
+"vegetative, dreid fruit, citrus",vegetable dry fruit citrus,notesaroma
+"vegetative, green",vegetable green,notesaroma
+"vegetative, hay",vegetable hay,notesaroma
+"vegetative, vanilla",vegetable vanilla,notesaroma
+"very nutty, hazelnut, sweet",very nut hazelnut sweet,notesaroma
+vinegar,vinegar,notesaroma
+"vinegar, fermented",vinegar ferment,notesaroma
+"vinegar, orange",vinegar orange,notesaroma
+"vinegar, sour",vinegar sourness,notesaroma
+"walnut, butter",walnut butter,notesaroma
+"warm, dried fruit",warm dry fruit,notesaroma
+watered down,watery,notesaroma
+"whiskey, vanilla",whiskey vanilla,notesaroma
+woody,wood,notesaroma

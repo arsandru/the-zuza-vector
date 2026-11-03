@@ -15,10 +15,13 @@ Design (data/tDCS.csv): each participant tastes 2 coffees (Brasil, Kenya) x 3 re
  - Semantic kappa = (observed - expected) / (1 - expected). 0 = chance, 1 = identical descriptors.
  - 95% CI: participant bootstrap (participants resampled with replacement; pairs of a participant with its own copy excluded;
    expected similarity recomputed in every bootstrap sample with `--boot-perms` shuffles).
- - Sensitivity: second embedding model; thresholded agreement (pair similarity >= t) with the same chance correction.
+ - Embedding: Qwen3-Embedding-0.6B with the instruction "Embed aroma/flavor descriptors". Text cleaning per descriptor: spelling
+   standardisation, spaCy lemmatisation, stop-word removal (negation and degree words kept), lemma standardisation of synonym variants;
+   the raw -> cleaned map is written to cleaned_descriptors.csv.
+ - Sensitivity: thresholded agreement (pair similarity >= t) with the same chance correction.
 Everything here is descriptive; the tDCS contrast between conditions is not tested.
 
-Outputs (irr/outputs/): semantic_irr_summary.csv, semantic_irr_per_item.csv, semantic_irr_report.md
+Outputs (irr/outputs/): semantic_irr_summary.csv, semantic_irr_per_item.csv, semantic_irr_report.md, cleaned_descriptors.csv
 """
 from __future__ import annotations
 
@@ -34,43 +37,68 @@ ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_INPUT = ROOT / "data" / "tDCS.csv"
 OUT_DIR = Path(__file__).resolve().parent / "outputs"
 
-DEFAULT_MODEL = "BAAI/bge-small-en-v1.5"
-SECOND_MODEL = "sentence-transformers/all-mpnet-base-v2"
+DEFAULT_MODEL = "Qwen/Qwen3-Embedding-0.6B"
+INSTRUCTION = "Instruct: Embed aroma/flavor descriptors.\nText: "
 FIELDS = {"notesaroma": "notesaroma", "bitter, roasted": "flavor_notes"}
 CONDITIONS = ["stimulation", "sham"]
 
-# Obvious misspellings found by listing every word in both text columns; written after looking at the data (exploratory cleaning).
+# Spelling standardisation: misspellings and spelling variants. Listed after viewing every word in both text columns (exploratory).
 TYPO_FIXES = {
     "acisic": "acidic", "asky": "ashy", "carmel": "caramel", "carmelised": "caramelized", "carmelized": "caramelized",
     "ceral": "cereal", "chamomille": "chamomile", "dack": "dark", "dilater": "diluted", "dreid": "dried", "druity": "fruity",
     "lemoc": "lemon", "majoram": "marjoram", "moky": "smoky", "pepermint": "peppermint", "pomegranade": "pomegranate",
     "pomegrannate": "pomegranate", "pomergranate": "pomegranate", "pommergranate": "pomegranate", "rasberry": "raspberry",
-    "rosdy": "roasty", "slighlty": "slightly", "blackcurrent": "blackcurrant",
+    "rosdy": "roasty", "slighlty": "slightly", "blackcurrent": "blackcurrant", "rost": "roast", "smokey": "smoky",
+    "flavour": "flavor", "flavours": "flavors", "caramelised": "caramelized", "anis": "anise", "choco": "chocolate", "coca": "cocoa", "veggie": "vegetable", "veggies": "vegetable",
 }
+# Lemma standardisation: lemmas of the same descriptor written differently (applied after lemmatisation).
+LEMMA_CANON = {
+    "burned": "burnt", "burn": "burnt", "chocolaty": "chocolate", "chocolatey": "chocolate", "roasty": "roast", "roasted": "roast",
+    "smoked": "smoky", "fruity": "fruit", "berrylike": "berry", "caramelized": "caramel", "caramelize": "caramel", "dilute": "watery", "smoke": "smoky", "water": "watery", "sugary": "sugar", "nutty": "nut",
+    "buttery": "butter", "creamy": "cream", "milky": "milk", "oily": "oil", "grainy": "grain", "earthy": "earth", "woody": "wood",
+    "spicy": "spice", "sweetish": "sweet", "honeyed": "honey", "vegetative": "vegetable", "winey": "wine", "acid": "acidic",
+    "sour": "sourness", "watered": "watery", "diluted": "watery", "thin": "watery", "weaker": "weak",
+}
+# Tokens the lemmatizer reads as the wrong word class ("rose" the flower as the verb "rise").
+KEEP_TOKEN = {"rose": "rose", "better": "better"}
+# Stop words: scikit-learn English list without negation and degree words (which change a descriptor's meaning), plus filler
+# words of tasting notes that carry no aroma or flavor information.
+KEEP = {"not", "no", "nor", "never", "less", "more", "very", "much", "most", "least", "few", "full", "fully", "enough"}
+FILLER = {"aroma", "aromatics", "flavor", "flavors", "taste", "smell", "note", "notes", "coffee", "aftertaste", "mouth", "hint", "bit",
+          "little", "time", "maybe", "perhaps", "definitely", "still", "like", "kind", "sort", "something", "undertone", "accurate", "n", "bis"}
+STOP_WORDS = (set(ENGLISH_STOP_WORDS) - KEEP) | FILLER
 
 
-def normalize_label(x: str) -> str:
-    s = re.sub(r"\s+", " ", str(x).strip().lower())
+def standardise_spelling(text: str) -> str:
+    """Lowercase, collapse whitespace, fix misspellings and spelling variants (word by word)."""
+    s = re.sub(r"\s+", " ", str(text).strip().lower())
     return re.sub(r"[a-z']+", lambda m: TYPO_FIXES.get(m.group(0), m.group(0)), s)
 
 
-def simple_lemma(t: str) -> str:
-    if len(t) > 4 and t.endswith("ies"):
-        return t[:-3] + "y"
-    if len(t) > 4 and t.endswith("ing"):
-        return t[:-3]
-    if len(t) > 3 and t.endswith("ed"):
-        return t[:-2]
-    if len(t) > 3 and t.endswith("es"):
-        return t[:-2]
-    if len(t) > 2 and t.endswith("s"):
-        return t[:-1]
-    return t
+_NLP = None
 
 
-def clean_for_distance(label: str) -> str:
-    out = [simple_lemma(t) for t in re.findall(r"[a-z']+", label) if t not in ENGLISH_STOP_WORDS]
-    return " ".join(out) if out else label
+def lemmatise(text: str) -> list[str]:
+    """spaCy lemmas of the alphabetic tokens (en_core_web_sm; tagger and lemmatizer only)."""
+    global _NLP
+    if _NLP is None:
+        import spacy
+
+        _NLP = spacy.load("en_core_web_sm", disable=["parser", "ner"])
+    return [(t.lemma_.lower(), t.text) for t in _NLP(text) if t.is_alpha]
+
+
+def clean_descriptor(text: str) -> str:
+    """spelling standardisation -> lemmatisation -> stop-word removal -> lemma standardisation (synonym variants) -> unique tokens."""
+    spelled = standardise_spelling(text)
+    out = []
+    for lem, tok in lemmatise(spelled):
+        if tok in STOP_WORDS or lem in STOP_WORDS:
+            continue
+        lem = LEMMA_CANON.get(KEEP_TOKEN.get(tok, lem), KEEP_TOKEN.get(tok, lem))
+        if lem not in out:
+            out.append(lem)
+    return " ".join(out) if out else spelled
 
 
 def load(path: Path) -> pd.DataFrame:
@@ -119,7 +147,8 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--input", type=Path, default=DEFAULT_INPUT)
     ap.add_argument("--model", default=DEFAULT_MODEL)
-    ap.add_argument("--second-model", default=SECOND_MODEL)
+    ap.add_argument("--second-model", default="", help="optional sensitivity model (no instruction prefix)")
+    ap.add_argument("--instruction", default=INSTRUCTION)
     ap.add_argument("--permutations", type=int, default=2000)
     ap.add_argument("--bootstraps", type=int, default=1000)
     ap.add_argument("--boot-perms", type=int, default=100)
@@ -135,14 +164,18 @@ def main() -> None:
     OUT_DIR.mkdir(exist_ok=True)
 
     for col in FIELDS:
-        df[col + "_lbl"] = df[col].map(lambda x: None if pd.isna(x) or not str(x).strip() else clean_for_distance(normalize_label(x)))
+        df[col + "_lbl"] = df[col].map(lambda x: None if pd.isna(x) or not str(x).strip() else clean_descriptor(x))
     uniq = sorted({v for col in FIELDS for v in df[col + "_lbl"].dropna()})
     emb_index = {v: i for i, v in enumerate(uniq)}
     print(f"{df.subject.nunique()} participants, {len(items)} items per condition, {len(uniq)} unique cleaned descriptors")
 
+    audit = pd.concat([df[[c, c + "_lbl"]].rename(columns={c: "raw", c + "_lbl": "cleaned"}).assign(field=f) for c, f in FIELDS.items()]).dropna()
+    audit.drop_duplicates().sort_values(["field", "raw"]).to_csv(OUT_DIR / "cleaned_descriptors.csv", index=False)
+
     summ, per_item_rows = [], []
     for mname in models:
-        E = np.asarray(SentenceTransformer(mname).encode(uniq, show_progress_bar=False), dtype=float)
+        prefix = args.instruction if mname == args.model else ""
+        E = np.asarray(SentenceTransformer(mname).encode([prefix + u for u in uniq], batch_size=16, show_progress_bar=False), dtype=float)
         E /= np.maximum(np.linalg.norm(E, axis=1, keepdims=True), 1e-12)
         M = np.clip(np.einsum("id,jd->ij", E, E), -1, 1)  # einsum: spurious overflow warnings with E @ E.T on this machine
         for col, fname in FIELDS.items():
@@ -186,7 +219,9 @@ def main() -> None:
           f"- Input: `{args.input.name}`; {df.subject.nunique()} participants; items = coffee x repeated tasting ({len(items)} per condition).",
           "- Rater = participant; each condition and text field analysed separately. Chance = each participant's descriptors shuffled across items "
           f"(n = {args.permutations}); CI = participant bootstrap (n = {args.bootstraps}, expected similarity recomputed with {args.boot_perms} shuffles).",
-          f"- Cleaning: lowercase, {len(TYPO_FIXES)} misspelling fixes (written after viewing the data), stop-word removal, crude lemmatisation. Seed {args.seed}.",
+          f"- Cleaning (rules written after viewing the data): lowercase, {len(TYPO_FIXES)} spelling fixes, "
+          "spaCy lemmatisation, stop-word removal, lemma standardisation (see script constants); "
+          f"model {models[0]} with instruction {args.instruction.strip()!r}. Seed {args.seed}.",
           "- Not tested: the stimulation vs sham difference.", "",
           "| Model | Field | Condition | Participants | Descriptors | Pairs | Observed | Expected | Semantic kappa | 95% CI | " + " | ".join(f"kappa t={c[-4:]}" for c in tcols) + " |",
           "|---|---|---|---:|---:|---:|---:|---:|---:|---:|" + "---:|" * len(tcols)]

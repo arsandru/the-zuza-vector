@@ -1,9 +1,5 @@
 model,field,condition,n_participants,n_descriptors,n_pairs,similarity_observed,similarity_expected,semantic_kappa,kappa_ci_low,kappa_ci_high,kappa_thr_0.60,kappa_thr_0.70,kappa_thr_0.80
-BAAI/bge-small-en-v1.5,notesaroma,stimulation,34,204,3366,0.612370,0.602819,0.024048,0.010200,0.039648,0.091041,0.043097,0.005992
-BAAI/bge-small-en-v1.5,notesaroma,sham,34,204,3366,0.608699,0.598852,0.024547,0.010416,0.040421,0.081027,0.041972,0.008962
-BAAI/bge-small-en-v1.5,flavor_notes,stimulation,34,200,3234,0.616158,0.609182,0.017849,0.008038,0.029618,0.061027,0.023837,0.009738
-BAAI/bge-small-en-v1.5,flavor_notes,sham,34,199,3204,0.607057,0.600699,0.015922,0.004077,0.029284,0.054691,0.026587,0.009836
-sentence-transformers/all-mpnet-base-v2,notesaroma,stimulation,34,204,3366,0.351116,0.331448,0.029419,0.013664,0.046749,0.025789,0.008596,0.003200
-sentence-transformers/all-mpnet-base-v2,notesaroma,sham,34,204,3366,0.332513,0.315625,0.024677,0.010814,0.039193,0.021036,0.007953,0.002305
-sentence-transformers/all-mpnet-base-v2,flavor_notes,stimulation,34,200,3234,0.349279,0.334089,0.022811,0.012108,0.035671,0.016828,0.006574,0.002591
-sentence-transformers/all-mpnet-base-v2,flavor_notes,sham,34,199,3204,0.351776,0.335977,0.023793,0.008283,0.040299,0.021051,0.009624,0.002982
+Qwen/Qwen3-Embedding-0.6B,notesaroma,stimulation,34,204,3366,0.663861,0.645364,0.052158,0.026120,0.081463,0.204976,0.092485,0.028657
+Qwen/Qwen3-Embedding-0.6B,notesaroma,sham,34,204,3366,0.665358,0.647632,0.050306,0.028810,0.073860,0.193988,0.093781,0.030510
+Qwen/Qwen3-Embedding-0.6B,flavor_notes,stimulation,34,200,3234,0.653652,0.636825,0.046334,0.026030,0.071516,0.196595,0.070707,0.017026
+Qwen/Qwen3-Embedding-0.6B,flavor_notes,sham,34,199,3204,0.658034,0.639458,0.051520,0.025760,0.082911,0.209495,0.075427,0.027918
