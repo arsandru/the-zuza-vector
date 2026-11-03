@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Stimulation vs sham: Jensen-Shannon distance between the distributions of SCA wheel nodes, at each wheel level (exploratory).
 
-Descriptors are cleaned (irr/semantic_irr.py, main pipeline) and mapped to wheel nodes (wheel_mapping.py; unmapped words -> `unmapped`).
+Descriptors are cleaned (irr/semantic_irr.py, main pipeline) and mapped to wheel nodes (wheel_mapping.py; words with no wheel home are left out).
 Per text field (notesaroma, flavor_notes) and condition, each descriptor contributes one count to every node it contains, rolled up to the
-level: level 1 = family (9), level 2 = category, level 3 = term (a category without terms on the wheel counts as its own term). A node
+level: level 1 = family (the 9 wheel families), level 2 = category, level 3 = term (a category without terms on the wheel counts as its own term). A node
 mapped coarser than the level (e.g. "fruit" -> family at levels 2 and 3, `unmapped` at levels 2 and 3) is not resolved there and is left out
 of that level's distributions; the counts kept are reported.
 Statistic: Jensen-Shannon distance (square root of the base-2 JS divergence, 0 = identical, 1 = disjoint) between the pooled stimulation
@@ -79,7 +79,7 @@ def main() -> None:
     cosine_cat = {}
     if args.mapping == "cosine":
         alias_units = sorted({u for col in sir.FIELDS for x in df[col] if not pd.isna(x) and str(x).strip() and (cl := sir.clean_descriptor(x))
-                              for u, node, src in wm.map_words(cl, auto, amap, True)[1] if src == "alias" and node not in ("IGNORE", wm.OTHER)})
+                              for u, node, src in wm.map_words(cl, auto, amap, False)[1] if src == "alias" and node not in ("IGNORE", wm.OTHER)})
         embed = wm.make_embedder(sir.DEFAULT_MODEL, sir.INSTRUCTION)
         cats, fams, ctext, _ = wm.member_texts(nodes, "l123")
         texts = sorted({t for ts in ctext.values() for t in ts} | set(alias_units))
@@ -102,9 +102,9 @@ def main() -> None:
             if cl is None:
                 sets.append(None)
                 continue
-            ns, log = wm.map_words(cl, auto, amap, True)
+            ns, log = wm.map_words(cl, auto, amap, False)
             if args.mapping == "cosine":
-                ns = {cosine_cat.get(u, node) if src == "alias" else node for u, node, src in log if node != "IGNORE"}
+                ns = {cosine_cat.get(u, node) if src == "alias" else node for u, node, src in log if node not in ("IGNORE", "dropped")}
             sets.append(ns or None)
         df["nset"] = sets
         for sv, (k, lname) in itertools.product(strata, [(k, v) for k, v in LEVELS.items() if k in args.levels]):

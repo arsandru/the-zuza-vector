@@ -41,8 +41,8 @@ def main() -> None:
             cl = None if pd.isna(x) or not str(x).strip() else sir.clean_descriptor(x)
             if cl is None:
                 continue
-            for u, node, src in wm.map_words(cl, auto, amap, True)[1]:
-                if node not in ("IGNORE", wm.OTHER):
+            for u, node, src in wm.map_words(cl, auto, amap, False)[1]:
+                if node not in ("IGNORE", "dropped"):
                     units[(u, node, src)] = units.get((u, node, src), 0) + 1
 
     embed = wm.make_embedder(args.model, args.instruction)

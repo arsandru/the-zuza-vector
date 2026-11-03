@@ -5,8 +5,8 @@ Check-all-that-apply design: every participant tasted 2 coffees x 3 repeated tas
 flavor descriptor per tasting. A descriptor is cleaned and mapped to wheel nodes (irr/semantic_irr.py main pipeline, wheel_mapping.py;
 words with no wheel home -> `5_other`, which is also wheel family 5) and a family is *endorsed* at a tasting if any of its nodes is present.
 A tasting without a descriptor ("n\\a", empty) is missing, not "not endorsed".
-Words with no wheel home form the separate catch-all `unmapped`, which is not wheel family 5 (`5_other`: chemical, papery/musty); its rate is
-reported descriptively and is not part of any test.
+Words with no wheel home are left out (the descriptor is judged on its remaining words; one with none left is missing); wheel family 5
+(`5_other`: chemical, papery/musty) only receives words that map there.
 Unit = participant. Per participant, condition, field and family: endorsement rate = endorsed / non-missing tastings. Paired difference
 d = rate(stimulation) - rate(sham); participants without a non-missing tasting in both conditions are left out of that field.
 
@@ -66,9 +66,7 @@ def main() -> None:
     amap = wm.load_aliases(nodes)
     fams = sorted(n for n in nodes if "|" not in n and n != wm.OTHER)  # the 9 wheel families
     nf = len(fams)
-    fams_all = fams + [wm.OTHER]  # unmapped words (no wheel home) are tracked as a descriptive 10th column, never tested
     fname = {f: ("other (wheel family 5: chemical, papery/musty)" if f == "5_other" else nodes[f][1]) for f in fams}
-    fname[wm.OTHER] = "unmapped (no wheel home; descriptive only)"
     df = sir.load(sir.DEFAULT_INPUT)
     subjects = sorted(df["subject"].unique())
     reps = sorted(df["repeated_ratings"].unique())
@@ -79,7 +77,7 @@ def main() -> None:
     # arrays: endorsed[field][participant, condition, tasting(r), coffee] summed later; cnt = non-missing tastings
     D_all, names, Dr = {}, {}, {}
     for col, field in sir.FIELDS.items():
-        end = np.zeros((P, 2, R, len(fams_all)))
+        end = np.zeros((P, 2, R, nf))
         cnt = np.zeros((P, 2, R))
         for row in df.itertuples():
             x = df.at[row.Index, col]
@@ -88,13 +86,13 @@ def main() -> None:
             cl = sir.clean_descriptor(x)
             if cl is None:
                 continue
-            ns = wm.map_words(cl, auto, amap, True)[0]
+            ns = wm.map_words(cl, auto, amap, False)[0]
             if not ns:
                 continue
             i, c, r = si[row.subject], ci[row.condition], reps.index(row.repeated_ratings)
             cnt[i, c, r] += 1
             for f in {n.split("|")[0] for n in ns}:
-                end[i, c, r, fams_all.index(f)] += 1
+                end[i, c, r, fams.index(f)] += 1
         tot_n, tot_e = cnt.sum(axis=2), end.sum(axis=2)  # participant x condition (x family)
         with np.errstate(divide="ignore", invalid="ignore"):
             rate = tot_e / tot_n[..., None]
@@ -104,11 +102,11 @@ def main() -> None:
         with np.errstate(divide="ignore", invalid="ignore"):
             rr = end / cnt[..., None]
         dr = rr[:, 0] - rr[:, 1]  # participant x tasting x family
-        Dr[field] = dr[~np.isnan(dr).any(axis=(1, 2))][:, :, :nf]
+        Dr[field] = dr[~np.isnan(dr).any(axis=(1, 2))]
         print(f"{field}: {int(ok.sum())} participants with a non-missing tasting in both conditions; {len(Dr[field])} with all 3 tastings in both")
 
     fields = list(D_all)
-    big = np.concatenate([D_all[f][0][:, :nf] for f in fields], axis=1)  # participants x (fields*wheel families)
+    big = np.concatenate([D_all[f][0]for f in fields], axis=1)  # participants x (fields*wheel families)
     t_obs = tstats(big)
     flips = rng.random((args.n_perm, P)) < 0.5
     t_null = np.empty((args.n_perm, big.shape[1]))
@@ -123,16 +121,15 @@ def main() -> None:
         sl = slice(k * nf, (k + 1) * nf)
         ok = ~np.isnan(d).any(axis=1)
         n = int(ok.sum())
-        bo = np.empty((args.n_boot, nf + 1))
+        bo = np.empty((args.n_boot, nf))
         dd = d[ok]
         for b in range(args.n_boot):
             bo[b] = dd[rng.integers(0, n, n)].mean(axis=0)
         lo, hi = np.percentile(bo, [2.5, 97.5], axis=0)
-        for j, f in enumerate(fams_all):
-            tested = j < nf
+        for j, f in enumerate(fams):
             rows.append(dict(field=field, family=fname[f], n=n, rate_stimulation=np.nanmean(rate[ok, 0, j]), rate_sham=np.nanmean(rate[ok, 1, j]),
-                             diff=dd[:, j].mean(), ci_low=lo[j], ci_high=hi[j], t=t_obs[sl][j] if tested else np.nan,
-                             p_unadj=p_unadj[sl][j] if tested else np.nan, q_bh=q_all[sl][j] if tested else np.nan))
+                             diff=dd[:, j].mean(), ci_low=lo[j], ci_high=hi[j], t=t_obs[sl][j],
+                             p_unadj=p_unadj[sl][j], q_bh=q_all[sl][j]))
         T = float((t_obs[sl] ** 2).sum())
         Tn = (t_null[:, sl] ** 2).sum(axis=1)
         om.append(dict(field=field, n=n, T=T, null_mean=Tn.mean(), null_p95=np.percentile(Tn, 95), p_perm=(1 + (Tn >= T - 1e-12).sum()) / (1 + args.n_perm)))
@@ -167,8 +164,7 @@ def main() -> None:
           "## Omnibus (sum of squared paired t over the 9 families)", "", "| Field | n | T | Null mean (p95) | p | q (BH, 2 fields) |", "|---|---:|---:|---|---:|---:|"]
     md += [f"| {r.field} | {r.n} | {r.T:.2f} | {r.null_mean:.2f} ({r.null_p95:.2f}) | {r.p_perm:.3f} | {r.q_bh:.3f} |" for r in omn.itertuples()]
     md += ["", "## Per family (difference = stimulation - sham, endorsement rate)", "", "| Field | Family | Stimulation | Sham | Difference [95% CI] | t | p | q (BH, 18 tests) |", "|---|---|---:|---:|---|---:|---:|---:|"]
-    md += [f"| {r.field} | {r.family} | {r.rate_stimulation:.2f} | {r.rate_sham:.2f} | {r.diff:+.2f} [{r.ci_low:+.2f}, {r.ci_high:+.2f}] | {r.t:+.2f} | {r.p_unadj:.3f} | {r.q_bh:.3f} |" if r.t == r.t else
-           f"| {r.field} | {r.family} | {r.rate_stimulation:.2f} | {r.rate_sham:.2f} | {r.diff:+.2f} [{r.ci_low:+.2f}, {r.ci_high:+.2f}] | - | - | - |"
+    md += [f"| {r.field} | {r.family} | {r.rate_stimulation:.2f} | {r.rate_sham:.2f} | {r.diff:+.2f} [{r.ci_low:+.2f}, {r.ci_high:+.2f}] | {r.t:+.2f} | {r.p_unadj:.3f} | {r.q_bh:.3f} |"
            for r in res.itertuples()]
     md += ["", "## Does the condition effect vary across tastings? (sum over families of the repeated-measures F)", "", "| Field | n | sum F | Null mean (p95) | p |", "|---|---:|---:|---|---:|"]
     md += [f"| {r.field} | {r.n} | {r.sum_F:.2f} | {r.null_mean:.2f} ({r.null_p95:.2f}) | {r.p_perm:.3f} |" for r in ints.itertuples()]
