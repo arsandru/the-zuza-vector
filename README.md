@@ -50,7 +50,11 @@ Space check on the wheel vocabulary (does similarity separate wheel terms of the
 
 Kappa per condition (stimulation / sham): `notesaroma` 0.109 [0.060, 0.167] / 0.103 [0.054, 0.160]; `flavor_notes` 0.091 [0.047, 0.143] / 0.102 [0.055, 0.156]. Stimulation minus sham: +0.006 [-0.052, +0.073] (q = 0.86) and -0.010 [-0.063, +0.045] (q = 0.86). Kappa is about 1.5 times that of the plain Qwen space (0.057 to 0.068) and still low, and the comparison is unchanged: no evidence of a difference. Full tables: `irr/outputs/wheel_space_report.md`.
 
-Reading: the wheel space does separate the wheel's families better than the plain space, but simply centering the plain space on the descriptor mean separates them better still, so the wheel anchoring itself adds little beyond removing the generic component. The higher kappa mostly reflects the removed baseline, not new agreement.
+## Agreement in the centered Qwen space (alternative embedding space, exploratory)
+
+`python3 irr/centered_space_irr.py`: the same cleaned descriptors and Qwen embeddings, with the occurrence-weighted mean descriptor embedding subtracted before normalising (removes the component shared by all descriptors); nothing else changes. Kappa per condition (stimulation / sham): `notesaroma` 0.070 [0.038, 0.105] / 0.069 [0.041, 0.100]; `flavor_notes` 0.055 [0.032, 0.084] / 0.065 [0.033, 0.100]. Stimulation minus sham: +0.001 [-0.034, +0.041] (q = 0.95) and -0.009 [-0.042, +0.024] (q = 0.95). Full tables: `irr/outputs/centered_space_report.md`.
+
+Reading of the two alternative spaces: centering leaves kappa where the plain space had it (0.055 to 0.070 against 0.057 to 0.068), as expected, because the chance correction already subtracts the baseline similarity; so the wheel space's higher kappa (0.09 to 0.11) is not a baseline effect, it comes from the wheel-anchored coordinates re-weighting the dimensions. That does not make it a better measure: on the wheel vocabulary the centered space recovers family and category structure better than the wheel space (AUC 0.77 and 0.82 against 0.73 and 0.76), and kappa scales are not comparable between spaces. What is the same in all three spaces (plain, centered, wheel) is the substantive result: agreement between participants is low and does not differ between stimulation and sham.
 
 ## Corrections
 
