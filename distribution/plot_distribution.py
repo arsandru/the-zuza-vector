@@ -5,9 +5,8 @@ Space: the wheel vocabulary (every wheel term and terminal category) embedded wi
 its mean, and reduced to 2 dimensions by a linear discriminant analysis fitted on the wheel vocabulary only (the two directions that best separate
 the 9 wheel families; 15 principal components first, ridge-regularised). Participants' words are projected, never used to fit. Background: the wheel terms (colour = wheel family, family names
 at the family centroid). Foreground: the words and phrases participants used that the mapping places on the wheel (manual mapping; same cleaning
-as the analyses), embedded and projected into the same plane; area = number of occurrences in the field, colour = share of stimulation tastings
-minus share of sham tastings that contain the word (red = more under stimulation, blue = more under sham). Left panel aroma notes, right panel flavor
-notes. Purely descriptive; the caption reports the tests (distribution/family_endorsement.py).
+as the analyses), embedded and projected into the same plane; area = number of occurrences in that condition (same scale in all panels), colour = condition
+(red stimulation, blue sham). Rows: aroma notes, flavor notes; columns: stimulation, sham. Purely descriptive; the caption reports the tests (distribution/family_endorsement.py).
 Output: distribution/outputs/distribution_plot.pdf and .png
 """
 from pathlib import Path
@@ -15,7 +14,6 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from matplotlib.colors import TwoSlopeNorm
 
 import wheel_mapping as wm
 
@@ -84,44 +82,39 @@ fams = sorted(set(vfam))
 fcol = dict(zip(fams, pal))
 flabel = {f: ("chemical / papery / musty" if f == "5_other" else nodes[f][1]) for f in fams}
 
-fig, axes = plt.subplots(1, 2, figsize=(12.5, 6.2), sharex=True, sharey=True)
-norm = TwoSlopeNorm(vmin=-0.08, vcenter=0, vmax=0.08)
-sc = None
-for ax, (field, title) in zip(axes, [("notesaroma", "Aroma notes"), ("flavor_notes", "Flavor notes")]):
+CC = {"stimulation": "#c0392b", "sham": "#2471a3"}
+fig, axes = plt.subplots(2, 2, figsize=(12.5, 10.2), sharex=True, sharey=True)
+for r_i, (field, title) in enumerate([("notesaroma", "Aroma notes"), ("flavor_notes", "Flavor notes")]):
     cnt, tot = fields[field]
-    for f in fams:
-        m = np.array([v == f for v in vfam])
-        ax.scatter(Pv[m, 0], Pv[m, 1], s=16, color=fcol[f], alpha=0.35, linewidths=0, zorder=1)
-        ax.text(Pv[m, 0].mean(), Pv[m, 1].mean(), flabel[f], color=fcol[f], fontsize=8.5, fontweight="bold", ha="center", va="center", zorder=4,
-                bbox=dict(boxstyle="round,pad=0.15", fc="white", ec="none", alpha=0.75))
-    rows = []
-    for u in all_units:
-        a, b = cnt["stimulation"].get(u, 0), cnt["sham"].get(u, 0)
-        if a + b == 0:
-            continue
-        rows.append((u, a + b, a / tot["stimulation"] - b / tot["sham"]))
-    X = np.array([Pu[u] for u, _, _ in rows])
-    n = np.array([r[1] for r in rows])
-    d = np.array([r[2] for r in rows])
-    sc = ax.scatter(X[:, 0], X[:, 1], s=14 + 9 * n, c=d, cmap="coolwarm", norm=norm, edgecolor="0.25", linewidths=0.5, alpha=0.9, zorder=3)
-    for (u, k, _), (x0, y0) in zip(rows, X):
-        if k >= 22:
-            ax.text(x0, y0 + 0.02 * (ax.get_ylim()[1] - ax.get_ylim()[0]) + 0.025, u, fontsize=7, ha="center", va="bottom", zorder=5)
-    ax.set_title(f"{title} (descriptors with a wheel home: {tot['stimulation']} stimulation, {tot['sham']} sham)", fontsize=9)
-    ax.set_xlabel(f"LD1 ({100 * explained[0]:.0f}% of discriminability)")
-    for s in ("top", "right"):
-        ax.spines[s].set_visible(False)
-axes[0].set_ylabel(f"LD2 ({100 * explained[1]:.0f}%)")
-fig.tight_layout(rect=(0, 0.17, 0.93, 1))
-cax = fig.add_axes([0.945, 0.35, 0.012, 0.5])
-cb = fig.colorbar(sc, cax=cax)
-cb.set_label("share of stimulation tastings - share of sham tastings", fontsize=8)
+    tot_units = {u: cnt["stimulation"].get(u, 0) + cnt["sham"].get(u, 0) for u in all_units}
+    for c_i, cond in enumerate(sir.CONDITIONS):
+        ax = axes[r_i, c_i]
+        for f in fams:
+            m = np.array([v == f for v in vfam])
+            ax.scatter(Pv[m, 0], Pv[m, 1], s=14, color=fcol[f], alpha=0.35, linewidths=0, zorder=1)
+            ax.text(Pv[m, 0].mean(), Pv[m, 1].mean(), flabel[f], color=fcol[f], fontsize=8, fontweight="bold", ha="center", va="center", zorder=4,
+                    bbox=dict(boxstyle="round,pad=0.12", fc="white", ec="none", alpha=0.6))
+        us = [u for u in all_units if cnt[cond].get(u, 0) > 0]
+        X = np.array([Pu[u] for u in us])
+        n = np.array([cnt[cond][u] for u in us])
+        ax.scatter(X[:, 0], X[:, 1], s=14 + 9 * n, color=CC[cond], edgecolor="0.2", linewidths=0.5, alpha=0.6, zorder=3)
+        for u, (x0, y0) in zip(us, X):
+            if tot_units[u] >= 22:
+                ax.text(x0, y0 + 0.03, u, fontsize=7, ha="center", va="bottom", zorder=5)
+        ax.set_title(f"{title}, {cond} ({tot[cond]} descriptors with a wheel home)", fontsize=9.5, color=CC[cond])
+        for sp in ("top", "right"):
+            ax.spines[sp].set_visible(False)
+        if r_i == 1:
+            ax.set_xlabel(f"LD1 ({100 * explained[0]:.0f}% of discriminability)")
+        if c_i == 0:
+            ax.set_ylabel(f"LD2 ({100 * explained[1]:.0f}%)")
+fig.tight_layout(rect=(0, 0.13, 1, 1))
 om = pd.read_csv(OUT / "family_endorsement_omnibus.csv").set_index("field")
 omc = pd.read_csv(OUT / "family_endorsement_omnibus_cosine.csv").set_index("field")
 fe = pd.read_csv(OUT / "family_endorsement.csv")
 caption = (
-    "Flavor-wheel space: wheel terms (small points, coloured by family) and the words participants used that map to the wheel (large points; area = occurrences, "
-    "colour = stimulation minus sham share of tastings), in the plane (LD1, LD2) that best separates the wheel families (discriminant analysis fitted on the wheel vocabulary only; Qwen3-Embedding-0.6B); green/vegetative, sweet and nutty/cocoa overlap in this plane. Descriptive map; "
+    "Flavor-wheel space: wheel terms (small points, coloured by family) and the words participants used that map to the wheel (large points; area = occurrences in the panel's condition, same scale in all panels; "
+    "red = stimulation, blue = sham), in the plane (LD1, LD2) that best separates the wheel families (discriminant analysis fitted on the wheel vocabulary only; Qwen3-Embedding-0.6B); green/vegetative, sweet and nutty/cocoa overlap in this plane. Descriptive map; "
     "the 2D projection distorts distances.\n"
     f"Tests (family endorsement, paired sign-flip permutation over 9 wheel families; exploratory): aroma omnibus p = {om.loc['notesaroma', 'p_perm']:.3f}, "
     f"q = {om.loc['notesaroma', 'q_bh']:.3f} (cosine-mapping sensitivity q = {omc.loc['notesaroma', 'q_bh']:.3f}); flavor omnibus p = {om.loc['flavor_notes', 'p_perm']:.2f}, "
