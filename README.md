@@ -4,6 +4,7 @@ Free-text coffee descriptors of the tDCS study (`data/tDCS.csv`): do stimulation
 
 - `irr/`: between-participant semantic agreement (IRR) within each condition, and stimulation vs sham.
 - `distribution/`: wheel-family endorsement, stimulation vs sham (summary below, details in the README of that folder).
+- `EXPLAINER.md`: step-by-step guide to what each analysis does and why (written for a student new to the project).
 - `data/`: `tDCS.csv`, `SCA flavor wheel.csv`, `sca_aliases.csv` (used by `distribution/` only). `tDCS.csv` is participant data; this repository is private.
 
 ## IRR (`irr/semantic_irr.py`)

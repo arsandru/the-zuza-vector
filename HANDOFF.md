@@ -1,6 +1,6 @@
 # Handoff: the-zuza-vector (2026-11-03)
 
-Read this first, then `README.md` (results) and `CLAUDE.md` (rules). Update or replace this file at the end of each session.
+Read this first, then `README.md` (results), `EXPLAINER.md` (step-by-step method guide written for the supervised student) and `CLAUDE.md` (rules). Update or replace this file at the end of each session.
 
 ## What this repo is
 
@@ -29,7 +29,7 @@ Remote: https://github.com/arsandru/the-zuza-vector (private, branch `main`, loc
 
 ## Known issues and caveats
 
-- **`data/sca_aliases.csv` is my draft** (66 entries: generic words and near-synonyms to a wheel node, colour and mouthfeel words and the ten no-home words as IGNORE). It has not been reviewed by the user; `distribution/outputs/cosine_mapping_validation.md` lists where the cosine rule disagrees. It determines the distribution results, so it should be checked.
+- **`data/sca_aliases.csv` is my draft** (77 rows: 61 map generic words and near-synonyms to a wheel node, 16 are IGNORE: colour and mouthfeel words and the ten no-home words). It has not been reviewed by the user; `distribution/outputs/cosine_mapping_validation.md` lists where the cosine rule disagrees. It determines the distribution results, so it should be checked.
 - The aroma omnibus depends on small choices (manual vs cosine mapping, handling of no-home words); keep it labelled exploratory and suggestive.
 - Cleaning rules (spelling fixes, synonym variants, filler and non-descriptor word lists) were written after viewing the data.
 - Chance baseline shuffles across the 6 items of a condition; items are not split into coffee and repeat. Power: single-family differences below about 0.15 are not detectable with 32 to 33 participants.
